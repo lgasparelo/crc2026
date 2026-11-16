@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CRC 2026 no Congresso</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600&display=swap">
+<style>
+/* Ideia de layout: quadro de horários de estação (referência à Madeira-Mamoré):
+   uma coluna para celular, horário à esquerda, salas empilhadas à direita, navegação fixa embaixo. */
+:root{
+  --paper:#F2F4F7; --surface:#FFFFFF; --surface-2:#E8ECF2;
+  --ink:#0E2238; --ink-2:#3D4E61; --muted:#66758A; --line:#D3DAE3;
+  --red:#C4202B; --red-soft:#FBE9EA;
+  --blue:#1B5A9E; --blue-soft:#E3EDF8;
+  --gold:#8A6516; --gold-soft:#F6EEDA;
+  --green:#0F7352; --green-soft:#DFF2EA;
+  --display:"Barlow Condensed","Arial Narrow",Arial,sans-serif;
+  --body:"Barlow","Helvetica Neue",Arial,sans-serif;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --paper:#0A121C; --surface:#121D2A; --surface-2:#1A2838;
+    --ink:#E8EEF5; --ink-2:#B8C4D2; --muted:#8696A8; --line:#283646;
+    --red:#F0666E; --red-soft:#2E1619;
+    --blue:#7FB2EA; --blue-soft:#13263B;
+    --gold:#DDB65C; --gold-soft:#2A2110;
+    --green:#5CCBA3; --green-soft:#0F2A21;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0A121C; --surface:#121D2A; --surface-2:#1A2838;
+  --ink:#E8EEF5; --ink-2:#B8C4D2; --muted:#8696A8; --line:#283646;
+  --red:#F0666E; --red-soft:#2E1619;
+  --blue:#7FB2EA; --blue-soft:#13263B;
+  --gold:#DDB65C; --gold-soft:#2A2110;
+  --green:#5CCBA3; --green-soft:#0F2A21;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:12px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased}
+a{color:var(--blue)}
+:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+.wrap{max-width:720px;margin:0 auto;padding:0 16px 104px;display:flex;flex-direction:column;gap:36px}
+
+/* Cabeçalho */
+header.top{background:var(--ink);color:#fff;margin:0 -16px;padding:20px 20px 0}
+:root[data-theme="dark"] header.top{background:#060C13}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) header.top{background:#060C13}}
+.eyebrow{font-family:var(--display);font-weight:600;font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:#9FB6CF}
+h1{font-family:var(--display);font-weight:700;font-size:clamp(34px,10vw,52px);line-height:1;letter-spacing:.005em;margin:8px 0 0;text-wrap:balance;text-transform:uppercase}
+h1 span{color:#FF7C84}
+.meta{display:flex;flex-wrap:wrap;gap:6px 18px;margin:16px 0 0;font-size:15px;color:#D5DFEA}
+.meta b{color:#fff;font-weight:600}
+.rail{height:14px;margin:24px -20px 0;background:
+  repeating-linear-gradient(90deg,transparent 0 10px,rgba(255,255,255,.28) 10px 14px),
+  linear-gradient(#0000 3px,rgba(255,255,255,.55) 3px 5px,#0000 5px 9px,rgba(255,255,255,.55) 9px 11px,#0000 11px)}
+
+.logo-card{background:#fff;border-radius:8px;padding:10px 12px;display:flex;justify-content:center}
+.logo-card img{display:block;max-width:100%;height:auto;max-height:150px;width:auto}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+/* Realização e patrocínio: logos sempre sobre branco */
+.brand{background:#fff;border:1px solid var(--line);border-radius:6px;padding:14px;display:flex;align-items:center;justify-content:center}
+.brand img{display:block;max-width:100%;height:auto}
+.brand.big img{max-height:84px;width:auto}
+.sponsors{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.sponsors .brand{min-height:84px}
+.sponsors img{max-height:56px;width:auto}
+@media (min-width:600px){.sponsors{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.sub{font-family:var(--display);font-weight:600;font-size:14px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:4px 0 -6px}
+.apoio{list-style:none;margin:0;padding:0;background:var(--surface);border:1px solid var(--line);border-radius:6px}
+.apoio li{padding:12px 16px;border-bottom:1px solid var(--line);display:flex;flex-direction:column;gap:2px}
+.apoio li:last-child{border-bottom:0}
+.apoio b{font-weight:600}
+.apoio span{font-size:14px;color:var(--muted)}
+.brand.dark{background:#0E2238;border-color:#0E2238}
+.brand.word{font-family:var(--display);font-weight:700;font-size:24px;letter-spacing:.04em;color:#0E2238}
+.insta li{padding:0}
+.insta a{display:flex;flex-direction:column;gap:2px;padding:12px 16px;text-decoration:none;color:var(--ink)}
+.insta a span{color:var(--blue)}
+.insta a:hover b{color:var(--blue)}
+.sponsors img.seal{max-height:96px}
+.sponsors.trio{grid-template-columns:repeat(3,minmax(0,1fr))}
+.sponsors.duo{grid-template-columns:repeat(2,minmax(0,1fr))}
+.sponsors.trio .brand{padding:10px}
+.now p:empty{display:none}
+button.item.ptr{width:100%;text-align:left;font:inherit;color:var(--ink);cursor:pointer;background:var(--blue-soft);border:1.5px dashed var(--blue);border-left:4px solid var(--blue);gap:6px}
+button.item.ptr strong{font-weight:600;font-size:16.5px;line-height:1.3}
+button.item.ptr .tagrow{display:flex}
+.pill.where{background:var(--blue);color:var(--paper);font-size:12.5px;padding:2px 10px;text-transform:uppercase;letter-spacing:.04em}
+.sub2{font-size:14.5px;color:var(--ink-2)}
+.go{font-size:13.5px;font-weight:600;color:var(--blue)}
+.who-tabs button{font-size:17px;text-transform:none;letter-spacing:0;padding:10px 6px}
+[hidden]{display:none!important}
+article.msg{display:block}
+article.msg p{margin:0 0 10px}
+article.msg p:last-child{margin-bottom:0}
+.portrait{float:left;width:120px;height:160px;object-fit:cover;border-radius:8px;margin:2px 14px 8px 0}
+article.msg::after{content:"";display:block;clear:both}
+@media (min-width:600px){.portrait{width:165px;height:220px}}
+article.msg.has-photo{display:grid;grid-template-columns:auto minmax(0,1fr);gap:14px;align-items:start}
+article.msg.has-photo::after{display:none}
+article.msg.has-photo .portrait{float:none;margin:2px 0 0}
+article.msg.has-photo{align-items:start}
+article.msg.has-photo .portrait{width:120px;height:180px;margin:0}
+@media (min-width:600px){article.msg.has-photo .portrait{width:160px;height:240px}}
+.byline{display:flex;flex-direction:column;gap:1px;margin-bottom:12px!important}
+.byline b{font-family:var(--display);font-weight:700;font-size:19px;line-height:1.15;text-transform:uppercase;color:var(--ink)}
+.byline span{font-size:13.5px;color:var(--muted)}
+.lead{font-weight:600;color:var(--ink)!important;font-size:16.5px;line-height:1.35}
+.who-tabs button{font-size:15.5px;padding:9px 4px}
+.who-tabs button small{font-size:11px;line-height:1.2}
+.who-tabs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}
+.who-tabs button{min-width:0}
+/* Agora */
+.now{background:var(--surface);border:1px solid var(--line);border-left:5px solid var(--red);border-radius:6px;padding:14px 16px;display:flex;flex-direction:column;gap:4px}
+.now .lbl{font-family:var(--display);font-weight:700;font-size:14px;letter-spacing:.12em;text-transform:uppercase;color:var(--red)}
+.now p{margin:0;color:var(--ink-2)}
+.now strong{color:var(--ink)}
+
+h2{font-family:var(--display);font-weight:700;font-size:28px;line-height:1.1;text-transform:uppercase;letter-spacing:.01em;margin:0;text-wrap:balance}
+section{display:flex;flex-direction:column;gap:14px}
+.sec-note{margin:0;color:var(--muted);font-size:14.5px}
+
+/* Controles */
+.tabs,.chips{display:flex;gap:8px;flex-wrap:wrap}
+.tabs button{flex:1 1 0;min-width:92px;font-family:var(--display);font-weight:700;font-size:19px;text-transform:uppercase;letter-spacing:.03em;
+  padding:10px 8px;border-radius:6px;border:1.5px solid var(--line);background:var(--surface);color:var(--ink-2);cursor:pointer;line-height:1.1}
+.tabs button small{display:block;font-family:var(--body);font-weight:500;font-size:12px;letter-spacing:0;text-transform:none;color:var(--muted)}
+.tabs button[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:var(--paper)}
+.tabs button[aria-pressed="true"] small{color:var(--paper);opacity:.75}
+.chips{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.chips button[data-room="all"]{grid-column:1/-1;font-size:16px;padding:10px 12px;font-weight:600}
+.chips button{text-align:center;padding-left:4px!important;padding-right:4px!important;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-family:var(--body);font-weight:500;font-size:14px;padding:6px 12px;border-radius:999px;border:1.5px solid var(--line);background:transparent;color:var(--ink-2);cursor:pointer}
+.chips button[aria-pressed="true"]{background:var(--blue-soft);border-color:var(--blue);color:var(--blue);font-weight:600}
+
+/* Quadro de horários */
+.board{display:flex;flex-direction:column;gap:10px}
+.slot{display:grid;grid-template-columns:58px 1fr;gap:12px;align-items:start}
+.time{font-family:var(--display);font-weight:700;font-size:22px;line-height:1;font-variant-numeric:tabular-nums;padding-top:12px;color:var(--ink)}
+.range{font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums}
+.panel{font-size:13.5px !important;color:var(--muted) !important;border-top:1px solid var(--line);padding-top:8px;margin-top:2px !important}
+.panel b{color:var(--ink-2);font-weight:600}
+.items{display:flex;flex-direction:column;gap:8px;min-width:0}
+.item{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--blue);border-radius:6px;padding:11px 14px;display:flex;flex-direction:column;gap:4px}
+.item.r-mp1{border-left-color:var(--green)}
+.item.r-mp2{border-left-color:var(--muted)}
+.item.sp{border-left-color:var(--gold)}
+.item.cer{border-left-color:var(--red)}
+.tagrow{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.room{font-family:var(--display);font-weight:600;font-size:13.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--blue)}
+.r-mp1 .room{color:var(--green)} .r-mp2 .room{color:var(--muted)} .cer .room{color:var(--red)}
+.pill{font-size:11.5px;font-weight:600;padding:1px 8px;border-radius:999px;background:var(--gold-soft);color:var(--gold)}
+.pill.live{background:var(--red);color:#fff}
+.pill.next{background:var(--blue-soft);color:var(--blue)}
+.item h3{font-family:var(--body);font-weight:600;font-size:16.5px;line-height:1.3;margin:0;text-wrap:balance}
+.item p{margin:0;font-size:14.5px;color:var(--ink-2)}
+.item ol{margin:4px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:6px;border-top:1px solid var(--line);padding-top:8px}
+.item li{font-size:14.5px;line-height:1.35;display:grid;grid-template-columns:42px 1fr;gap:8px}
+.item li time{font-family:var(--display);font-weight:600;font-size:15px;color:var(--muted);font-variant-numeric:tabular-nums}
+.item li span{display:block;color:var(--muted);font-size:13.5px}
+.break{grid-column:1/-1;text-align:center;font-family:var(--display);font-weight:600;font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);
+  padding:6px 0;border-top:1px dashed var(--line);border-bottom:1px dashed var(--line)}
+.slot.is-live .time{color:var(--red)}
+.empty{color:var(--muted);font-size:14.5px;padding:12px 0}
+
+
+/* Visão geral: três colunas, só os títulos */
+.cols{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;align-items:start}
+.col{display:flex;flex-direction:column;gap:6px;min-width:0}
+.col>h3{font-family:var(--display);font-weight:700;font-size:14px;letter-spacing:.06em;text-transform:uppercase;margin:0;padding:6px 4px;text-align:center;border-bottom:3px solid var(--blue);color:var(--blue);line-height:1.15}
+.col.c-mp1>h3{border-color:var(--green);color:var(--green)} .col.c-mp2>h3{border-color:var(--muted);color:var(--muted)}
+.mini{display:flex;flex-direction:column;gap:3px;width:100%;text-align:left;font-family:var(--body);background:var(--surface);color:var(--ink);border:1px solid var(--line);border-left:3px solid var(--blue);border-radius:6px;padding:8px 8px;cursor:pointer;font-size:13px;line-height:1.3;overflow-wrap:anywhere;hyphens:auto}
+.c-mp1 .mini{border-left-color:var(--green)} .c-mp2 .mini{border-left-color:var(--muted)}
+.mini.sp{border-left-color:var(--gold)} .mini.cer{border-left-color:var(--red)}
+.mini.live{background:var(--red-soft);border-color:var(--red)}
+.mini:hover{border-color:var(--blue)}
+.mini time{font-family:var(--display);font-weight:700;font-size:15px;font-variant-numeric:tabular-nums;color:var(--ink-2)}
+.mini em{font-style:normal;font-size:11px;font-weight:600;color:var(--gold)}
+.col .none{font-size:12.5px;color:var(--muted);text-align:center;padding:10px 0}
+.hint{margin:0;font-size:13.5px;color:var(--muted)}
+.item.flash{outline:3px solid var(--blue);outline-offset:2px}
+@media (min-width:600px){.mini{font-size:14.5px;padding:10px 12px}.col>h3{font-size:16px}}
+
+.colh{font-family:var(--display);font-weight:700;font-size:14px;letter-spacing:.06em;text-transform:uppercase;margin:0;padding:6px 4px;text-align:center;border-bottom:3px solid var(--blue);color:var(--blue);line-height:1.15}
+.colh.c-mp1{border-color:var(--green);color:var(--green)} .colh.c-mp2{border-color:var(--muted);color:var(--muted)}
+.cols.seg{align-items:stretch;row-gap:0}
+.cols.seg .mini{margin:2px 0;overflow:hidden}
+.mini.c-mp1{border-left-color:var(--green)} .mini.c-mp2{border-left-color:var(--muted)}
+.mini.sp{border-left-color:var(--gold)} .mini.cer{border-left-color:var(--red)}
+.mini time{font-size:13.5px;line-height:1.15}
+.dash{display:flex;align-items:center;gap:10px;font-family:var(--display);font-weight:600;font-size:13.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);text-align:center;line-height:1.25;padding:4px 0}
+.dash::before,.dash::after{content:"";flex:1 1 24px;border-top:2px dashed var(--line)}
+.dash span{flex:0 1 auto;max-width:78%}
+.dash b{display:block;color:var(--ink-2);font-variant-numeric:tabular-nums}
+@media (min-width:600px){.colh{font-size:16px}.mini time{font-size:15px}}
+
+/* Mensagens */
+.msg{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:18px;display:flex;flex-direction:column;gap:10px}
+.msg .who{font-family:var(--display);font-weight:700;font-size:20px;line-height:1.15;text-transform:uppercase}
+.msg .role{font-size:14px;color:var(--muted);margin-top:-8px}
+.msg p{margin:0;color:var(--ink-2);max-width:65ch}
+.msg.wait{background:var(--surface-2);border-style:dashed}
+
+/* Links */
+.links{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px}
+.links a{display:flex;flex-direction:column;gap:2px;background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:14px 16px;text-decoration:none;color:var(--ink)}
+.links a b{font-family:var(--display);font-weight:700;font-size:19px;text-transform:uppercase;letter-spacing:.02em}
+.links a span{font-size:13.5px;color:var(--muted);word-break:break-word}
+.links a:hover{border-color:var(--blue)}
+
+dl.info{margin:0;display:grid;grid-template-columns:1fr;gap:0;background:var(--surface);border:1px solid var(--line);border-radius:6px}
+dl.info div{padding:12px 16px;border-bottom:1px solid var(--line)}
+dl.info div:last-child{border-bottom:0}
+dl.info dt{font-family:var(--display);font-weight:600;font-size:13.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+dl.info dd{margin:2px 0 0;color:var(--ink)}
+
+footer{color:var(--muted);font-size:13.5px;border-top:1px solid var(--line);padding-top:16px}
+
+/* Navegação fixa */
+nav.dock{position:fixed;left:0;right:0;bottom:0;background:var(--surface);border-top:1px solid var(--line);display:flex;justify-content:center;z-index:5;padding-bottom:env(safe-area-inset-bottom,0)}
+nav.dock a{flex:1 1 0;max-width:160px;text-align:center;padding:13px 2px;font-family:var(--display);font-weight:700;font-size:14.5px;letter-spacing:.04em;text-transform:uppercase;text-decoration:none;color:var(--ink-2)}
+nav.dock a:hover{color:var(--red)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="top">
+  <div class="logo-card"><img src="assets/logo-congresso.png" alt="XI Congresso Rondoniense de Cardiologia, 16º Simpósio de Hipertensão Arterial Sistêmica e 2º Simpósio Multidisciplinar" width="1100" height="310"></div>
+  <h1 class="sr">XI Congresso Rondoniense de Cardiologia</h1>
+  <div class="meta">
+    <span><b>27 a 29 de novembro de 2026</b></span>
+    <span>Assembleia Legislativa de Rondônia, Porto Velho</span>
+  </div>
+  <div class="rail" aria-hidden="true"></div>
+</header>
+
+<div class="now" id="agora" aria-live="polite">
+  <span class="lbl" id="now-lbl">Bem-vindo ao CRC 2026</span>
+  <p id="now-txt"></p>
+</div>
+
+<section id="programacao">
+  <h2>Grade científica</h2>
+  <div class="tabs" id="tabs" role="group" aria-label="Dia"></div>
+  <div class="chips" id="chips" role="group" aria-label="Sala"></div>
+  <div class="board" id="board"></div>
+  <p class="sec-note">Horários de Porto Velho. A grade pode sofrer ajustes de última hora.</p>
+</section>
+
+<section id="mensagens">
+  <h2>Mensagens</h2>
+  <div class="tabs who-tabs" id="msg-tabs" role="group" aria-label="Autor da mensagem">
+    <button type="button" data-msg="soceron" aria-pressed="true">Luiz Gasparelo<small>Presidente da SOCERON</small></button>
+    <button type="button" data-msg="congresso" aria-pressed="false">Rodrigo Gallina<small>Presidente do Congresso</small></button>
+    <button type="button" data-msg="has" aria-pressed="false">João Gemelli<small>Presidente do Simpósio de Hipertensão</small></button>
+    <button type="button" data-msg="multi" aria-pressed="false">Eduardo Moura<small>Presidente do Simpósio Multidisciplinar</small></button>
+  </div>
+  <article class="msg has-photo" id="msg-soceron">
+    <img class="portrait" src="assets/luiz-gasparelo-7.webp" alt="Luiz Henrique Gasparelo, presidente da SOCERON" width="360" height="540">
+    <div class="msg-text">
+    <p class="byline"><b>Luiz Henrique Gasparelo</b><span>Presidente da SOCERON</span></p>
+    <p class="lead">Sejam bem-vindos ao XI Congresso Rondoniense de Cardiologia.</p>
+    <p>Em nome da SOCERON, é uma alegria receber cada colega, da capital e do interior, e os convidados que vieram de outros estados para estes três dias de ciência e convivência.</p>
+    <p>Esta edição foi construída a muitas mãos e pensada para quem cuida do paciente todos os dias. No Auditório Principal estão as aulas que atualizam a prática. No Mini-Plenário 1, os casos são discutidos em formato Heart Team, com clínico, intervencionista, imagem e cirurgião na mesma mesa. Ao lado do congresso, o 16º Simpósio de Hipertensão Arterial, o 2º Simpósio Multidisciplinar e o Simpósio das Ligas levam a conversa a toda a equipe e a quem está começando.</p>
+    <p>A cardiologia de Rondônia cresceu, e este encontro mostra isso: produção científica própria, serviços que se consolidam e uma comunidade que se conhece e se apoia. Agradeço à comissão organizadora, aos palestrantes, aos patrocinadores e aos apoiadores, em especial à Assembleia Legislativa, que nos recebe em sua casa.</p>
+    <p>Aproveitem os debates, perguntem, discordem e conversem nos corredores. É assim que o conhecimento vira cuidado.</p>
+    <p>Bom congresso a todos.</p>
+    </div>
+  </article>
+  <article class="msg has-photo" id="msg-congresso" hidden>
+    <img class="portrait" src="assets/rodrigo-gallina.webp" alt="Rodrigo Gallina, presidente do congresso" width="360" height="540">
+    <div class="msg-text">
+    <p class="byline"><b>Rodrigo Gallina</b><span>Presidente do XI Congresso Rondoniense de Cardiologia</span></p>
+    <p class="lead">Um encontro para transformar conhecimento em cuidado</p>
+    <p>É com grande entusiasmo e senso de responsabilidade que damos as boas-vindas ao Congresso Rondoniense de Cardiologia, um dos mais importantes encontros científicos da cardiologia em nosso estado.</p>
+    <p>Em um cenário de constantes transformações na medicina, a atualização científica deixou de ser apenas uma escolha e tornou-se parte essencial da prática médica. Novas tecnologias, métodos diagnósticos, estratégias terapêuticas e modelos de cuidado estão modificando rapidamente a forma como prevenimos, diagnosticamos e tratamos as doenças cardiovasculares.</p>
+    <p>É neste contexto que nasce mais uma edição do nosso Congresso: um espaço de atualização, discussão, integração e construção coletiva do futuro da cardiologia em Rondônia.</p>
+    <p>Rondônia possui uma cardiologia dinâmica, qualificada e em constante crescimento. Nosso Congresso representa também a oportunidade de valorizar essa trajetória, dar visibilidade à produção científica regional e fortalecer a nossa identidade enquanto comunidade cardiológica.</p>
+    <p>Sejam todos muito bem-vindos ao Congresso Rondoniense de Cardiologia.</p>
+    </div>
+  </article>
+  <article class="msg has-photo" id="msg-multi" hidden>
+    <img class="portrait" src="assets/eduardo-moura.webp" alt="Eduardo Junior de Sousa Moura, presidente do Simpósio Multidisciplinar" width="360" height="540">
+    <div class="msg-text">
+    <p class="byline"><b>Enf. Eduardo Junior de Sousa Moura</b><span>Presidente do 2º Simpósio Multidisciplinar</span></p>
+    <p class="lead">Sejam todos muito bem-vindos ao 2º Simpósio Multidisciplinar!</p>
+    <p>É com grande satisfação que estamos trazendo palestrantes de diferentes áreas da equipe multidisciplinar para compartilhar conhecimentos, experiências e práticas que fazem a diferença na assistência ao paciente crítico cardiológico.</p>
+    <p>Acreditamos que o cuidado ao paciente cardiológico vai muito além de uma única especialidade. É resultado da integração, da competência e do trabalho conjunto de profissionais que atuam em cada etapa da assistência.</p>
+    <p>Nossa proposta é valorizar o papel de cada profissional, fortalecer a atuação multiprofissional e promover uma assistência cada vez mais segura, humanizada e qualificada.</p>
+    <p><strong>Porque cuidar de um paciente crítico cardiológico é uma missão que exige conhecimento, integração e trabalho em equipe!</strong></p>
+    </div>
+  </article>
+  <article class="msg" id="msg-has" hidden>
+    <div class="msg-text">
+    <p class="byline"><b>Dr. João Roberto Gemelli</b><span>Presidente do 16º Simpósio de Hipertensão</span></p>
+    <p class="lead">Prezadas e prezados colegas,</p>
+    <p>É com profunda honra que, como presidente do 16º Simpósio de Hipertensão, acolho cada congressista e a comunidade cardiológica de Rondônia.</p>
+    <p>Chegar à 16ª edição não é apenas uma contagem de encontros. É a memória viva de uma construção realizada ano após ano por colegas que acreditaram no estudo rigoroso, na atualização científica e na prática médica responsável.</p>
+    <p>Nossa sociedade médica cresceu junto com o estado, fortalecendo vínculos, qualificando equipes e abrindo caminhos para uma assistência cardiovascular cada vez mais abrangente. Ao longo dessa trajetória, nossos congressos e simpósios tornaram-se espaços de integração entre gerações, troca de experiências e compromisso com a excelência.</p>
+    <p>Hoje reconhecemos avanços concretos na assistência cardiológica em Rondônia, com melhorias de infraestrutura e iniciativas de ampliação dos procedimentos especializados em Porto Velho. São conquistas que refletem o empenho coletivo de profissionais, serviços de saúde e instituições, sem deixar de lado os desafios próprios de nosso território amazônico.</p>
+    <p>Seguimos com a hipertensão arterial no centro de nossas discussões, atentos às evidências mais recentes e à necessidade de transformar conhecimento em prevenção, diagnóstico e tratamento de qualidade para nossa população.</p>
+    <p>Que este encontro celebre aqueles que vieram antes, inspire os profissionais que chegam agora e fortaleça os próximos passos da cardiologia rondoniense.</p>
+    <p>Meu reconhecimento a todos que ajudaram a construir esta história e a cada participante que mantém viva a tradição do nosso simpósio.</p>
+    <p>Sejam todos muito bem-vindos. Desejo a todos um ótimo evento, marcado por aprendizado, integração e encontros verdadeiramente enriquecedores!</p>
+    </div>
+  </article>
+</section>
+
+<section id="patrocinadores">
+  <h2>Realização e patrocínio</h2>
+  <p class="sub">Realização</p>
+  <div class="brand big"><img src="assets/soceron.png" alt="SOCERON, Sociedade de Cardiologia de Rondônia, filiada à SBC" width="775" height="215"></div>
+  <p class="sub">Patrocinadores</p>
+  <div class="sponsors">
+    <div class="brand"><img src="assets/libbs.png" alt="Libbs" width="225" height="120"></div>
+    <div class="brand"><img src="assets/discomed.png" alt="Discomed" width="335" height="95"></div>
+    <div class="brand"><img src="assets/smt.png" alt="SMT" width="300" height="90"></div>
+    <div class="brand"><img src="assets/intermedical.png" alt="InterMedical" width="365" height="140"></div>
+    <div class="brand"><img src="assets/boston.webp" alt="Boston Scientific" width="240" height="105"></div>
+    <div class="brand"><img src="assets/edwards.webp" alt="Edwards Lifesciences" width="260" height="67"></div>
+  </div>
+  <p class="sub">Apoio</p>
+  <div class="sponsors trio">
+    <div class="brand"><img class="seal" src="assets/sbc-selo.webp" alt="Sociedade Brasileira de Cardiologia" width="241" height="251"></div>
+    <div class="brand"><img class="seal" src="assets/camufro.webp" alt="CAMUFRO, Centro Acadêmico de Medicina da Universidade Federal de Rondônia" width="248" height="280"></div>
+    <div class="brand"><img class="seal" src="assets/licar.webp" alt="LICAR, Liga Rondoniense de Cardiologia Clínica e Cirúrgica" width="280" height="279"></div>
+  </div>
+  <div class="sponsors duo">
+    <div class="brand"><img class="seal" src="assets/alero-brasao.webp" alt="Assembleia Legislativa do Estado de Rondônia" width="180" height="180"></div>
+    <div class="brand"><img src="assets/crf-ro.webp" alt="Conselho Regional de Farmácia do Estado de Rondônia" width="240" height="105"></div>
+  </div>
+</section>
+
+<section id="links">
+  <h2>Links</h2>
+  <div class="links">
+    <a href="https://sbc.iweventos.com.br/evento/ccer2026/home" target="_blank" rel="noopener"><b>Plataforma do evento</b><span>Inscrição e área do congressista</span></a>
+    <a href="https://soceron.com.br" target="_blank" rel="noopener"><b>SOCERON</b><span>soceron.com.br</span></a>
+    <a href="https://www.portal.cardiol.br" target="_blank" rel="noopener"><b>SBC</b><span>portal.cardiol.br</span></a>
+    <a href="https://wa.me/5569992022215" target="_blank" rel="noopener"><b>Secretaria</b><span>WhatsApp (69) 99202-2215</span></a>
+  </div>
+</section>
+
+<section id="instagram">
+  <h2>Instagram</h2>
+  <p class="sec-note">Siga e marque nas suas fotos do congresso.</p>
+  <ul class="apoio insta">
+    <li><a href="https://www.instagram.com/soceron.oficial/" target="_blank" rel="noopener"><b>SOCERON</b><span>@soceron.oficial</span></a></li>
+    <li><a href="https://www.instagram.com/simposiomultidisciplinarro/" target="_blank" rel="noopener"><b>Simpósio Multidisciplinar</b><span>@simposiomultidisciplinarro</span></a></li>
+    <li><a href="https://www.instagram.com/camufro/" target="_blank" rel="noopener"><b>CAMUFRO</b><span>@camufro</span></a></li>
+    <li><a href="https://www.instagram.com/licar_ro/" target="_blank" rel="noopener"><b>LICAR</b><span>@licar_ro</span></a></li>
+    <li><a href="https://www.instagram.com/sbc.cardiol/" target="_blank" rel="noopener"><b>Sociedade Brasileira de Cardiologia</b><span>@sbc.cardiol</span></a></li>
+  </ul>
+</section>
+
+<section id="info">
+  <h2>Informações</h2>
+  <dl class="info">
+    <div><dt>Local do congresso</dt><dd>Assembleia Legislativa do Estado de Rondônia<br>Av. Farquar, 2562, Olaria, Porto Velho, RO, CEP 76801-189</dd></div>
+    <div><dt>Hotel oficial</dt><dd>Slaviero Porto Velho<br>Av. Lauro Sodré, 2441, São João Bosco, Porto Velho, RO, CEP 76803-660</dd></div>
+  </dl>
+  <p class="sub">Salas de aula</p>
+  <dl class="info">
+    <div><dt>Auditório Principal</dt><dd>Abertura, Palestra Magna, aulas e sessões patrocinadas</dd></div>
+    <div><dt>Mini-Plenário 1</dt><dd>Aulas, discussão em formato Heart Team e Simpósio de Hipertensão</dd></div>
+    <div><dt>Mini-Plenário 2</dt><dd>Simpósio Multidisciplinar, Simpósio das Ligas e apresentação dos trabalhos premiados</dd></div>
+  </dl>
+  <dl class="info">
+    <div><dt>Secretaria do congresso</dt><dd>(69) 99202-2215 · secretaria.soceronro@gmail.com</dd></div>
+  </dl>
+</section>
+
+<footer>XI Congresso Rondoniense de Cardiologia, 16º Simpósio de Hipertensão Arterial Sistêmica e 2º Simpósio Multidisciplinar · realização SOCERON, filiada à Sociedade Brasileira de Cardiologia.</footer>
+</div>
+
+<nav class="dock" aria-label="Seções">
+  <a href="#programacao">Grade</a>
+  <a href="#mensagens">Mensagens</a>
+  <a href="#patrocinadores">Apoio</a>
+  <a href="#links">Links</a>
+  <a href="#info">Local</a>
+</nav>
+
+<script>
+/* ====== GRADE: edite aqui ======
+   Fonte: Cronograma_CRC_2026_OFICIAL.xlsx, aba "CRC 2026 - OFICIAL" (lida em 14/11/2026).
+   r: A = Auditório Principal, MP1 = Mini-Plenário 1, MP2 = Mini-Plenário 2, ALL = todas
+   k: "sp" patrocinada, "cer" cerimônia, "brk" intervalo. talks: [horário, título, palestrante] */
+var ROOMS={A:"Auditório Principal",MP1:"Mini-Plenário 1",MP2:"Mini-Plenário 2",ALL:"Todas as salas"};
+var DAYS=[
+{id:"sex",label:"Sexta",date:"2026-11-27",short:"27/11",ses:[
+ {r:"A",k:"cer",s:"19:00",e:"20:00",t:"Cerimônia de abertura",note:"Hino e discursos"},
+ {r:"A",k:"cer",s:"20:00",e:"21:00",t:"Palestra Magna",note:"Dr. Danilo Ferraz de Oliveira Maksud (SP)"},
+ {r:"A",k:"cer",s:"21:00",e:"22:30",t:"Coquetel de confraternização"}
+]},
+{id:"sab",label:"Sábado",date:"2026-11-28",short:"28/11",ses:[
+ {r:"ALL",k:"brk",s:"07:00",e:"08:00",t:"Credenciamento"},
+ {r:"MP2",s:"07:30",e:"09:30",t:"Simpósio Multidisciplinar · Módulo 1",talks:[
+  ["07:30","Anatomofisiologia do coração: a importância de conhecê-lo","Jandra Cibele Rodrigues de Abrantes Pereira Leite, enfermeira"],
+  ["07:45","ECG","Jandra Cibele Rodrigues de Abrantes Pereira Leite, enfermeira"],
+  ["08:00","Segurança do paciente crítico na UTI: práticas essenciais e atitudes que salvam vidas","Rosa Maria Ferreira de Almeida, enfermeira"],
+  ["08:30","Cirurgia cardiovascular e circulação extracorpórea (CEC)","Marco Aurélio Pereira da Silva, perfusionista"],
+  ["08:50","Entre a vida e o medo: sofrimento psíquico no paciente cardiológico em situação crítica","Bruna Cerqueira Paes, psicóloga"],
+  ["09:10","Broncoaspiração no paciente cardiopata crítico: prevenção, segurança e estratégias preventivas","Scherley Keavynny Tavares Silva Moreno, fonoaudióloga"]]},
+ {r:"MP1",s:"08:00",e:"08:40",t:"Dor no peito às 3h da manhã: quem eu libero, quem eu interno?",talks:[
+  ["08:00","Troponina de alta sensibilidade e escore HEART: o protocolo que evita o erro","Dr. Luiz Benittez (RO)"],
+  ["08:10","O paciente que parece bem mas não está: os sinais de alarme que não dá pra perder","Dra. Leise de Freitas Diniz (RO)"]],
+  mod:"Dr. Carlos Spesia (RO)",deb:"Adalberto Machado Coelho"},
+ {r:"A",s:"08:40",e:"09:30",t:"Fibrilação atrial hoje: controle sintomático, prevenção embólica e oclusão percutânea do apêndice",talks:[
+  ["08:40","Controle de ritmo vs. controle de frequência na FA: o que as evidências atuais dizem sobre remodelamento e sobrevida?","Dr. Carlos Eduardo Duarte (SP)"],
+  ["08:50","O cardiologista clínico diante da fibrilação atrial: quem, quando e como anticoagular em cenários complexos","Dr. Pablo Brasil (RO)"],
+  ["09:00","Fechamento percutâneo do apêndice atrial esquerdo: quem é o candidato ideal?","Dr. Danilo Ferraz de Oliveira Maksud (SP)"]],
+  mod:"Dr. Marcos Rosa (RO)",deb:"Cesar Augusto Angeli de Lima, Vamildo Cacimiro de Oliveira, Renato Bueno"},
+ {r:"MP1",s:"08:50",e:"09:30",t:"Miocardiopatias: do diagnóstico ao tratamento intervencionista",talks:[
+  ["08:50","Não é apenas hipertrofia: quando pensar em miocardiopatias","Dr. Rodolfo Amorim (RO)"],
+  ["09:00","Novas evidências no tratamento medicamentoso das miocardiopatias","Dra. Stéfany (RO)"],
+  ["09:10","Miocardiopatia hipertrófica obstrutiva: opções de tratamento intervencionista","Dr. Sidney Munhoz Junior (MT)"]],
+  mod:"Dr. Rodrigo Gallina (RO)",deb:"Marilene Rodrigues Carvalho, Luciano Giordani, Carlos Borelli Zeller"},
+ {r:"ALL",k:"brk",s:"09:30",e:"10:00",t:"Visita aos estandes, apresentação dos trabalhos em pôster e coffee break"},
+ {r:"A",s:"10:00",e:"10:40",t:"Insuficiência cardíaca crônica: do quarteto à próxima fronteira",talks:[
+  ["10:00","Os quatro pilares em quatro semanas: como titular de verdade no mundo real","Dra. Diana Negreiros (SP)"],
+  ["10:10","Além do quarteto: as terapias emergentes que já mudam a sobrevida na IC","Dr. Marcus Vinicius (RO)"],
+  ["10:20","Ressincronização cardíaca no consultório: como avaliar a resposta e o que fazer com os não respondedores?","Dr. Carlos Eduardo Duarte (SP)"]],
+  mod:"Dr. Guilherme Correia (RO)",deb:"Valmir Favaro Martins, Lucas da Silva Graça, Maria Tereza Carmona Hinojosa"},
+ {r:"MP1",s:"10:00",e:"10:40",t:"Heart Team · DAC crônica: da estratificação à decisão de revascularização",talks:[
+  ["10:00","Caso clínico","Dra. Teynan Nunes (RO)"],
+  ["10:10","Tratamento clínico otimizado: os limites da terapia medicamentosa","Dr. André Zimmermann (RS)"],
+  ["10:20","Revascularizar ou não: quando a intervenção muda o desfecho","Dr. Danilo Ferraz de Oliveira Maksud (SP)"]],
+  mod:"Dr. Cristovão O. R. Silva (RO)",deb:"Dra. Gislaine, Paulo Cesar da Cruz Capellani, Erêndira Linhares Batista Barbosa"},
+ {r:"MP2",s:"10:00",e:"12:30",t:"Simpósio Multidisciplinar · Módulo 2",talks:[
+  ["10:00","Reabilitação cardiopulmonar no paciente crítico","Matheus Fontele Fernandes, fisioterapeuta"],
+  ["10:20","Atuação da enfermagem no atendimento pré-hospitalar às emergências cardiovasculares","Mara da Silva Pereira Bastos, enfermeira"],
+  ["11:00","Monitorização avançada e avanços tecnológicos: assistência ao paciente crítico","Kalliza Kary Rodrigues da Costa, enfermeira"],
+  ["11:30","Segurança medicamentosa e vigilância no paciente cardiopata","Jaqueline Santana Santos, farmacêutica"],
+  ["12:00","Impacto da intervenção nutricional na evolução clínica e no estado nutricional de pacientes cardiopatas","Andrezza Maria de Oliveira, nutróloga"]]},
+ {r:"A",s:"10:50",e:"11:30",t:"Eixo cardio-renal-metabólico: o paciente que não cabe em uma especialidade",talks:[
+  ["10:50","Obesidade e GLP-1 na doença cardiovascular: de quem é esse paciente?","Dr. André Zimmermann (RS)"],
+  ["11:00","Diabetes e doença renal crônica: iSGLT2, finerenona e a ordem de entrada das drogas","Dr. Francisco Antonio Helfenstein Fonseca (SP)"],
+  ["11:10","Dislipidemia de muito alto risco: até onde baixar o LDL e com o quê","Dr. Carlos Spesier (RO)"]],
+  mod:"Dr. Marcelo Salame (RO)",deb:"Pedro Evilazio de Souza Junior, Sergio Amaro da Silva"},
+ {r:"MP1",s:"10:50",e:"11:30",t:"Heart Team · Dispositivos cardíacos implantáveis: quando vale a pena tratar",talks:[
+  ["10:50","A carga arrítmica importa, mas e o resto? Como tomar conduta além da porcentagem do Holter?","Dra. Sarah Schereder (RS)"],
+  ["11:00","Indicações de TRC e CDI além do óbvio","Dr. Marcos Rosa (RO)"],
+  ["11:10","Marcapasso sem eletrodos na prática clínica: quais pacientes realmente se beneficiam desta tecnologia?","Dr. Carlos Eduardo Duarte (SP)"]],
+  mod:"Dr. Pablo Brasil (RO)",deb:"Cesar Augusto Angeli de Lima, Carlos Borelli Zeller"},
+ {r:"A",k:"sp",sp:"LIBBS",also:["MP1"],s:"11:40",e:"12:20",t:"O paciente cardiovascular de alto risco: da prevenção à redução de eventos. Estratégias atuais para lipídios, hipertensão e doença aterotrombótica",note:"Dr. Francisco Antonio Helfenstein Fonseca (SP)"},
+ {r:"ALL",k:"brk",s:"12:30",e:"13:30",t:"Intervalo para almoço"},
+ {r:"MP1",s:"13:30",e:"14:30",t:"Simpósio de Hipertensão · MAPA, MRPA, VOP e pressão central",note:"Aula fechada",talks:[
+  ["13:30","MAPA, MRPA, VOP e pressão central","Dr. Bruno Augusto Alcova Nogueira"],
+  ["13:50","MAPA, MRPA, VOP e pressão central","Dr. Emerson Costa Porto"]],
+  deb:"Dr. João Roberto Gemelli (RO)"},
+ {r:"MP2",s:"13:30",e:"15:30",t:"Simpósio Multidisciplinar · Módulo 3",talks:[
+  ["13:30","Cuidados e vigilância em pacientes em pós-operatório endovascular","Sheila Cristina da Silva Cavalcante Souza, enfermeira"],
+  ["14:00","Métodos de recuperação muscular no paciente crítico: da UTI à reabilitação","Sarana dos Santos Matos, fisioterapeuta"],
+  ["14:20","Broncoaspiração no paciente cardiopata: prevenção, segurança, identificação de risco e estratégias preventivas","Flávia da Silva Lelis, fisioterapeuta"],
+  ["14:50","Inovação tecnológica no paciente cardiocrítico: monitoramento e tomada de decisão","Luan dos Santos Nonato, enfermeiro"]]},
+ {r:"A",s:"14:30",e:"15:30",t:"Ecocardiografia avançada na prática",talks:[
+  ["14:30","Strain miocárdico além da fração de ejeção: quando o método realmente muda a conduta?","Dr. Saulo (RO)"],
+  ["14:45","Trabalho miocárdico além do clássico strain: por que e quando usar?","Dr. Marcelo Salame (RO)"],
+  ["15:00","Eco 3D na vida real: o que eu não consigo enxergar bem no 2D?","Dra. Wendy Sierraalta (SP)"]],
+  mod:"Dr. Rodolfo Amorim (RO)",deb:"Luiz Eduardo Pinheiro Moreira"},
+ {r:"MP1",s:"14:30",e:"15:30",t:"Simpósio de Hipertensão · Mesa 1",talks:[
+  ["14:30","Hormônios e o coração feminino: o manejo seguro da terapia hormonal na IOP e na menopausa","Dra. Ivanice Fernandes Barcellos Gemelli (RO)"],
+  ["14:40","Anti-hipertensivos, rigidez arterial e disfunção endotelial","Dr. Bruno Augusto Alcova Nogueira"],
+  ["14:50","Particularidades e cuidados no hipertenso idoso e superidoso","Dra. Ana Gabriela Caldas (RO)"],
+  ["15:00","Desafios da disautonomia no paciente hipertenso","Dr. Emerson Costa Porto"]],
+  deb:"Dr. João Roberto Gemelli (RO)"},
+ {r:"ALL",k:"brk",s:"15:30",e:"16:00",t:"Visita aos estandes, apresentação dos trabalhos em pôster e coffee break"},
+ {r:"A",s:"16:00",e:"16:40",t:"Emergências cardiovasculares",talks:[
+  ["16:00","FA na emergência: quando cardioverter?","Dra. Sarah Schereder (RS)"],
+  ["16:10","TEP em 2026: o que mudou na estratificação de risco e na reperfusão?","Dra. Milena Alves, pneumologista (RO)"],
+  ["16:20","Síndrome aórtica aguda: diagnóstico e conduta nas primeiras horas","Dr. Jorge Luis, cirurgião cardiovascular"]],
+  mod:"Dr. Marcos Rosa (RO)",deb:"Renato Aparecido Pereira Junior, Arnoldo Beltrão Schamber Junior"},
+ {r:"MP1",s:"16:00",e:"17:30",t:"Simpósio de Hipertensão · Mesa 2",talks:[
+  ["16:00","Abordagem prática da hipertensão na infância: o que todos devem saber","Dra. Luciana Nina (RO)"],
+  ["16:15","Aplicabilidade clínica das novas drogas no tratamento da HAS","Dr. Emerson Costa Porto"],
+  ["16:30","Tratamento da hipertensão no paciente oncológico","Dr. João Roberto Gemelli (RO)"],
+  ["16:45","Melhores trabalhos do ESC 2026","Dr. Bruno Augusto Alcova Nogueira"]]},
+ {r:"MP2",s:"16:00",e:"18:40",t:"Simpósio Multidisciplinar · Módulo 4",talks:[
+  ["16:00","Paciente cardiológico em deterioração clínica: reconhecimento precoce e atuação da enfermagem","Kalliza Kary Rodrigues da Costa, enfermeira"],
+  ["16:30","Desafio da terapia nutricional no paciente crítico cardiopata","Gabriela de Souza Barbosa, nutricionista"],
+  ["16:50","Prevenção de infecção em dispositivos invasivos: desafios na UTI cardiológica","Lorena Teixeira da Silva, enfermeira"],
+  ["17:10","Atuação do farmacêutico na farmacoterapia do infarto agudo do miocárdio","Talita Barbosa Gomes, farmacêutica"],
+  ["17:40","Fisioterapia no paciente cardiológico crítico: mobilização precoce, suporte ventilatório e recuperação funcional","Fábio Bruno de Souza Santos, fisioterapeuta"],
+  ["18:10","Mesa-redonda: novos conceitos e estratégias assertivas e humanizadas","Kalliza Kary Rodrigues da Costa, Talita Barbosa Gomes, Flávia da Silva Lelis e Andrezza Maria de Oliveira. Moderador: Kadimo Luann Gomes Rodrigues Paulino"],
+  ["18:40","Encerramento do simpósio e sorteio de brindes e livros",""]]},
+ {r:"A",s:"16:50",e:"17:30",t:"Highlights",talks:[
+  ["16:50","Highlights em doença arterial coronariana e prevenção cardiovascular","Dr. Cristovão O. R. Silva (RO)"],
+  ["17:00","Highlights em insuficiência cardíaca e miocardiopatias","Dra. Rafaela Rádner (RO)"],
+  ["17:10","Highlights em antiplaquetários e anticoagulação","Dr. Renan Marquiori (RO)"]],
+  mod:"Dra. Ana Gabriella"},
+ {r:"A",k:"sp",sp:"Edwards",also:["MP1"],s:"17:40",e:"18:20",t:"Da exceção à rotina: como a TAVI transformou o tratamento da doença valvar",note:"Dr. Ricardo Wang (MG)"}
+]},
+{id:"dom",label:"Domingo",date:"2026-11-29",short:"29/11",ses:[
+ {r:"MP1",s:"08:00",e:"08:40",t:"POCUS",talks:[
+  ["08:00","POCUS no choque indiferenciado: como definir o fenótipo hemodinâmico à beira-leito","Dra. Barbara Tenório"],
+  ["08:10","POCUS na parada cardíaca e no paciente peri-PCR","Dra. Diana Negreiros (SP)"]],
+  mod:"Dr. Eduardo Giovanini",deb:"Marcela de Aguiar Antonio, Murilo Salani Gil"},
+ {r:"MP2",s:"08:00",e:"08:40",t:"Apresentação dos trabalhos selecionados"},
+ {r:"A",s:"08:50",e:"09:30",t:"Doença coronariana crônica: anatomia, fisiologia e o que de fato muda desfecho",talks:[
+  ["08:50","Isquemia ou anatomia? O que de fato indica a revascularização no paciente crônico","Dr. Bruno de Castro Coutinho (RN)"],
+  ["09:00","Oclusão crônica total: quando vale a pena abrir?","Dr. Cleber Henrique (RO)"],
+  ["09:10","Revascularização cirúrgica hoje: para quem, como e com que resultado","Dr. Jorge Luis, cirurgião cardiovascular"]],
+  mod:"Dr. Gederson Rossato",deb:"Luiz Benittez, Rodrigo Gallina, Evaldo Machado Junior"},
+ {r:"MP1",s:"08:50",e:"09:30",t:"Ecocardiografia na decisão clínica",talks:[
+  ["08:50","Cardiopatia reumática: ainda dá para fazer valvoplastia? Como selecionar o paciente em 2026?","Dr. Rodolfo (Cacoal, RO)"],
+  ["09:00","Novo consenso de diástole: ganhamos precisão ou perdemos sensibilidade?","Dra. Wendy Sierraalta (SP)"],
+  ["09:10","IA no ecocardiograma: o que já podemos usar na prática?","Dr. Jonatham Gouveia da Mota (Cacoal, RO)"]],
+  mod:"Dr. Rodolfo Amorim",deb:"Anna Claudia Cerutti, Raitany Costa de Almeida"},
+ {r:"MP2",s:"08:50",e:"09:30",t:"Simpósio das Ligas · Cardiologia na prática clínica",talks:[
+  ["08:50","Insuficiência cardíaca: da suspeita clínica ao tratamento que muda o prognóstico","Dra. Rafaela Rádner"],
+  ["09:05","Conhecendo os DCEIs (dispositivos cardíacos eletrônicos implantáveis)","Dr. Marcos Rosa"]]},
+ {r:"ALL",k:"brk",s:"09:30",e:"10:00",t:"Visita aos estandes, apresentação dos trabalhos em pôster e coffee break"},
+ {r:"A",s:"10:00",e:"10:40",t:"Estenose aórtica: a primeira válvula decide a segunda",talks:[
+  ["10:00","Estenose aórtica grave sem sintomas: operar já ou observar?","Dra. Gislaine Mugrabi (RO)"],
+  ["10:10","TAVI ou cirurgia no paciente de baixo risco: como decidir em 2026","Dr. Bruno de Castro Coutinho (RN)"],
+  ["10:20","Lifetime management: pensando na segunda válvula antes de implantar a primeira","Dr. Ricardo Wang (MG)"]],
+  mod:"Dr. Luiz Gasparelo (RO)",deb:"Elisangela Henrique Muniz de Oliveira Rocha, Rômulo de Lima Moreno"},
+ {r:"MP1",s:"10:00",e:"10:40",t:"Heart Team · Exercício e coração: quem avaliar, como prescrever e como manter?",talks:[
+  ["10:00","Atividade física e risco cardiovascular: quem precisa de investigação e como fazê-la antes de começar?","Dra. Jessica Calixto (RO)"],
+  ["10:10","Do paciente esportista ao cardiopata: como prescrever exercícios físicos?","Dra. Raissa Simonato (RO)"],
+  ["10:20","Nunca é tarde para começar: exercício no idoso, da prescrição à adesão","Dr. Lucas Rondina (RO)"]],
+  mod:"Dr. Marcelo Salame (RO)",deb:"Bernardo Dal Ponte Descovi, Fabiane Fernandes Schmitt Flores"},
+ {r:"MP2",s:"10:00",e:"10:40",t:"Simpósio das Ligas · Interfaces clínicas: o coração e as especialidades",talks:[
+  ["10:00","Dor torácica na infância e adolescência: sinais de alerta e abordagem clínica","Dra. Luciana Nina"],
+  ["10:10","Quando o tratamento do câncer afeta o coração: os desafios da cardio-oncologia na era das terapias modernas","Dra. Giselle Almeida"],
+  ["10:20","Síndrome cardiorrenal aguda: até onde insistir na diurese e quando iniciar diálise?","Dr. Dhiego Lang"]]},
+ {r:"A",s:"10:50",e:"11:30",t:"Mitral e tricúspide: a era do reparo transcateter chegou ao Norte",talks:[
+  ["10:50","Insuficiência mitral: primária ou secundária, e por que isso muda todo o tratamento","Dra. Wendy Sierraalta (SP)"],
+  ["11:00","Reparo mitral sem cirurgia: quem é o paciente ideal e o que esperar do resultado","Dr. Daniel Mugrabi (RO)"],
+  ["11:10","A válvula tricúspide que ninguém trata: quando é hora de intervir","Dr. Ricardo Wang (MG)"]],
+  mod:"Dra. Gislaine Mugrabi (RO)",deb:"Carlos Eduardo (RO), Bruno Gustavo Chagas, Taís Neves Noujaim Miotto, Halyna Melo (AC)"},
+ {r:"MP1",s:"10:50",e:"11:30",t:"Choque cardiogênico na prática: do caso real ao suporte hemodinâmico",talks:[
+  ["10:50","Apresentação do caso","Dra. Suzana Borche (RO)"],
+  ["11:00","Melhores práticas no choque cardiogênico","Dra. Themis Borche (RO)"],
+  ["11:10","Tipos de suporte hemodinâmico disponíveis","Dr. Rafael Nunes (RO)"]],
+  mod:"Dr. Tiago Coimbra (RO)",deb:"Andrei Leonardo Freitas de Oliveira"},
+ {r:"MP2",s:"10:50",e:"11:30",t:"Simpósio das Ligas · Caminhos na medicina: carreira e oportunidades",talks:[
+  ["10:50","Carreira médica: caminhos depois da formatura",""],
+  ["11:05","Medicina na Força Aérea: como ingressar e o que a carreira oferece?","Dr. Rian Barreto"],
+  ["11:30","Encerramento do simpósio e sorteio de brindes",""]]},
+ {r:"A",k:"sp",sp:"Boston Scientific",also:["MP1","MP2"],s:"11:40",e:"12:20",t:"Além da angiografia: como a imagem intravascular e o preparo do cálcio mudaram a angioplastia coronária",note:"Dr. Bruno de Castro Coutinho (RN)"},
+ {r:"A",k:"cer",s:"12:30",e:"13:30",t:"Cerimônia de encerramento",note:"Premiações e sorteio de brindes e livros"}
+]}
+];
+/* ====== fim da grade ====== */
+
+var state={day:"sex",room:"all"};
+function esc(t){return String(t).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
+function pvNow(){
+  try{
+    var p=new Intl.DateTimeFormat("en-CA",{timeZone:"America/Porto_Velho",year:"numeric",month:"2-digit",day:"2-digit",hour:"2-digit",minute:"2-digit",hour12:false}).formatToParts(new Date());
+    var o={};p.forEach(function(x){o[x.type]=x.value});
+    return{date:o.year+"-"+o.month+"-"+o.day,time:(o.hour==="24"?"00":o.hour)+":"+o.minute};
+  }catch(e){return{date:"",time:""}}
+}
+var PXMIN=3.6; /* altura na visão geral: pixels por minuto de atividade */
+function mins(t){return +t.slice(0,2)*60+ +t.slice(3)}
+function dayById(id){return DAYS.filter(function(d){return d.id===id})[0]}
+function isLive(day,x,now){return day.date===now.date&&x.k!=="brk"&&now.time>=x.s&&now.time<x.e}
+function nextStart(day,now){
+  if(day.date!==now.date)return"";
+  var st=day.ses.filter(function(x){return x.k!=="brk"&&x.s>now.time}).map(function(x){return x.s}).sort();
+  return st[0]||"";
+}
+function renderTabs(){
+  document.getElementById("tabs").innerHTML=DAYS.map(function(d){
+    return'<button type="button" data-day="'+d.id+'" aria-pressed="'+(state.day===d.id)+'">'+d.label+'<small>'+d.short+'</small></button>'}).join("");
+  var rooms=[["all","Todas as salas"],["A","Auditório"],["MP1","Mini-Plenário 1"],["MP2","Mini-Plenário 2"]];
+  document.getElementById("chips").innerHTML=rooms.map(function(r){
+    return'<button type="button" data-room="'+r[0]+'" aria-pressed="'+(state.room===r[0])+'">'+r[1]+'</button>'}).join("");
+}
+function card(day,x,now,nxt){
+  var live=isLive(day,x,now),cls="item r-"+x.r.toLowerCase()+(x.k?" "+x.k:"");
+  var h='<article id="s-'+day.ses.indexOf(x)+'" class="'+cls+'"><div class="tagrow"><span class="room">'+ROOMS[x.r]+'</span><span class="range">'+x.s+' às '+x.e+'</span>'
+    +(x.sp?'<span class="pill">Patrocinada · '+esc(x.sp)+'</span>':'')
+    +(live?'<span class="pill live">Agora</span>':'')+(x.s===nxt?'<span class="pill next">A seguir</span>':'')
+    +'</div><h3>'+esc(x.t)+'</h3>';
+  if(x.note)h+='<p>'+esc(x.note)+'</p>';
+  if(x.talks)h+='<ol>'+x.talks.map(function(t){return'<li><time>'+t[0]+'</time><div>'+esc(t[1])+(t[2]?'<span>'+esc(t[2])+'</span>':'')+'</div></li>'}).join("")+'</ol>';
+  if(x.mod)h+='<p class="panel"><b>Moderação:</b> '+esc(x.mod)+'</p>'; /* debatedores (x.deb) ocultos por ora */
+  return h+'</article>';
+}
+function ptrCard(day,x,now){
+  return '<button type="button" class="item ptr'+(x.k?" "+x.k:"")+'" data-go="'+x.r+'" data-idx="'+day.ses.indexOf(x)+'"><span class="tagrow"><span class="pill where">No '+ROOMS[x.r]+'</span><span class="range">'+x.s+' às '+x.e+'</span>'
+    +(x.sp?'<span class="pill">Patrocinada · '+esc(x.sp)+'</span>':'')+(isLive(day,x,now)?'<span class="pill live">Agora</span>':'')
+    +'</span><strong>'+esc(x.t)+'</strong>'+(x.note?'<span class="sub2">'+esc(x.note)+'</span>':'')+'<span class="go">Toque para ver no '+ROOMS[x.r]+' →</span></button>';
+}
+function renderBoard(){
+  var day=dayById(state.day),now=pvNow(),nxt=nextStart(day,now),html="";
+  if(state.room==="all"){
+    var COL={A:1,MP1:2,MP2:3};
+    html='<p class="hint">Toque em uma aula para ver as palestras na sala correspondente.</p><div class="cols">'
+      +["A","MP1","MP2"].map(function(r){return'<h3 class="colh c-'+r.toLowerCase()+'">'+ROOMS[r]+'</h3>'}).join("")+'</div>';
+    var brks=day.ses.filter(function(x){return x.k==="brk"}).sort(function(a,b){return a.s<b.s?-1:1});
+    for(var i=0;i<=brks.length;i++){
+      var lo=i?brks[i-1].s:"00:00",hi=i<brks.length?brks[i].s:"99:99";
+      var seg=day.ses.filter(function(x){return x.k!=="brk"&&x.s>=lo&&x.s<hi});
+      if(seg.length){
+        var ts={};seg.forEach(function(x){ts[x.s]=1;ts[x.e]=1});ts=Object.keys(ts).sort();
+        var rows=[];for(var j=1;j<ts.length;j++)rows.push('minmax('+Math.round((mins(ts[j])-mins(ts[j-1]))*PXMIN)+'px,auto)');
+        html+='<div class="cols seg" style="grid-template-rows:'+rows.join(" ")+'">';
+        seg.forEach(function(x){
+          html+='<button type="button" class="mini c-'+x.r.toLowerCase()+(x.k?" "+x.k:"")+(isLive(day,x,now)?" live":"")
+            +'" style="grid-column:'+COL[x.r]+';grid-row:'+(ts.indexOf(x.s)+1)+'/'+(ts.indexOf(x.e)+1)+'" data-go="'+x.r+'" data-idx="'+day.ses.indexOf(x)+'"><time>'+x.s+' – '+x.e+'</time>'
+            +(x.sp?'<em>'+esc(x.sp)+'</em>':'')+'<span>'+esc(x.t)+'</span></button>';
+        });
+        html+='</div>';
+      }
+      if(i<brks.length)html+='<div class="dash"><span><b>'+brks[i].s+' – '+brks[i].e+'</b>'+esc(brks[i].t)+'</span></div>';
+    }
+    document.getElementById("board").innerHTML=html;
+    return;
+  }
+  var own=day.ses.filter(function(x){return x.r===state.room});
+  if(!own.length){ /* sala sem atividade no dia: aponta para o que acontece no Auditório */
+    var inA=day.ses.filter(function(x){return x.r==="A"}).sort(function(a,b){return a.s<b.s?-1:1});
+    html='<p class="empty">Sem atividades nesta sala neste dia.</p>';
+    if(inA.length)html+='<p class="hint">Atividades deste dia no Auditório Principal:</p><div class="items">'+inA.map(function(g){return ptrCard(day,g,now)}).join("")+'</div>';
+    document.getElementById("board").innerHTML=html;return;
+  }
+  var ptrs=day.ses.filter(function(x){return x.also&&x.also.indexOf(state.room)>=0});
+  var list=day.ses.filter(function(x){return x.r==="ALL"||x.r===state.room}).concat(ptrs);
+  var order={A:0,MP1:1,MP2:2,ALL:3};
+  list.sort(function(a,b){return a.s<b.s?-1:a.s>b.s?1:order[a.r]-order[b.r]});
+  var i=0;
+  while(i<list.length){
+    var x=list[i];
+    if(x.k==="brk"){html+='<div class="slot"><div class="break">'+esc(x.t)+' · '+x.s+' às '+x.e+'</div></div>';i++;continue}
+    var grp=[];while(i<list.length&&list[i].s===x.s&&list[i].k!=="brk"){grp.push(list[i]);i++}
+    var anyLive=grp.some(function(g){return isLive(day,g,now)});
+    html+='<div class="slot'+(anyLive?" is-live":"")+'"><div class="time">'+x.s+'</div><div class="items">'+grp.map(function(g){return ptrs.indexOf(g)>=0?ptrCard(day,g,now):card(day,g,now,nxt)}).join("")+'</div></div>';
+  }
+  document.getElementById("board").innerHTML=html||'<p class="empty">Sem atividades nesta sala neste dia.</p>';
+}
+function renderNow(){
+  var now=pvNow(),day=DAYS.filter(function(d){return d.date===now.date})[0];
+  var lbl=document.getElementById("now-lbl"),txt=document.getElementById("now-txt");
+  if(!day){
+    if(now.date&&now.date>"2026-11-29"){lbl.textContent="Obrigado pela presença";txt.textContent="O XI Congresso Rondoniense de Cardiologia foi encerrado. Acompanhe a SOCERON pelos links abaixo."}
+    return;
+  }
+  function names(a){return a.map(function(x){return ROOMS[x.r]+": "+x.t}).join(" · ")}
+  var live=day.ses.filter(function(x){return isLive(day,x,now)}),nxt=nextStart(day,now);
+  if(live.length){lbl.textContent="Acontecendo agora";txt.textContent=names(live)}
+  else if(nxt){lbl.textContent="A seguir · "+nxt;txt.textContent=names(day.ses.filter(function(x){return x.s===nxt&&x.k!=="brk"}))}
+  else{lbl.textContent="Atividades de hoje encerradas";txt.textContent="Veja a grade dos outros dias abaixo."}
+}
+document.getElementById("tabs").addEventListener("click",function(e){var b=e.target.closest("button");if(!b)return;state.day=b.dataset.day;renderTabs();renderBoard()});
+document.getElementById("chips").addEventListener("click",function(e){var b=e.target.closest("button");if(!b)return;state.room=b.dataset.room;renderTabs();renderBoard()});
+document.getElementById("msg-tabs").addEventListener("click",function(e){
+  var b=e.target.closest("button");if(!b)return;
+  Array.prototype.forEach.call(this.querySelectorAll("button"),function(x){x.setAttribute("aria-pressed",x===b?"true":"false")});
+  ["soceron","congresso","multi","has"].forEach(function(k){document.getElementById("msg-"+k).hidden=(k!==b.dataset.msg)});
+});
+document.getElementById("board").addEventListener("click",function(e){
+  var b=e.target.closest("button[data-go]");if(!b)return;
+  state.room=b.dataset.go;renderTabs();renderBoard();
+  var el=document.getElementById("s-"+b.dataset.idx);if(!el)return;
+  var rm=window.matchMedia&&window.matchMedia("(prefers-reduced-motion:reduce)").matches;
+  el.scrollIntoView({behavior:rm?"auto":"smooth",block:"start"});
+  el.classList.add("flash");setTimeout(function(){el.classList.remove("flash")},1800);
+});
+(function(){var n=pvNow(),d=DAYS.filter(function(x){return x.date===n.date})[0];if(d)state.day=d.id;renderTabs();renderBoard();renderNow();
+  setInterval(function(){renderBoard();renderNow()},60000)})();
+</script>
+</body>
+</html>
