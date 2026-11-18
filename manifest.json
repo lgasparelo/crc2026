@@ -1,0 +1,16 @@
+{
+  "name": "CRC 2026 · XI Congresso Rondoniense de Cardiologia",
+  "short_name": "CRC 2026",
+  "description": "Programação, orientações e informações do XI Congresso Rondoniense de Cardiologia, Porto Velho, 27 a 29 de novembro de 2026.",
+  "start_url": "./?source=pwa",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#0E2238",
+  "theme_color": "#0E2238",
+  "lang": "pt-BR",
+  "icons": [
+    {"src": "assets/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any"},
+    {"src": "assets/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any"},
+    {"src": "assets/icon-512-maskable.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable"}
+  ]
+}

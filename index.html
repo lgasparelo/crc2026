@@ -3,7 +3,17 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>CRC 2026 no Congresso</title>
+<title>CRC 2026 · Bem-vindo</title>
+<meta name="description" content="XI Congresso Rondoniense de Cardiologia, 27 a 29 de novembro de 2026, Porto Velho. Programação, orientações, mensagens e apoio.">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#0E2238">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="CRC 2026">
+<link rel="apple-touch-icon" href="assets/icon-180.png">
+<link rel="icon" type="image/png" sizes="192x192" href="assets/icon-192.png">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600&display=swap">
@@ -235,10 +245,50 @@ footer{color:var(--muted);font-size:13.5px;border-top:1px solid var(--line);padd
 nav.dock{position:fixed;left:0;right:0;bottom:0;background:var(--surface);border-top:1px solid var(--line);display:flex;justify-content:center;z-index:5;padding-bottom:env(safe-area-inset-bottom,0)}
 nav.dock a{flex:1 1 0;max-width:160px;text-align:center;padding:13px 2px;font-family:var(--display);font-weight:700;font-size:14.5px;letter-spacing:.04em;text-transform:uppercase;text-decoration:none;color:var(--ink-2)}
 nav.dock a:hover{color:var(--red)}
+
+/* ---- Página inicial (hub) ---- */
+.nowlist{list-style:none;margin:4px 0 0;padding:0;display:flex;flex-direction:column;gap:6px}
+.nowlist li{font-size:15px;line-height:1.35;color:var(--ink)}
+.nowlist b{display:block;font-family:var(--display);font-weight:700;font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--blue)}
+.nowlist i{font-style:normal;color:var(--muted)}
+.now .nxt{display:block;margin-top:12px;font-family:var(--display);font-weight:700;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.backlink{display:none}
+.now .go{margin-top:6px;font-family:var(--display);font-weight:700;font-size:14px;letter-spacing:.06em;text-transform:uppercase;text-decoration:none}
+.count{font-family:var(--display);font-weight:700;font-size:34px;line-height:1;color:var(--ink);margin:4px 0 0}
+.count small{font-size:14px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-left:8px;font-weight:600}
+.cta{display:grid;grid-template-columns:1fr;gap:12px}
+@media(min-width:520px){.cta{grid-template-columns:1fr 1fr}}
+.cta a{display:flex;flex-direction:column;gap:4px;padding:18px 18px 16px;border-radius:8px;text-decoration:none;color:#fff;background:var(--ink);border-left:6px solid var(--red);min-height:112px}
+.cta a.alt{background:var(--blue);border-left-color:var(--gold)}
+.cta a strong{font-family:var(--display);font-weight:700;font-size:24px;line-height:1.05;text-transform:uppercase;letter-spacing:.01em}
+.cta a span{font-size:14.5px;line-height:1.35;color:rgba(255,255,255,.82)}
+.cta a em{font-style:normal;font-family:var(--display);font-weight:600;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.7)}
+.install{background:var(--gold-soft);border:1px solid var(--line);border-left:5px solid var(--gold);border-radius:6px;padding:16px 16px 14px}
+.install h2{margin-top:0}
+.install .lbl{font-family:var(--display);font-weight:700;font-size:14px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold)}
+.install ol{margin:10px 0 0;padding-left:22px;display:flex;flex-direction:column;gap:8px}
+.install li b{font-weight:600}
+.install .os{display:flex;gap:8px;margin:10px 0 0;flex-wrap:wrap}
+.install .os button{font:inherit;font-family:var(--display);font-weight:700;font-size:14px;letter-spacing:.05em;text-transform:uppercase;padding:8px 14px;border-radius:999px;border:1.5px solid var(--gold);background:transparent;color:var(--ink);cursor:pointer}
+.install .os button[aria-pressed="true"]{background:var(--gold);color:#fff}
+.install .done{display:none;margin:10px 0 0;font-weight:600;color:var(--green)}
+.install .hint{font-size:14px;color:var(--ink-2);margin:10px 0 0}
+#btn-install{display:none;margin:12px 0 0;font:inherit;font-family:var(--display);font-weight:700;font-size:16px;letter-spacing:.05em;text-transform:uppercase;padding:12px 18px;border-radius:6px;border:0;background:var(--red);color:#fff;cursor:pointer;width:100%}
+.acc{border-top:1px solid var(--line)}
+.acc details{border-bottom:1px solid var(--line)}
+.acc summary{cursor:pointer;list-style:none;padding:14px 4px;font-family:var(--display);font-weight:700;font-size:19px;text-transform:uppercase;letter-spacing:.02em;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.acc summary::-webkit-details-marker{display:none}
+.acc summary::after{content:"+";font-size:24px;color:var(--red);font-weight:600;line-height:1}
+.acc details[open] summary::after{content:"–"}
+.acc .body{padding:0 4px 16px;color:var(--ink-2);font-size:15.5px}
+.acc .body p{margin:0 0 8px}
+.acc .body ul{margin:0;padding-left:20px}
+.acc .body li{margin:0 0 4px}
+.todo{display:inline-block;font-family:var(--display);font-weight:700;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);background:var(--gold-soft);border-radius:4px;padding:2px 8px;vertical-align:middle}
 </style>
 </head>
 <body>
-<div class="wrap">
+<div class="wrap" id="top">
 
 <header class="top">
   <div class="logo-card"><img src="assets/logo-congresso.png" alt="XI Congresso Rondoniense de Cardiologia, 16º Simpósio de Hipertensão Arterial Sistêmica e 2º Simpósio Multidisciplinar" width="1100" height="310"></div>
@@ -253,14 +303,110 @@ nav.dock a:hover{color:var(--red)}
 <div class="now" id="agora" aria-live="polite">
   <span class="lbl" id="now-lbl">Bem-vindo ao CRC 2026</span>
   <p id="now-txt"></p>
+  <p class="count" id="now-count" hidden></p>
+  <a class="go" id="now-go" href="grade/" hidden>Ver grade completa →</a>
 </div>
 
 <section id="programacao">
-  <h2>Grade científica</h2>
-  <div class="tabs" id="tabs" role="group" aria-label="Dia"></div>
-  <div class="chips" id="chips" role="group" aria-label="Sala"></div>
-  <div class="board" id="board"></div>
-  <p class="sec-note">Horários de Porto Velho. A grade pode sofrer ajustes de última hora.</p>
+  <h2>Programação</h2>
+  <div class="cta">
+    <a href="grade/">
+      <em>Resumida · SOCERON</em>
+      <strong>Grade por sala e horário</strong>
+      <span>Rápida de consultar no celular. Mostra o que está acontecendo agora em cada sala.</span>
+    </a>
+    <a class="alt" href="https://sbc.iweventos.com.br/evento/ccer2026/home" target="_blank" rel="noopener">
+      <em>Completa · SBC</em>
+      <strong>Programação oficial no site do evento</strong>
+      <span>Com todos os palestrantes, moderadores e resumo de cada atividade. Também é onde fica sua área do congressista.</span>
+    </a>
+  </div>
+</section>
+
+<section id="instalar" class="install">
+  <span class="lbl">Leve o congresso no bolso</span>
+  <h2>Salve na tela inicial do celular</h2>
+  <p>Esta página funciona como um aplicativo: com o ícone na tela inicial, você abre a grade em um toque, sem procurar o QR Code de novo.</p>
+  <button type="button" id="btn-install">Instalar agora</button>
+  <p class="done" id="inst-done">Pronto, o CRC 2026 já está na sua tela inicial.</p>
+  <div class="os" role="group" aria-label="Sistema do celular">
+    <button type="button" data-os="ios" aria-pressed="true">iPhone</button>
+    <button type="button" data-os="android" aria-pressed="false">Android</button>
+  </div>
+  <ol id="inst-ios">
+    <li>Abra esta página no <b>Safari</b> (se abriu em outro navegador, copie o endereço e cole no Safari).</li>
+    <li>Toque no botão <b>Compartilhar</b> (o quadrado com a seta para cima, na barra inferior).</li>
+    <li>Role a lista e toque em <b>Adicionar à Tela de Início</b>, depois em <b>Adicionar</b>.</li>
+  </ol>
+  <ol id="inst-android" hidden>
+    <li>Abra esta página no <b>Chrome</b>.</li>
+    <li>Toque nos <b>três pontos</b> no canto superior direito.</li>
+    <li>Toque em <b>Adicionar à tela inicial</b> (ou <b>Instalar aplicativo</b>) e confirme.</li>
+  </ol>
+  <p class="hint">O ícone aparece junto com os outros aplicativos. Nada é baixado da loja e não ocupa espaço.</p>
+</section>
+
+<section id="orientacoes">
+  <h2>Orientações gerais</h2>
+  <div class="acc">
+    <details>
+      <summary>Credenciamento e crachá</summary>
+      <div class="body">
+        <p>O credenciamento acontece na recepção do Auditório Principal, na sexta a partir das 18h e no sábado a partir das 7h.</p>
+        <p>Use o crachá durante todo o evento: ele dá acesso às salas, ao coffee e ao coquetel de abertura.</p>
+      </div>
+    </details>
+    <details>
+      <summary>Certificado</summary>
+      <div class="body">
+        <p>O certificado é emitido pela área do congressista no site do evento (SBC/iWeventos), com o mesmo login da inscrição, após o encerramento do congresso.</p>
+        <p><a href="https://sbc.iweventos.com.br/evento/ccer2026/home" target="_blank" rel="noopener">Acessar a área do congressista →</a></p>
+      </div>
+    </details>
+    <details>
+      <summary>Wi-Fi</summary>
+      <div class="body">
+        <p><span class="todo">A confirmar</span> Rede e senha serão divulgadas aqui e nos cartazes das salas.</p>
+      </div>
+    </details>
+    <details>
+      <summary>Salas e como chegar a cada uma</summary>
+      <div class="body">
+        <ul>
+          <li><b>Auditório Principal</b>: abertura, Palestra Magna, aulas e sessões patrocinadas.</li>
+          <li><b>Mini-Plenário 1</b>: aulas, discussões em formato Heart Team e Simpósio de Hipertensão.</li>
+          <li><b>Mini-Plenário 2</b>: Simpósio Multidisciplinar, Simpósio das Ligas e apresentação dos trabalhos premiados.</li>
+        </ul>
+        <p>Acadêmicos da LICAR e do CAMUFRO, identificados, orientam o caminho entre as salas.</p>
+      </div>
+    </details>
+    <details>
+      <summary>Temas livres e premiação</summary>
+      <div class="body">
+        <p>Os trabalhos premiados são apresentados no Mini-Plenário 2. Os resumos aprovados serão publicados em suplemento do International Journal of Cardiovascular Sciences (IJCS), da SBC.</p>
+      </div>
+    </details>
+    <details>
+      <summary>Coffee, almoço e coquetel</summary>
+      <div class="body">
+        <p>Coffee break nos intervalos da grade, na área de exposição dos patrocinadores. O coquetel de confraternização é na sexta, após a Palestra Magna.</p>
+        <p>O almoço de sábado é livre; a grade retorna às 14h.</p>
+      </div>
+    </details>
+    <details>
+      <summary>Estacionamento e chegada</summary>
+      <div class="body">
+        <p><span class="todo">A confirmar</span> Orientações de estacionamento na Assembleia Legislativa.</p>
+        <p>Endereço: Av. Farquar, 2562, Olaria, Porto Velho. <a href="https://www.google.com/maps/search/?api=1&query=Assembleia+Legislativa+do+Estado+de+Rond%C3%B4nia+Av.+Farquar+2562+Porto+Velho" target="_blank" rel="noopener">Abrir no Maps →</a></p>
+      </div>
+    </details>
+    <details>
+      <summary>Precisa de ajuda?</summary>
+      <div class="body">
+        <p>Secretaria do congresso no WhatsApp: <a href="https://wa.me/5569992022215" target="_blank" rel="noopener">(69) 99202-2215</a> · secretaria.soceronro@gmail.com</p>
+      </div>
+    </details>
+  </div>
 </section>
 
 <section id="mensagens">
@@ -345,6 +491,7 @@ nav.dock a:hover{color:var(--red)}
   <h2>Links</h2>
   <div class="links">
     <a href="https://sbc.iweventos.com.br/evento/ccer2026/home" target="_blank" rel="noopener"><b>Plataforma do evento</b><span>Inscrição e área do congressista</span></a>
+    <a href="https://soceron.com.br" target="_blank" rel="noopener"><b>Atualização cadastral</b><span>Associado SOCERON: mantenha seus dados em dia</span></a>
     <a href="https://soceron.com.br" target="_blank" rel="noopener"><b>SOCERON</b><span>soceron.com.br</span></a>
     <a href="https://www.portal.cardiol.br" target="_blank" rel="noopener"><b>SBC</b><span>portal.cardiol.br</span></a>
     <a href="https://wa.me/5569992022215" target="_blank" rel="noopener"><b>Secretaria</b><span>WhatsApp (69) 99202-2215</span></a>
@@ -384,180 +531,15 @@ nav.dock a:hover{color:var(--red)}
 </div>
 
 <nav class="dock" aria-label="Seções">
-  <a href="#programacao">Grade</a>
+  <a href="grade/">Grade</a>
+  <a href="#orientacoes">Guia</a>
   <a href="#mensagens">Mensagens</a>
   <a href="#patrocinadores">Apoio</a>
-  <a href="#links">Links</a>
   <a href="#info">Local</a>
 </nav>
 
+<script src="assets/grade.js"></script>
 <script>
-/* ====== GRADE: edite aqui ======
-   Fonte: Cronograma_CRC_2026_OFICIAL.xlsx, aba "CRC 2026 - OFICIAL" (lida em 16/11/2026, 23h).
-   r: A = Auditório Principal, MP1 = Mini-Plenário 1, MP2 = Mini-Plenário 2, ALL = todas
-   k: "sp" patrocinada, "cer" cerimônia, "brk" intervalo. talks: [horário, título, palestrante] */
-var ROOMS={A:"Auditório Principal",MP1:"Mini-Plenário 1",MP2:"Mini-Plenário 2",ALL:"Todas as salas"};
-var DAYS=[
-{id:"sex",label:"Sexta",date:"2026-11-27",short:"27/11",ses:[
- {r:"A",k:"cer",s:"19:00",e:"20:00",t:"Cerimônia de abertura",note:"Hino e discursos"},
- {r:"A",k:"cer",s:"20:00",e:"21:00",t:"Palestra Magna",note:"Dr. Danilo Ferraz de Oliveira Maksud (SP)"},
- {r:"A",k:"cer",s:"21:00",e:"22:30",t:"Coquetel de confraternização"}
-]},
-{id:"sab",label:"Sábado",date:"2026-11-28",short:"28/11",ses:[
- {r:"ALL",k:"brk",s:"07:00",e:"08:00",t:"Credenciamento"},
- {r:"MP2",s:"07:30",e:"09:30",t:"Simpósio Multidisciplinar · Módulo 1",talks:[
-  ["07:30","Anatomofisiologia do coração: a importância de conhecê-lo","Jandra Cibele Rodrigues de Abrantes Pereira Leite, enfermeira (RO)"],
-  ["07:45","ECG","Jandra Cibele Rodrigues de Abrantes Pereira Leite, enfermeira (RO)"],
-  ["08:00","Segurança do paciente crítico na UTI: práticas essenciais e atitudes que salvam vidas","Rosa Maria Ferreira de Almeida, enfermeira (RO)"],
-  ["08:30","Cirurgia cardiovascular e circulação extracorpórea (CEC)","Marco Aurélio Pereira da Silva, perfusionista (RO)"],
-  ["08:50","Entre a vida e o medo: sofrimento psíquico no paciente cardiológico em situação crítica","Bruna Cerqueira Paes, psicóloga (RO)"],
-  ["09:10","Broncoaspiração no paciente cardiopata crítico: prevenção, segurança e estratégias preventivas","Scherley Keavynny Tavares Silva Moreno, fonoaudióloga (RO)"]]},
- {r:"MP1",s:"08:00",e:"08:40",t:"Dor no peito às 3h da manhã: quem eu libero, quem eu interno?",talks:[
-  ["08:00","Troponina de alta sensibilidade e escore HEART: o protocolo que evita o erro","Dr. Luiz Carlos Benittez Junior (RO)"],
-  ["08:10","O paciente que parece bem mas não está: os sinais de alarme que não dá pra perder","Dra. Leisle de Freitas Diniz (RO)"]],
-  mod:"Dr. Carlos Henrique Spesia (RO)",deb:"Dr. Adalberto Machado Coelho (RO), Dr. Marcio Messias (AC), Dra. Stefany Egito (RO)"},
- {r:"A",s:"08:40",e:"09:30",t:"Fibrilação atrial hoje: controle sintomático, prevenção embólica e oclusão percutânea do apêndice",talks:[
-  ["08:40","Controle de ritmo vs. controle de frequência na FA: o que as evidências atuais dizem sobre remodelamento e sobrevida?","Dr. Carlos Eduardo Duarte (SP)"],
-  ["08:50","O cardiologista clínico diante da fibrilação atrial: quem, quando e como anticoagular em cenários complexos","Dr. Pablo Brasil (RO)"],
-  ["09:00","Fechamento percutâneo do apêndice atrial esquerdo: quem é o candidato ideal?","Dr. Danilo Ferraz de Oliveira Maksud (SP)"]],
-  mod:"Dr. Marcos Rosa Ferreira (RO)",deb:"Dr. Cristóvão de Oliveira dos Silva (RO), Dr. Thiago Coimbra Felipe (RO)"},
- {r:"MP1",s:"08:50",e:"09:30",t:"Miocardiopatias: do diagnóstico ao tratamento intervencionista",talks:[
-  ["08:50","Não é apenas hipertrofia: quando pensar em miocardiopatias","Dr. Rodolfo Luiz Amorim de Oliveira (RO)"],
-  ["09:00","Novas evidências no tratamento medicamentoso das miocardiopatias","Dra. Stefany Egito (RO)"],
-  ["09:10","Miocardiopatia hipertrófica obstrutiva: opções de tratamento intervencionista","Dr. Sidney Munhoz Junior (MT)"]],
-  mod:"Dr. Rodrigo Gallina (RO)",deb:"Dra. Marilene Rodrigues Carvalho (RO), Dr. Carlos Borelli Zeller (RO), Dr. Carlos Eduardo Faria Silva (RO)"},
- {r:"ALL",k:"brk",s:"09:30",e:"10:00",t:"Visita aos estandes, apresentação dos trabalhos em pôster e coffee break"},
- {r:"A",s:"10:00",e:"10:40",t:"Insuficiência cardíaca crônica: do quarteto à próxima fronteira",talks:[
-  ["10:00","Os quatro pilares em quatro semanas: como titular de verdade no mundo real","Dra. Diana Negreiros (SP)"],
-  ["10:10","Além do quarteto: as terapias emergentes que já mudam a sobrevida na IC","Dr. Marcus Vinicius Nunes Batista (RO)"],
-  ["10:20","Ressincronização cardíaca no consultório: como avaliar a resposta e o que fazer com os não respondedores?","Dr. Carlos Eduardo Duarte (SP)"]],
-  mod:"Dr. Carlos Henrique Spesia (RO)",deb:"Dr. Valmir Favaro Martins (RO), Dr. Lucas da Silva Graça (RO), Dra. Alessandra Arêdes Moraes de Mendonça (RO)"},
- {r:"MP1",s:"10:00",e:"10:40",t:"Heart Team · DAC crônica: da estratificação à decisão de revascularização",talks:[
-  ["10:00","Caso clínico","Dra. Teynan Nunes (RO)"],
-  ["10:10","Tratamento clínico otimizado: os limites da terapia medicamentosa","Dr. André Zimerman (RS)"],
-  ["10:20","Revascularizar ou não: quando a intervenção muda o desfecho","Dr. Danilo Ferraz de Oliveira Maksud (SP)"]],
-  mod:"Dr. Cristóvão de Oliveira dos Silva (RO)",deb:"Dra. Gislaine Michel Marin Mugrabi (RO), Dr. Paulo Cesar da Cruz Capellani (RO), Dra. Erêndira Linhares Batista Barbosa (RO)"},
- {r:"MP2",s:"10:00",e:"12:30",t:"Simpósio Multidisciplinar · Módulo 2",talks:[
-  ["10:00","Reabilitação cardiopulmonar no paciente crítico","Matheus Fontele Fernandes, fisioterapeuta (RO)"],
-  ["10:20","Atuação da enfermagem no atendimento pré-hospitalar às emergências cardiovasculares","Mara da Silva Pereira Bastos, enfermeira (RO)"],
-  ["11:00","Monitorização avançada e avanços tecnológicos: assistência ao paciente crítico","Kalliza Kary Rodrigues da Costa, enfermeira (RJ)"],
-  ["11:30","Segurança medicamentosa e vigilância no paciente cardiopata","Jaqueline Santana Santos, farmacêutica (RO)"],
-  ["12:00","Impacto da intervenção nutricional na evolução clínica e no estado nutricional de pacientes cardiopatas","Andrezza Maria de Oliveira, nutróloga (RO)"]]},
- {r:"A",s:"10:50",e:"11:30",t:"Eixo cardio-renal-metabólico: o paciente que não cabe em uma especialidade",talks:[
-  ["10:50","Obesidade e GLP-1 na doença cardiovascular: de quem é esse paciente?","Dr. André Zimerman (RS)"],
-  ["11:00","Diabetes e doença renal crônica: iSGLT2, finerenona e a ordem de entrada das drogas","Dr. Francisco Antonio Helfenstein Fonseca (SP)"],
-  ["11:10","Dislipidemia de muito alto risco: até onde baixar o LDL e com o quê","Dr. Carlos Henrique Spesia (RO)"]],
-  mod:"Dra. Stefany Egito (RO)",deb:"Dra. Fabiane Fernandes Schmitt Flores (RO)"},
- {r:"MP1",s:"10:50",e:"11:30",t:"Heart Team · Dispositivos cardíacos implantáveis: quando vale a pena tratar",talks:[
-  ["10:50","A carga arrítmica importa, mas e o resto? Como tomar conduta além da porcentagem do Holter?","Dra. Sarah Schereder (RS)"],
-  ["11:00","Indicações de TRC e CDI além do óbvio","Dr. Marcos Rosa Ferreira (RO)"],
-  ["11:10","Marcapasso sem eletrodos na prática clínica: quais pacientes realmente se beneficiam desta tecnologia?","Dr. Carlos Eduardo Duarte (SP)"]],
-  mod:"Dr. Pablo Brasil (RO)",deb:"Dr. Marcelo Tabosa (RO), Dr. Carlos Borelli Zeller (RO)"},
- {r:"A",k:"sp",sp:"LIBBS",also:["MP1"],s:"11:40",e:"12:20",t:"O paciente cardiovascular de alto risco: da prevenção à redução de eventos. Estratégias atuais para lipídios, hipertensão e doença aterotrombótica",note:"Dr. Francisco Antonio Helfenstein Fonseca (SP)"},
- {r:"ALL",k:"brk",s:"12:30",e:"13:30",t:"Intervalo para almoço"},
- {r:"MP1",s:"13:30",e:"14:30",t:"Simpósio de Hipertensão · MAPA, MRPA, VOP e pressão central",note:"Aula fechada",talks:[
-  ["13:30","MAPA, MRPA, VOP e pressão central","Dr. Bruno Augusto Alcova Nogueira (SP)"],
-  ["13:50","MAPA, MRPA, VOP e pressão central","Dr. Emerson Costa Porto (BA)"]],
-  deb:"Dr. João Roberto Gemelli (RO)"},
- {r:"MP2",s:"13:30",e:"15:30",t:"Simpósio Multidisciplinar · Módulo 3",talks:[
-  ["13:30","Cuidados e vigilância em pacientes em pós-operatório endovascular","Sheila Cristina da Silva Cavalcante Souza, enfermeira (RO)"],
-  ["14:00","Métodos de recuperação muscular no paciente crítico: da UTI à reabilitação","Sarana dos Santos Matos, fisioterapeuta (RO)"],
-  ["14:20","Apneia obstrutiva do sono como modificador de risco cardiovascular: evidências, mecanismo e impacto de tratamento","Flávia da Silva Lelis, fisioterapeuta (RO)"],
-  ["14:50","Inovação tecnológica no paciente cardiocrítico: monitoramento e tomada de decisão","Luan dos Santos Nonato, enfermeiro (RO)"]]},
- {r:"A",s:"14:30",e:"15:30",t:"Ecocardiografia avançada na prática",talks:[
-  ["14:30","Strain miocárdico além da fração de ejeção: quando o método realmente muda a conduta?","Dr. Saulo Rodrigo Moreira da Cunha (RO)"],
-  ["14:45","Trabalho miocárdico além do clássico strain: por que e quando usar?","Dr. Marcelo Salame (RO)"],
-  ["15:00","Eco 3D na vida real: o que eu não consigo enxergar bem no 2D?","Dra. Wendy Sierraalta Navarro (SP)"]],
-  mod:"Dr. Rodolfo Luiz Amorim de Oliveira (RO)",deb:"Dra. Barbara de Figueredo Tenorio (RO), Dr. Igor D'Ávila (AC)"},
- {r:"MP1",s:"14:30",e:"15:30",t:"Simpósio de Hipertensão · Mesa 1",talks:[
-  ["14:30","Hormônios e o coração feminino: o manejo seguro da terapia hormonal na IOP e na menopausa","Dra. Ivanice Fernandes Barcellos Gemelli (RO)"],
-  ["14:40","Anti-hipertensivos, rigidez arterial e disfunção endotelial","Dr. Bruno Augusto Alcova Nogueira (SP)"],
-  ["14:50","Particularidades e cuidados no hipertenso idoso e superidoso","Dra. Ana Gabriela Caldas Giovanini (RO)"],
-  ["15:00","Desafios da disautonomia no paciente hipertenso","Dr. Emerson Costa Porto (BA)"]],
-  deb:"Dr. João Roberto Gemelli (RO)"},
- {r:"ALL",k:"brk",s:"15:30",e:"16:00",t:"Visita aos estandes, apresentação dos trabalhos em pôster e coffee break"},
- {r:"A",s:"16:00",e:"16:40",t:"Emergências cardiovasculares",talks:[
-  ["16:00","FA na emergência: quando cardioverter?","Dra. Sarah Schereder (RS)"],
-  ["16:10","TEP em 2026: o que mudou na estratificação de risco e na reperfusão?","Dra. Milena Alves (RO)"],
-  ["16:20","Síndrome aórtica aguda: diagnóstico e conduta nas primeiras horas","Dr. Jorge Luis da Silva (SP)"]],
-  mod:"Dr. Marcos Rosa Ferreira (RO)",deb:"Dr. Gustavo, pneumologista (RO), Dra. Themis Borche da Silva (RO)"},
- {r:"MP1",s:"16:00",e:"17:30",t:"Simpósio de Hipertensão · Mesa 2",talks:[
-  ["16:00","Abordagem prática da hipertensão na infância: o que todos devem saber","Dra. Luciana Silveira Nina de Azevedo (RO)"],
-  ["16:15","Aplicabilidade clínica das novas drogas no tratamento da HAS","Dr. Emerson Costa Porto (BA)"],
-  ["16:30","Tratamento da hipertensão no paciente oncológico","Dr. João Roberto Gemelli (RO)"],
-  ["16:45","Melhores trabalhos do ESC 2026","Dr. Bruno Augusto Alcova Nogueira (SP)"]],
-  deb:"Dra. Jessica Fontenele Calixto (RO)"},
- {r:"MP2",s:"16:00",e:"18:40",t:"Simpósio Multidisciplinar · Módulo 4",talks:[
-  ["16:00","Paciente cardiológico em deterioração clínica: reconhecimento precoce e atuação da enfermagem","Kalliza Kary Rodrigues da Costa, enfermeira (RJ)"],
-  ["16:30","Desafio da terapia nutricional no paciente crítico cardiopata","Gabriela de Souza Barbosa, nutricionista (RO)"],
-  ["16:50","Prevenção de infecção em dispositivos invasivos: desafios na UTI cardiológica","Lorena Teixeira da Silva, enfermeira (RO)"],
-  ["17:10","Atuação do farmacêutico na farmacoterapia do infarto agudo do miocárdio","Talita Barbosa Gomes, farmacêutica (RO)"],
-  ["17:40","Fisioterapia no paciente cardiológico crítico: mobilização precoce, suporte ventilatório e recuperação funcional","Fábio Bruno de Souza Santos, fisioterapeuta (RO)"],
-  ["18:10","Mesa-redonda: novos conceitos estratégicos e estratégias assertivas e humanizadas","Kalliza Kary Rodrigues da Costa (RJ), Dra. Talita Barbosa Gomes (RO) e Flávia da Silva Lelis (RO). Moderador: Kadimo Luann Gomes Rodrigues Paulino (RO)"],
-  ["18:40","Encerramento do simpósio e sorteio de brindes e livros",""]]},
- {r:"A",s:"16:50",e:"17:30",t:"Highlights",talks:[
-  ["16:50","Highlights em doença arterial coronariana e prevenção cardiovascular","Dr. Cristóvão de Oliveira dos Silva (RO)"],
-  ["17:00","Highlights em insuficiência cardíaca e miocardiopatias","Dra. Rafaela Rádner (RO)"],
-  ["17:10","Highlights em antiplaquetários e anticoagulação","Dr. Renan Marquiori (RO)"]],
-  mod:"Dr. Rodrigo Gallina (RO)",deb:"Dr. Francisco Antonio Helfenstein Fonseca (SP), Dr. Marcus Vinicius Nunes Batista (RO)"},
- {r:"A",k:"sp",sp:"Edwards",also:["MP1"],s:"17:40",e:"18:20",t:"Da exceção à rotina: como a TAVI transformou o tratamento da doença valvar",note:"Dr. Ricardo Wang (MG)"}
-]},
-{id:"dom",label:"Domingo",date:"2026-11-29",short:"29/11",ses:[
- {r:"MP1",s:"08:00",e:"08:40",t:"POCUS",talks:[
-  ["08:00","POCUS no choque indiferenciado: como definir o fenótipo hemodinâmico à beira-leito","Dra. Barbara de Figueredo Tenorio (RO)"],
-  ["08:10","POCUS na parada cardíaca e no paciente peri-PCR","Dra. Diana Negreiros (SP)"]],
-  mod:"Dr. Marcelo Salame (RO)",deb:"Dra. Marcela de Aguiar Antonio (RO), Dr. Murilo Salani Gil (RO)"},
- {r:"MP2",s:"08:00",e:"08:40",t:"Apresentação dos trabalhos selecionados"},
- {r:"A",s:"08:50",e:"09:30",t:"Doença coronariana crônica: anatomia, fisiologia e o que de fato muda desfecho",talks:[
-  ["08:50","Isquemia ou anatomia? O que de fato indica a revascularização no paciente crônico","Dr. Bruno de Castro Coutinho (RN)"],
-  ["09:00","Oclusão crônica total: quando vale a pena abrir?","Dr. Cleber Henrique (RO)"],
-  ["09:10","Revascularização cirúrgica hoje: para quem, como e com que resultado","Dr. Jorge Luis da Silva (SP)"]],
-  mod:"Dr. Gederson Rossato (RO)",deb:"Dr. Luiz Carlos Benittez Junior (RO), Dr. Rodrigo Gallina (RO), Dr. Evaldo Machado Junior (RO)"},
- {r:"MP1",s:"08:50",e:"09:30",t:"Ecocardiografia na decisão clínica",talks:[
-  ["08:50","Cardiopatia reumática: ainda dá para fazer valvoplastia? Como selecionar o paciente em 2026?","Dr. Rodolfo Borges Franco de Macêdo (RO)"],
-  ["09:00","Novo consenso de diástole: ganhamos precisão ou perdemos sensibilidade?","Dra. Wendy Sierraalta Navarro (SP)"],
-  ["09:10","IA no ecocardiograma: o que já podemos usar na prática?","Dr. Jhonathan Gouveia da Mota (RO)"]],
-  mod:"Dr. Rodolfo Luiz Amorim de Oliveira (RO)",deb:"Dra. Anna Claudia Cerutti (RO), Dra. Raitany Costa de Almeida (RO), Dr. Marcelo Salame (RO)"},
- {r:"MP2",s:"08:50",e:"09:30",t:"Simpósio das Ligas · Cardiologia na prática clínica",talks:[
-  ["08:50","Insuficiência cardíaca: da suspeita clínica ao tratamento que muda o prognóstico","Dra. Rafaela Rádner (RO)"],
-  ["09:05","Conhecendo os DCEIs (dispositivos cardíacos eletrônicos implantáveis)","Dr. Marcos Rosa Ferreira (RO)"]]},
- {r:"ALL",k:"brk",s:"09:30",e:"10:00",t:"Visita aos estandes, apresentação dos trabalhos em pôster e coffee break"},
- {r:"A",s:"10:00",e:"10:40",t:"Estenose aórtica: a primeira válvula decide a segunda",talks:[
-  ["10:00","Estenose aórtica grave assintomática: intervir já ou acompanhar?","Dra. Gislaine Michel Marin Mugrabi (RO)"],
-  ["10:10","TAVI ou cirurgia no paciente de baixo risco: como decidir em 2026","Dr. Bruno de Castro Coutinho (RN)"],
-  ["10:20","Lifetime management: pensando na segunda válvula antes de implantar a primeira","Dr. Ricardo Wang (MG)"]],
-  mod:"Dr. Luiz Henrique Gasparelo (RO)",deb:"Dra. Elisangela Henrique Muniz de Oliveira Rocha (RO), Dra. Halyna Melo (AC), Dr. Cleber Henrique (RO)"},
- {r:"MP1",s:"10:00",e:"10:40",t:"Heart Team · Exercício e coração: quem avaliar, como prescrever e como manter?",talks:[
-  ["10:00","Atividade física e risco cardiovascular: quem precisa de investigação e como fazê-la antes de começar?","Dra. Jessica Fontenele Calixto (RO)"],
-  ["10:10","Do paciente esportista ao cardiopata: como prescrever exercícios físicos?","Dra. Raissa Simonato (RO)"],
-  ["10:20","Nunca é tarde para começar: exercício no idoso, da prescrição à adesão","Dr. Lucas Rondina (RO)"]],
-  mod:"Dr. Marcelo Salame (RO)",deb:"Dr. Bernardo Dal Ponte Descovi (RO), Dra. Fabiane Fernandes Schmitt Flores (RO)"},
- {r:"MP2",s:"10:00",e:"10:40",t:"Simpósio das Ligas · Interfaces clínicas: o coração e as especialidades",talks:[
-  ["10:00","Dor torácica na infância e adolescência: sinais de alerta e abordagem clínica","Dra. Luciana Silveira Nina de Azevedo (RO)"],
-  ["10:10","Quando o tratamento do câncer afeta o coração: os desafios da cardio-oncologia na era das terapias modernas","Dra. Giselle Almeida (RO)"],
-  ["10:20","Síndrome cardiorrenal aguda: até onde insistir na diurese e quando iniciar diálise?","Dr. Dhiego Lang (RO)"]]},
- {r:"A",s:"10:50",e:"11:30",t:"Mitral e tricúspide: a era do reparo transcateter chegou ao Norte",talks:[
-  ["10:50","Insuficiência mitral: primária ou secundária, e por que isso muda todo o tratamento","Dra. Wendy Sierraalta Navarro (SP)"],
-  ["11:00","Reparo mitral sem cirurgia: quem é o paciente ideal e o que esperar do resultado","Dr. Daniel Ferreira Mugrabi (RO)"],
-  ["11:10","A válvula tricúspide que ninguém trata: quando é hora de intervir","Dr. Ricardo Wang (MG)"]],
-  mod:"Dra. Gislaine Michel Marin Mugrabi (RO)",deb:"Dr. Carlos Eduardo Faria Silva (RO), Dra. Taís Neves Noujaim Miotto (RO), Dra. Halyna Melo (AC)"},
- {r:"MP1",s:"10:50",e:"11:30",t:"Choque cardiogênico na prática: do caso real ao suporte hemodinâmico",talks:[
-  ["10:50","Apresentação do caso","Dra. Suzana Costa Borche (RO)"],
-  ["11:00","Melhores práticas no choque cardiogênico","Dra. Themis Borche da Silva (RO)"],
-  ["11:10","Tipos de suporte hemodinâmico disponíveis","Dr. Rafael Nunes (RO)"]],
-  mod:"Dr. Thiago Coimbra Felipe (RO)",deb:"Dr. Andrei Leonardo Freitas de Oliveira (RO), Dr. Carlos Henrique Spesia (RO)"},
- {r:"MP2",s:"10:50",e:"11:30",t:"Simpósio das Ligas · Caminhos na medicina: carreira e oportunidades",talks:[
-  ["10:50","Carreira médica: caminhos depois da formatura",""],
-  ["11:05","Medicina na Força Aérea: como ingressar e o que a carreira oferece?","Dr. Rian Barreto"],
-  ["11:20","Encerramento do simpósio e sorteio de brindes",""]]},
- {r:"A",k:"sp",sp:"Boston Scientific",also:["MP1","MP2"],s:"11:40",e:"12:20",t:"Além da angiografia: como a imagem intravascular e o preparo do cálcio mudaram a angioplastia coronária",note:"Dr. Bruno de Castro Coutinho (RN)"},
- {r:"A",k:"cer",s:"12:30",e:"13:30",t:"Cerimônia de encerramento",note:"Premiações e sorteio de brindes e livros"}
-]}
-];
-/* ====== fim da grade ====== */
-
-var state={day:"sex",room:"all"};
-function esc(t){return String(t).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
 function pvNow(){
   try{
     var p=new Intl.DateTimeFormat("en-CA",{timeZone:"America/Porto_Velho",year:"numeric",month:"2-digit",day:"2-digit",hour:"2-digit",minute:"2-digit",hour12:false}).formatToParts(new Date());
@@ -565,115 +547,57 @@ function pvNow(){
     return{date:o.year+"-"+o.month+"-"+o.day,time:(o.hour==="24"?"00":o.hour)+":"+o.minute};
   }catch(e){return{date:"",time:""}}
 }
-var PXMIN=3.6; /* altura na visão geral: pixels por minuto de atividade */
-function mins(t){return +t.slice(0,2)*60+ +t.slice(3)}
-function dayById(id){return DAYS.filter(function(d){return d.id===id})[0]}
 function isLive(day,x,now){return day.date===now.date&&x.k!=="brk"&&now.time>=x.s&&now.time<x.e}
 function nextStart(day,now){
   if(day.date!==now.date)return"";
   var st=day.ses.filter(function(x){return x.k!=="brk"&&x.s>now.time}).map(function(x){return x.s}).sort();
   return st[0]||"";
 }
-function renderTabs(){
-  document.getElementById("tabs").innerHTML=DAYS.map(function(d){
-    return'<button type="button" data-day="'+d.id+'" aria-pressed="'+(state.day===d.id)+'">'+d.label+'<small>'+d.short+'</small></button>'}).join("");
-  var rooms=[["all","Todas as salas"],["A","Auditório"],["MP1","Mini-Plenário 1"],["MP2","Mini-Plenário 2"]];
-  document.getElementById("chips").innerHTML=rooms.map(function(r){
-    return'<button type="button" data-room="'+r[0]+'" aria-pressed="'+(state.room===r[0])+'">'+r[1]+'</button>'}).join("");
-}
-function card(day,x,now,nxt){
-  var live=isLive(day,x,now),cls="item r-"+x.r.toLowerCase()+(x.k?" "+x.k:"");
-  var h='<article id="s-'+day.ses.indexOf(x)+'" class="'+cls+'"><div class="tagrow"><span class="room">'+ROOMS[x.r]+'</span><span class="range">'+x.s+' às '+x.e+'</span>'
-    +(x.sp?'<span class="pill">Patrocinada · '+esc(x.sp)+'</span>':'')
-    +(live?'<span class="pill live">Agora</span>':'')+(x.s===nxt?'<span class="pill next">A seguir</span>':'')
-    +'</div><h3>'+esc(x.t)+'</h3>';
-  if(x.note)h+='<p>'+esc(x.note)+'</p>';
-  if(x.talks)h+='<ol>'+x.talks.map(function(t){return'<li><time>'+t[0]+'</time><div>'+esc(t[1])+(t[2]?'<span>'+esc(t[2])+'</span>':'')+'</div></li>'}).join("")+'</ol>';
-  if(x.mod)h+='<p class="panel"><b>Moderação:</b> '+esc(x.mod)+'</p>'; /* debatedores (x.deb) ocultos por ora */
-  return h+'</article>';
-}
-function ptrCard(day,x,now){
-  return '<button type="button" class="item ptr'+(x.k?" "+x.k:"")+'" data-go="'+x.r+'" data-idx="'+day.ses.indexOf(x)+'"><span class="tagrow"><span class="pill where">No '+ROOMS[x.r]+'</span><span class="range">'+x.s+' às '+x.e+'</span>'
-    +(x.sp?'<span class="pill">Patrocinada · '+esc(x.sp)+'</span>':'')+(isLive(day,x,now)?'<span class="pill live">Agora</span>':'')
-    +'</span><strong>'+esc(x.t)+'</strong>'+(x.note?'<span class="sub2">'+esc(x.note)+'</span>':'')+'<span class="go">Toque para ver no '+ROOMS[x.r]+' →</span></button>';
-}
-function renderBoard(){
-  var day=dayById(state.day),now=pvNow(),nxt=nextStart(day,now),html="";
-  if(state.room==="all"){
-    var COL={A:1,MP1:2,MP2:3};
-    html='<p class="hint">Toque em uma aula para ver as palestras na sala correspondente.</p><div class="cols">'
-      +["A","MP1","MP2"].map(function(r){return'<h3 class="colh c-'+r.toLowerCase()+'">'+ROOMS[r]+'</h3>'}).join("")+'</div>';
-    var brks=day.ses.filter(function(x){return x.k==="brk"}).sort(function(a,b){return a.s<b.s?-1:1});
-    for(var i=0;i<=brks.length;i++){
-      var lo=i?brks[i-1].s:"00:00",hi=i<brks.length?brks[i].s:"99:99";
-      var seg=day.ses.filter(function(x){return x.k!=="brk"&&x.s>=lo&&x.s<hi});
-      if(seg.length){
-        var ts={};seg.forEach(function(x){ts[x.s]=1;ts[x.e]=1});ts=Object.keys(ts).sort();
-        var rows=[];for(var j=1;j<ts.length;j++)rows.push('minmax('+Math.round((mins(ts[j])-mins(ts[j-1]))*PXMIN)+'px,auto)');
-        html+='<div class="cols seg" style="grid-template-rows:'+rows.join(" ")+'">';
-        seg.forEach(function(x){
-          html+='<button type="button" class="mini c-'+x.r.toLowerCase()+(x.k?" "+x.k:"")+(isLive(day,x,now)?" live":"")
-            +'" style="grid-column:'+COL[x.r]+';grid-row:'+(ts.indexOf(x.s)+1)+'/'+(ts.indexOf(x.e)+1)+'" data-go="'+x.r+'" data-idx="'+day.ses.indexOf(x)+'"><time>'+x.s+' – '+x.e+'</time>'
-            +(x.sp?'<em>'+esc(x.sp)+'</em>':'')+'<span>'+esc(x.t)+'</span></button>';
-        });
-        html+='</div>';
-      }
-      if(i<brks.length)html+='<div class="dash"><span><b>'+brks[i].s+' – '+brks[i].e+'</b>'+esc(brks[i].t)+'</span></div>';
-    }
-    document.getElementById("board").innerHTML=html;
-    return;
-  }
-  var own=day.ses.filter(function(x){return x.r===state.room});
-  if(!own.length){ /* sala sem atividade no dia: aponta para o que acontece no Auditório */
-    var inA=day.ses.filter(function(x){return x.r==="A"}).sort(function(a,b){return a.s<b.s?-1:1});
-    html='<p class="empty">Sem atividades nesta sala neste dia.</p>';
-    if(inA.length)html+='<p class="hint">Atividades deste dia no Auditório Principal:</p><div class="items">'+inA.map(function(g){return ptrCard(day,g,now)}).join("")+'</div>';
-    document.getElementById("board").innerHTML=html;return;
-  }
-  var ptrs=day.ses.filter(function(x){return x.also&&x.also.indexOf(state.room)>=0});
-  var list=day.ses.filter(function(x){return x.r==="ALL"||x.r===state.room}).concat(ptrs);
-  var order={A:0,MP1:1,MP2:2,ALL:3};
-  list.sort(function(a,b){return a.s<b.s?-1:a.s>b.s?1:order[a.r]-order[b.r]});
-  var i=0;
-  while(i<list.length){
-    var x=list[i];
-    if(x.k==="brk"){html+='<div class="slot"><div class="break">'+esc(x.t)+' · '+x.s+' às '+x.e+'</div></div>';i++;continue}
-    var grp=[];while(i<list.length&&list[i].s===x.s&&list[i].k!=="brk"){grp.push(list[i]);i++}
-    var anyLive=grp.some(function(g){return isLive(day,g,now)});
-    html+='<div class="slot'+(anyLive?" is-live":"")+'"><div class="time">'+x.s+'</div><div class="items">'+grp.map(function(g){return ptrs.indexOf(g)>=0?ptrCard(day,g,now):card(day,g,now,nxt)}).join("")+'</div></div>';
-  }
-  document.getElementById("board").innerHTML=html||'<p class="empty">Sem atividades nesta sala neste dia.</p>';
-}
 function renderNow(){
   var now=pvNow(),day=DAYS.filter(function(d){return d.date===now.date})[0];
-  var lbl=document.getElementById("now-lbl"),txt=document.getElementById("now-txt");
+  var lbl=document.getElementById("now-lbl"),txt=document.getElementById("now-txt"),cnt=document.getElementById("now-count"),go=document.getElementById("now-go");
+  cnt.hidden=true;go.hidden=true;
   if(!day){
-    if(now.date&&now.date>"2026-11-29"){lbl.textContent="Obrigado pela presença";txt.textContent="O XI Congresso Rondoniense de Cardiologia foi encerrado. Acompanhe a SOCERON pelos links abaixo."}
+    if(now.date&&now.date>"2026-11-29"){lbl.textContent="Obrigado pela presença";txt.textContent="O XI Congresso Rondoniense de Cardiologia foi encerrado. Acompanhe a SOCERON pelos links abaixo.";return}
+    var ms=new Date("2026-11-27T19:00:00-04:00")-new Date(),d=Math.floor(ms/864e5),hh=Math.floor(ms%864e5/36e5);
+    if(ms>0){lbl.textContent="Abertura em";cnt.innerHTML=(d>0?d+"<small>dia"+(d>1?"s":"")+"</small> ":"")+hh+"<small>hora"+(hh!==1?"s":"")+"</small>";cnt.hidden=false;txt.textContent="Sexta, 27 de novembro, 19h, Auditório Principal."}
     return;
   }
-  function names(a){return a.map(function(x){return ROOMS[x.r]+": "+x.t}).join(" · ")}
-  var live=day.ses.filter(function(x){return isLive(day,x,now)}),nxt=nextStart(day,now);
-  if(live.length){lbl.textContent="Acontecendo agora";txt.textContent=names(live)}
-  else if(nxt){lbl.textContent="A seguir · "+nxt;txt.textContent=names(day.ses.filter(function(x){return x.s===nxt&&x.k!=="brk"}))}
-  else{lbl.textContent="Atividades de hoje encerradas";txt.textContent="Veja a grade dos outros dias abaixo."}
+  function esc(t){return String(t).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
+  function list(a){return'<ul class="nowlist">'+a.map(function(x){return'<li><b>'+esc(ROOMS[x.r])+'</b>'+esc(x.t)+(x.note?' <i>'+esc(x.note)+'</i>':'')+'</li>'}).join("")+'</ul>'}
+  var live=day.ses.filter(function(x){return isLive(day,x,now)}),nxt=nextStart(day,now),nx=nxt?day.ses.filter(function(x){return x.s===nxt&&x.k!=="brk"}):[];
+  go.hidden=false;
+  if(live.length){lbl.textContent="Acontecendo agora";txt.innerHTML=list(live)+(nx.length?'<span class="nxt">A seguir · '+nxt+'</span>'+list(nx):'')}
+  else if(nxt){lbl.textContent="A seguir · "+nxt;txt.innerHTML=list(nx)}
+  else{lbl.textContent="Atividades de hoje encerradas";txt.textContent="Veja a grade dos outros dias.";}
 }
-document.getElementById("tabs").addEventListener("click",function(e){var b=e.target.closest("button");if(!b)return;state.day=b.dataset.day;renderTabs();renderBoard()});
-document.getElementById("chips").addEventListener("click",function(e){var b=e.target.closest("button");if(!b)return;state.room=b.dataset.room;renderTabs();renderBoard()});
+renderNow();setInterval(renderNow,60000);
+
+/* Mensagens */
 document.getElementById("msg-tabs").addEventListener("click",function(e){
   var b=e.target.closest("button");if(!b)return;
   Array.prototype.forEach.call(this.querySelectorAll("button"),function(x){x.setAttribute("aria-pressed",x===b?"true":"false")});
   ["soceron","congresso","multi","has"].forEach(function(k){document.getElementById("msg-"+k).hidden=(k!==b.dataset.msg)});
 });
-document.getElementById("board").addEventListener("click",function(e){
-  var b=e.target.closest("button[data-go]");if(!b)return;
-  state.room=b.dataset.go;renderTabs();renderBoard();
-  var el=document.getElementById("s-"+b.dataset.idx);if(!el)return;
-  var rm=window.matchMedia&&window.matchMedia("(prefers-reduced-motion:reduce)").matches;
-  el.scrollIntoView({behavior:rm?"auto":"smooth",block:"start"});
-  el.classList.add("flash");setTimeout(function(){el.classList.remove("flash")},1800);
-});
-(function(){var n=pvNow(),d=DAYS.filter(function(x){return x.date===n.date})[0];if(d)state.day=d.id;renderTabs();renderBoard();renderNow();
-  setInterval(function(){renderBoard();renderNow()},60000)})();
+
+/* Instalar: detecta o sistema, mostra só a instrução certa; esconde tudo se já estiver instalado */
+(function(){
+  var ua=navigator.userAgent||"",ios=/iPhone|iPad|iPod/.test(ua)||(navigator.platform==="MacIntel"&&navigator.maxTouchPoints>1);
+  var standalone=window.matchMedia("(display-mode: standalone)").matches||navigator.standalone===true;
+  var sec=document.getElementById("instalar");
+  function show(os){
+    document.getElementById("inst-ios").hidden=os!=="ios";document.getElementById("inst-android").hidden=os!=="android";
+    Array.prototype.forEach.call(sec.querySelectorAll(".os button"),function(b){b.setAttribute("aria-pressed",b.dataset.os===os?"true":"false")});
+  }
+  show(ios?"ios":"android");
+  sec.querySelector(".os").addEventListener("click",function(e){var b=e.target.closest("button");if(b)show(b.dataset.os)});
+  if(standalone){sec.hidden=true;return}
+  var deferred=null,btn=document.getElementById("btn-install");
+  window.addEventListener("beforeinstallprompt",function(e){e.preventDefault();deferred=e;btn.style.display="block"});
+  btn.addEventListener("click",function(){if(!deferred)return;deferred.prompt();deferred.userChoice.then(function(){deferred=null;btn.style.display="none"})});
+  window.addEventListener("appinstalled",function(){btn.style.display="none";document.getElementById("inst-done").style.display="block"});
+})();
+if("serviceWorker" in navigator){navigator.serviceWorker.register("sw.js").catch(function(){})}
 </script>
 </body>
 </html>

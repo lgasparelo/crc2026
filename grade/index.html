@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Grade científica · CRC 2026</title>
+<link rel="manifest" href="../manifest.json">
+<meta name="theme-color" content="#0E2238">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="CRC 2026">
+<link rel="apple-touch-icon" href="../assets/icon-180.png">
+<link rel="icon" type="image/png" sizes="192x192" href="../assets/icon-192.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600&display=swap">
+<style>
+/* Ideia de layout: quadro de horários de estação (referência à Madeira-Mamoré):
+   uma coluna para celular, horário à esquerda, salas empilhadas à direita, navegação fixa embaixo. */
+:root{
+  --paper:#F2F4F7; --surface:#FFFFFF; --surface-2:#E8ECF2;
+  --ink:#0E2238; --ink-2:#3D4E61; --muted:#66758A; --line:#D3DAE3;
+  --red:#C4202B; --red-soft:#FBE9EA;
+  --blue:#1B5A9E; --blue-soft:#E3EDF8;
+  --gold:#8A6516; --gold-soft:#F6EEDA;
+  --green:#0F7352; --green-soft:#DFF2EA;
+  --display:"Barlow Condensed","Arial Narrow",Arial,sans-serif;
+  --body:"Barlow","Helvetica Neue",Arial,sans-serif;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --paper:#0A121C; --surface:#121D2A; --surface-2:#1A2838;
+    --ink:#E8EEF5; --ink-2:#B8C4D2; --muted:#8696A8; --line:#283646;
+    --red:#F0666E; --red-soft:#2E1619;
+    --blue:#7FB2EA; --blue-soft:#13263B;
+    --gold:#DDB65C; --gold-soft:#2A2110;
+    --green:#5CCBA3; --green-soft:#0F2A21;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0A121C; --surface:#121D2A; --surface-2:#1A2838;
+  --ink:#E8EEF5; --ink-2:#B8C4D2; --muted:#8696A8; --line:#283646;
+  --red:#F0666E; --red-soft:#2E1619;
+  --blue:#7FB2EA; --blue-soft:#13263B;
+  --gold:#DDB65C; --gold-soft:#2A2110;
+  --green:#5CCBA3; --green-soft:#0F2A21;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:12px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased}
+a{color:var(--blue)}
+:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+.wrap{max-width:720px;margin:0 auto;padding:0 16px 104px;display:flex;flex-direction:column;gap:36px}
+
+/* Cabeçalho */
+header.top{background:var(--ink);color:#fff;margin:0 -16px;padding:20px 20px 0}
+:root[data-theme="dark"] header.top{background:#060C13}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) header.top{background:#060C13}}
+.eyebrow{font-family:var(--display);font-weight:600;font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:#9FB6CF}
+h1{font-family:var(--display);font-weight:700;font-size:clamp(34px,10vw,52px);line-height:1;letter-spacing:.005em;margin:8px 0 0;text-wrap:balance;text-transform:uppercase}
+h1 span{color:#FF7C84}
+.meta{display:flex;flex-wrap:wrap;gap:6px 18px;margin:16px 0 0;font-size:15px;color:#D5DFEA}
+.meta b{color:#fff;font-weight:600}
+.rail{height:14px;margin:24px -20px 0;background:
+  repeating-linear-gradient(90deg,transparent 0 10px,rgba(255,255,255,.28) 10px 14px),
+  linear-gradient(#0000 3px,rgba(255,255,255,.55) 3px 5px,#0000 5px 9px,rgba(255,255,255,.55) 9px 11px,#0000 11px)}
+
+.logo-card{background:#fff;border-radius:8px;padding:10px 12px;display:flex;justify-content:center}
+.logo-card img{display:block;max-width:100%;height:auto;max-height:150px;width:auto}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+/* Realização e patrocínio: logos sempre sobre branco */
+.brand{background:#fff;border:1px solid var(--line);border-radius:6px;padding:14px;display:flex;align-items:center;justify-content:center}
+.brand img{display:block;max-width:100%;height:auto}
+.brand.big img{max-height:84px;width:auto}
+.sponsors{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.sponsors .brand{min-height:84px}
+.sponsors img{max-height:56px;width:auto}
+@media (min-width:600px){.sponsors{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.sub{font-family:var(--display);font-weight:600;font-size:14px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:4px 0 -6px}
+.apoio{list-style:none;margin:0;padding:0;background:var(--surface);border:1px solid var(--line);border-radius:6px}
+.apoio li{padding:12px 16px;border-bottom:1px solid var(--line);display:flex;flex-direction:column;gap:2px}
+.apoio li:last-child{border-bottom:0}
+.apoio b{font-weight:600}
+.apoio span{font-size:14px;color:var(--muted)}
+.brand.dark{background:#0E2238;border-color:#0E2238}
+.brand.word{font-family:var(--display);font-weight:700;font-size:24px;letter-spacing:.04em;color:#0E2238}
+.insta li{padding:0}
+.insta a{display:flex;flex-direction:column;gap:2px;padding:12px 16px;text-decoration:none;color:var(--ink)}
+.insta a span{color:var(--blue)}
+.insta a:hover b{color:var(--blue)}
+.sponsors img.seal{max-height:96px}
+.sponsors.trio{grid-template-columns:repeat(3,minmax(0,1fr))}
+.sponsors.duo{grid-template-columns:repeat(2,minmax(0,1fr))}
+.sponsors.trio .brand{padding:10px}
+.now p:empty{display:none}
+button.item.ptr{width:100%;text-align:left;font:inherit;color:var(--ink);cursor:pointer;background:var(--blue-soft);border:1.5px dashed var(--blue);border-left:4px solid var(--blue);gap:6px}
+button.item.ptr strong{font-weight:600;font-size:16.5px;line-height:1.3}
+button.item.ptr .tagrow{display:flex}
+.pill.where{background:var(--blue);color:var(--paper);font-size:12.5px;padding:2px 10px;text-transform:uppercase;letter-spacing:.04em}
+.sub2{font-size:14.5px;color:var(--ink-2)}
+.go{font-size:13.5px;font-weight:600;color:var(--blue)}
+.who-tabs button{font-size:17px;text-transform:none;letter-spacing:0;padding:10px 6px}
+[hidden]{display:none!important}
+article.msg{display:block}
+article.msg p{margin:0 0 10px}
+article.msg p:last-child{margin-bottom:0}
+.portrait{float:left;width:120px;height:160px;object-fit:cover;border-radius:8px;margin:2px 14px 8px 0}
+article.msg::after{content:"";display:block;clear:both}
+@media (min-width:600px){.portrait{width:165px;height:220px}}
+article.msg.has-photo{display:grid;grid-template-columns:auto minmax(0,1fr);gap:14px;align-items:start}
+article.msg.has-photo::after{display:none}
+article.msg.has-photo .portrait{float:none;margin:2px 0 0}
+article.msg.has-photo{align-items:start}
+article.msg.has-photo .portrait{width:120px;height:180px;margin:0}
+@media (min-width:600px){article.msg.has-photo .portrait{width:160px;height:240px}}
+.byline{display:flex;flex-direction:column;gap:1px;margin-bottom:12px!important}
+.byline b{font-family:var(--display);font-weight:700;font-size:19px;line-height:1.15;text-transform:uppercase;color:var(--ink)}
+.byline span{font-size:13.5px;color:var(--muted)}
+.lead{font-weight:600;color:var(--ink)!important;font-size:16.5px;line-height:1.35}
+.who-tabs button{font-size:15.5px;padding:9px 4px}
+.who-tabs button small{font-size:11px;line-height:1.2}
+.who-tabs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}
+.who-tabs button{min-width:0}
+article.msg.has-photo{display:block}
+article.msg.has-photo::after{content:"";display:block;clear:both}
+article.msg.has-photo .portrait{float:left;margin:3px 14px 8px 0}
+article.msg .byline{margin-bottom:8px!important}
+article.msg .lead{margin-bottom:12px}
+.tabs.who-tabs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.tabs.who-tabs button{min-width:0;font-size:16px;text-transform:none;letter-spacing:0;padding:10px 6px}
+.tabs.who-tabs button small{font-size:11.5px;line-height:1.2}
+/* Agora */
+.now{background:var(--surface);border:1px solid var(--line);border-left:5px solid var(--red);border-radius:6px;padding:14px 16px;display:flex;flex-direction:column;gap:4px}
+.now .lbl{font-family:var(--display);font-weight:700;font-size:14px;letter-spacing:.12em;text-transform:uppercase;color:var(--red)}
+.now p{margin:0;color:var(--ink-2)}
+.now strong{color:var(--ink)}
+
+h2{font-family:var(--display);font-weight:700;font-size:28px;line-height:1.1;text-transform:uppercase;letter-spacing:.01em;margin:0;text-wrap:balance}
+section{display:flex;flex-direction:column;gap:14px}
+.sec-note{margin:0;color:var(--muted);font-size:14.5px}
+
+/* Controles */
+.tabs,.chips{display:flex;gap:8px;flex-wrap:wrap}
+.tabs button{flex:1 1 0;min-width:92px;font-family:var(--display);font-weight:700;font-size:19px;text-transform:uppercase;letter-spacing:.03em;
+  padding:10px 8px;border-radius:6px;border:1.5px solid var(--line);background:var(--surface);color:var(--ink-2);cursor:pointer;line-height:1.1}
+.tabs button small{display:block;font-family:var(--body);font-weight:500;font-size:12px;letter-spacing:0;text-transform:none;color:var(--muted)}
+.tabs button[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:var(--paper)}
+.tabs button[aria-pressed="true"] small{color:var(--paper);opacity:.75}
+.chips{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.chips button[data-room="all"]{grid-column:1/-1;font-size:16px;padding:10px 12px;font-weight:600}
+.chips button{text-align:center;padding-left:4px!important;padding-right:4px!important;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-family:var(--body);font-weight:500;font-size:14px;padding:6px 12px;border-radius:999px;border:1.5px solid var(--line);background:transparent;color:var(--ink-2);cursor:pointer}
+.chips button[aria-pressed="true"]{background:var(--blue-soft);border-color:var(--blue);color:var(--blue);font-weight:600}
+
+/* Quadro de horários */
+.board{display:flex;flex-direction:column;gap:10px}
+.slot{display:grid;grid-template-columns:58px 1fr;gap:12px;align-items:start}
+.time{font-family:var(--display);font-weight:700;font-size:22px;line-height:1;font-variant-numeric:tabular-nums;padding-top:12px;color:var(--ink)}
+.range{font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums}
+.panel{font-size:13.5px !important;color:var(--muted) !important;border-top:1px solid var(--line);padding-top:8px;margin-top:2px !important}
+.panel b{color:var(--ink-2);font-weight:600}
+.items{display:flex;flex-direction:column;gap:8px;min-width:0}
+.item{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--blue);border-radius:6px;padding:11px 14px;display:flex;flex-direction:column;gap:4px}
+.item.r-mp1{border-left-color:var(--green)}
+.item.r-mp2{border-left-color:var(--muted)}
+.item.sp{border-left-color:var(--gold)}
+.item.cer{border-left-color:var(--red)}
+.tagrow{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.room{font-family:var(--display);font-weight:600;font-size:13.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--blue)}
+.r-mp1 .room{color:var(--green)} .r-mp2 .room{color:var(--muted)} .cer .room{color:var(--red)}
+.pill{font-size:11.5px;font-weight:600;padding:1px 8px;border-radius:999px;background:var(--gold-soft);color:var(--gold)}
+.pill.live{background:var(--red);color:#fff}
+.pill.next{background:var(--blue-soft);color:var(--blue)}
+.item h3{font-family:var(--body);font-weight:600;font-size:16.5px;line-height:1.3;margin:0;text-wrap:balance}
+.item p{margin:0;font-size:14.5px;color:var(--ink-2)}
+.item ol{margin:4px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:6px;border-top:1px solid var(--line);padding-top:8px}
+.item li{font-size:14.5px;line-height:1.35;display:grid;grid-template-columns:42px 1fr;gap:8px}
+.item li time{font-family:var(--display);font-weight:600;font-size:15px;color:var(--muted);font-variant-numeric:tabular-nums}
+.item li span{display:block;color:var(--muted);font-size:13.5px}
+.break{grid-column:1/-1;text-align:center;font-family:var(--display);font-weight:600;font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);
+  padding:6px 0;border-top:1px dashed var(--line);border-bottom:1px dashed var(--line)}
+.slot.is-live .time{color:var(--red)}
+.empty{color:var(--muted);font-size:14.5px;padding:12px 0}
+
+
+/* Visão geral: três colunas, só os títulos */
+.cols{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;align-items:start}
+.col{display:flex;flex-direction:column;gap:6px;min-width:0}
+.col>h3{font-family:var(--display);font-weight:700;font-size:14px;letter-spacing:.06em;text-transform:uppercase;margin:0;padding:6px 4px;text-align:center;border-bottom:3px solid var(--blue);color:var(--blue);line-height:1.15}
+.col.c-mp1>h3{border-color:var(--green);color:var(--green)} .col.c-mp2>h3{border-color:var(--muted);color:var(--muted)}
+.mini{display:flex;flex-direction:column;gap:3px;width:100%;text-align:left;font-family:var(--body);background:var(--surface);color:var(--ink);border:1px solid var(--line);border-left:3px solid var(--blue);border-radius:6px;padding:8px 8px;cursor:pointer;font-size:13px;line-height:1.3;overflow-wrap:anywhere;hyphens:auto}
+.c-mp1 .mini{border-left-color:var(--green)} .c-mp2 .mini{border-left-color:var(--muted)}
+.mini.sp{border-left-color:var(--gold)} .mini.cer{border-left-color:var(--red)}
+.mini.live{background:var(--red-soft);border-color:var(--red)}
+.mini:hover{border-color:var(--blue)}
+.mini time{font-family:var(--display);font-weight:700;font-size:15px;font-variant-numeric:tabular-nums;color:var(--ink-2)}
+.mini em{font-style:normal;font-size:11px;font-weight:600;color:var(--gold)}
+.col .none{font-size:12.5px;color:var(--muted);text-align:center;padding:10px 0}
+.hint{margin:0;font-size:13.5px;color:var(--muted)}
+.item.flash{outline:3px solid var(--blue);outline-offset:2px}
+@media (min-width:600px){.mini{font-size:14.5px;padding:10px 12px}.col>h3{font-size:16px}}
+
+.colh{font-family:var(--display);font-weight:700;font-size:14px;letter-spacing:.06em;text-transform:uppercase;margin:0;padding:6px 4px;text-align:center;border-bottom:3px solid var(--blue);color:var(--blue);line-height:1.15}
+.colh.c-mp1{border-color:var(--green);color:var(--green)} .colh.c-mp2{border-color:var(--muted);color:var(--muted)}
+.cols.seg{align-items:stretch;row-gap:0}
+.cols.seg .mini{margin:2px 0;overflow:hidden}
+.mini.c-mp1{border-left-color:var(--green)} .mini.c-mp2{border-left-color:var(--muted)}
+.mini.sp{border-left-color:var(--gold)} .mini.cer{border-left-color:var(--red)}
+.mini time{font-size:13.5px;line-height:1.15}
+.dash{display:flex;align-items:center;gap:10px;font-family:var(--display);font-weight:600;font-size:13.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);text-align:center;line-height:1.25;padding:4px 0}
+.dash::before,.dash::after{content:"";flex:1 1 24px;border-top:2px dashed var(--line)}
+.dash span{flex:0 1 auto;max-width:78%}
+.dash b{display:block;color:var(--ink-2);font-variant-numeric:tabular-nums}
+@media (min-width:600px){.colh{font-size:16px}.mini time{font-size:15px}}
+
+/* Mensagens */
+.msg{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:18px;display:flex;flex-direction:column;gap:10px}
+.msg .who{font-family:var(--display);font-weight:700;font-size:20px;line-height:1.15;text-transform:uppercase}
+.msg .role{font-size:14px;color:var(--muted);margin-top:-8px}
+.msg p{margin:0;color:var(--ink-2);max-width:65ch}
+.msg.wait{background:var(--surface-2);border-style:dashed}
+
+/* Links */
+.links{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px}
+.links a{display:flex;flex-direction:column;gap:2px;background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:14px 16px;text-decoration:none;color:var(--ink)}
+.links a b{font-family:var(--display);font-weight:700;font-size:19px;text-transform:uppercase;letter-spacing:.02em}
+.links a span{font-size:13.5px;color:var(--muted);word-break:break-word}
+.links a:hover{border-color:var(--blue)}
+
+dl.info{margin:0;display:grid;grid-template-columns:1fr;gap:0;background:var(--surface);border:1px solid var(--line);border-radius:6px}
+dl.info div{padding:12px 16px;border-bottom:1px solid var(--line)}
+dl.info div:last-child{border-bottom:0}
+dl.info dt{font-family:var(--display);font-weight:600;font-size:13.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+dl.info dd{margin:2px 0 0;color:var(--ink)}
+
+footer{color:var(--muted);font-size:13.5px;border-top:1px solid var(--line);padding-top:16px}
+
+/* Navegação fixa */
+nav.dock{position:fixed;left:0;right:0;bottom:0;background:var(--surface);border-top:1px solid var(--line);display:flex;justify-content:center;z-index:5;padding-bottom:env(safe-area-inset-bottom,0)}
+nav.dock a{flex:1 1 0;max-width:160px;text-align:center;padding:13px 2px;font-family:var(--display);font-weight:700;font-size:14.5px;letter-spacing:.04em;text-transform:uppercase;text-decoration:none;color:var(--ink-2)}
+nav.dock a:hover{color:var(--red)}
+.backlink{margin:-20px 0 0;font-family:var(--display);font-weight:600;font-size:15px;letter-spacing:.04em;text-transform:uppercase}.backlink a{text-decoration:none}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="top">
+  <div class="logo-card"><img src="../assets/logo-congresso.png" alt="XI Congresso Rondoniense de Cardiologia, 16º Simpósio de Hipertensão Arterial Sistêmica e 2º Simpósio Multidisciplinar" width="1100" height="310"></div>
+  <h1 class="sr">XI Congresso Rondoniense de Cardiologia</h1>
+  <div class="meta">
+    <span><b>27 a 29 de novembro de 2026</b></span>
+    <span>Assembleia Legislativa de Rondônia, Porto Velho</span>
+  </div>
+  <div class="rail" aria-hidden="true"></div>
+</header>
+<p class="backlink"><a href="../">← Início do congresso</a></p>
+
+<div class="now" id="agora" aria-live="polite">
+  <span class="lbl" id="now-lbl">Bem-vindo ao CRC 2026</span>
+  <p id="now-txt"></p>
+</div>
+
+<section id="programacao">
+  <h2>Grade científica</h2>
+  <p class="sec-note">Programação resumida por sala e horário. A programação completa, com todos os palestrantes e moderadores, está no <a href="https://sbc.iweventos.com.br/evento/ccer2026/home" target="_blank" rel="noopener">site do evento (SBC/iWeventos)</a>.</p>
+  <div class="tabs" id="tabs" role="group" aria-label="Dia"></div>
+  <div class="chips" id="chips" role="group" aria-label="Sala"></div>
+  <div class="board" id="board"></div>
+  <p class="sec-note">Horários de Porto Velho. A grade pode sofrer ajustes de última hora.</p>
+</section>
+
+<footer>XI Congresso Rondoniense de Cardiologia, 16º Simpósio de Hipertensão Arterial Sistêmica e 2º Simpósio Multidisciplinar · realização SOCERON, filiada à Sociedade Brasileira de Cardiologia.</footer>
+</div>
+
+<nav class="dock" aria-label="Seções">
+  <a href="../">Início</a>
+  <a href="#programacao">Grade</a>
+  <a href="https://sbc.iweventos.com.br/evento/ccer2026/home" target="_blank" rel="noopener">Completa</a>
+</nav>
+
+<script src="../assets/grade.js"></script>
+<script>
+/* ====== GRADE: dados em ../assets/grade.js ======
+   Fonte: Cronograma_CRC_2026_OFICIAL.xlsx, aba "CRC 2026 - OFICIAL" (lida em 16/11/2026, 23h).
+   r: A = Auditório Principal, MP1 = Mini-Plenário 1, MP2 = Mini-Plenário 2, ALL = todas
+   k: "sp" patrocinada, "cer" cerimônia, "brk" intervalo. talks: [horário, título, palestrante] */
+
+var state={day:"sex",room:"all"};
+function esc(t){return String(t).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
+function pvNow(){
+  try{
+    var p=new Intl.DateTimeFormat("en-CA",{timeZone:"America/Porto_Velho",year:"numeric",month:"2-digit",day:"2-digit",hour:"2-digit",minute:"2-digit",hour12:false}).formatToParts(new Date());
+    var o={};p.forEach(function(x){o[x.type]=x.value});
+    return{date:o.year+"-"+o.month+"-"+o.day,time:(o.hour==="24"?"00":o.hour)+":"+o.minute};
+  }catch(e){return{date:"",time:""}}
+}
+var PXMIN=3.6; /* altura na visão geral: pixels por minuto de atividade */
+function mins(t){return +t.slice(0,2)*60+ +t.slice(3)}
+function dayById(id){return DAYS.filter(function(d){return d.id===id})[0]}
+function isLive(day,x,now){return day.date===now.date&&x.k!=="brk"&&now.time>=x.s&&now.time<x.e}
+function nextStart(day,now){
+  if(day.date!==now.date)return"";
+  var st=day.ses.filter(function(x){return x.k!=="brk"&&x.s>now.time}).map(function(x){return x.s}).sort();
+  return st[0]||"";
+}
+function renderTabs(){
+  document.getElementById("tabs").innerHTML=DAYS.map(function(d){
+    return'<button type="button" data-day="'+d.id+'" aria-pressed="'+(state.day===d.id)+'">'+d.label+'<small>'+d.short+'</small></button>'}).join("");
+  var rooms=[["all","Todas as salas"],["A","Auditório"],["MP1","Mini-Plenário 1"],["MP2","Mini-Plenário 2"]];
+  document.getElementById("chips").innerHTML=rooms.map(function(r){
+    return'<button type="button" data-room="'+r[0]+'" aria-pressed="'+(state.room===r[0])+'">'+r[1]+'</button>'}).join("");
+}
+function card(day,x,now,nxt){
+  var live=isLive(day,x,now),cls="item r-"+x.r.toLowerCase()+(x.k?" "+x.k:"");
+  var h='<article id="s-'+day.ses.indexOf(x)+'" class="'+cls+'"><div class="tagrow"><span class="room">'+ROOMS[x.r]+'</span><span class="range">'+x.s+' às '+x.e+'</span>'
+    +(x.sp?'<span class="pill">Patrocinada · '+esc(x.sp)+'</span>':'')
+    +(live?'<span class="pill live">Agora</span>':'')+(x.s===nxt?'<span class="pill next">A seguir</span>':'')
+    +'</div><h3>'+esc(x.t)+'</h3>';
+  if(x.note)h+='<p>'+esc(x.note)+'</p>';
+  if(x.talks)h+='<ol>'+x.talks.map(function(t){return'<li><time>'+t[0]+'</time><div>'+esc(t[1])+(t[2]?'<span>'+esc(t[2])+'</span>':'')+'</div></li>'}).join("")+'</ol>';
+  if(x.mod)h+='<p class="panel"><b>Moderação:</b> '+esc(x.mod)+'</p>'; /* debatedores (x.deb) ocultos por ora */
+  return h+'</article>';
+}
+function ptrCard(day,x,now){
+  return '<button type="button" class="item ptr'+(x.k?" "+x.k:"")+'" data-go="'+x.r+'" data-idx="'+day.ses.indexOf(x)+'"><span class="tagrow"><span class="pill where">No '+ROOMS[x.r]+'</span><span class="range">'+x.s+' às '+x.e+'</span>'
+    +(x.sp?'<span class="pill">Patrocinada · '+esc(x.sp)+'</span>':'')+(isLive(day,x,now)?'<span class="pill live">Agora</span>':'')
+    +'</span><strong>'+esc(x.t)+'</strong>'+(x.note?'<span class="sub2">'+esc(x.note)+'</span>':'')+'<span class="go">Toque para ver no '+ROOMS[x.r]+' →</span></button>';
+}
+function renderBoard(){
+  var day=dayById(state.day),now=pvNow(),nxt=nextStart(day,now),html="";
+  if(state.room==="all"){
+    var COL={A:1,MP1:2,MP2:3};
+    html='<p class="hint">Toque em uma aula para ver as palestras na sala correspondente.</p><div class="cols">'
+      +["A","MP1","MP2"].map(function(r){return'<h3 class="colh c-'+r.toLowerCase()+'">'+ROOMS[r]+'</h3>'}).join("")+'</div>';
+    var brks=day.ses.filter(function(x){return x.k==="brk"}).sort(function(a,b){return a.s<b.s?-1:1});
+    for(var i=0;i<=brks.length;i++){
+      var lo=i?brks[i-1].s:"00:00",hi=i<brks.length?brks[i].s:"99:99";
+      var seg=day.ses.filter(function(x){return x.k!=="brk"&&x.s>=lo&&x.s<hi});
+      if(seg.length){
+        var ts={};seg.forEach(function(x){ts[x.s]=1;ts[x.e]=1});ts=Object.keys(ts).sort();
+        var rows=[];for(var j=1;j<ts.length;j++)rows.push('minmax('+Math.round((mins(ts[j])-mins(ts[j-1]))*PXMIN)+'px,auto)');
+        html+='<div class="cols seg" style="grid-template-rows:'+rows.join(" ")+'">';
+        seg.forEach(function(x){
+          html+='<button type="button" class="mini c-'+x.r.toLowerCase()+(x.k?" "+x.k:"")+(isLive(day,x,now)?" live":"")
+            +'" style="grid-column:'+COL[x.r]+';grid-row:'+(ts.indexOf(x.s)+1)+'/'+(ts.indexOf(x.e)+1)+'" data-go="'+x.r+'" data-idx="'+day.ses.indexOf(x)+'"><time>'+x.s+' – '+x.e+'</time>'
+            +(x.sp?'<em>'+esc(x.sp)+'</em>':'')+'<span>'+esc(x.t)+'</span></button>';
+        });
+        html+='</div>';
+      }
+      if(i<brks.length)html+='<div class="dash"><span><b>'+brks[i].s+' – '+brks[i].e+'</b>'+esc(brks[i].t)+'</span></div>';
+    }
+    document.getElementById("board").innerHTML=html;
+    return;
+  }
+  var own=day.ses.filter(function(x){return x.r===state.room});
+  if(!own.length){ /* sala sem atividade no dia: aponta para o que acontece no Auditório */
+    var inA=day.ses.filter(function(x){return x.r==="A"}).sort(function(a,b){return a.s<b.s?-1:1});
+    html='<p class="empty">Sem atividades nesta sala neste dia.</p>';
+    if(inA.length)html+='<p class="hint">Atividades deste dia no Auditório Principal:</p><div class="items">'+inA.map(function(g){return ptrCard(day,g,now)}).join("")+'</div>';
+    document.getElementById("board").innerHTML=html;return;
+  }
+  var ptrs=day.ses.filter(function(x){return x.also&&x.also.indexOf(state.room)>=0});
+  var list=day.ses.filter(function(x){return x.r==="ALL"||x.r===state.room}).concat(ptrs);
+  var order={A:0,MP1:1,MP2:2,ALL:3};
+  list.sort(function(a,b){return a.s<b.s?-1:a.s>b.s?1:order[a.r]-order[b.r]});
+  var i=0;
+  while(i<list.length){
+    var x=list[i];
+    if(x.k==="brk"){html+='<div class="slot"><div class="break">'+esc(x.t)+' · '+x.s+' às '+x.e+'</div></div>';i++;continue}
+    var grp=[];while(i<list.length&&list[i].s===x.s&&list[i].k!=="brk"){grp.push(list[i]);i++}
+    var anyLive=grp.some(function(g){return isLive(day,g,now)});
+    html+='<div class="slot'+(anyLive?" is-live":"")+'"><div class="time">'+x.s+'</div><div class="items">'+grp.map(function(g){return ptrs.indexOf(g)>=0?ptrCard(day,g,now):card(day,g,now,nxt)}).join("")+'</div></div>';
+  }
+  document.getElementById("board").innerHTML=html||'<p class="empty">Sem atividades nesta sala neste dia.</p>';
+}
+function renderNow(){
+  var now=pvNow(),day=DAYS.filter(function(d){return d.date===now.date})[0];
+  var lbl=document.getElementById("now-lbl"),txt=document.getElementById("now-txt");
+  if(!day){
+    if(now.date&&now.date>"2026-11-29"){lbl.textContent="Obrigado pela presença";txt.textContent="O XI Congresso Rondoniense de Cardiologia foi encerrado. Acompanhe a SOCERON pelos links abaixo."}
+    return;
+  }
+  function names(a){return a.map(function(x){return ROOMS[x.r]+": "+x.t}).join(" · ")}
+  var live=day.ses.filter(function(x){return isLive(day,x,now)}),nxt=nextStart(day,now);
+  if(live.length){lbl.textContent="Acontecendo agora";txt.textContent=names(live)}
+  else if(nxt){lbl.textContent="A seguir · "+nxt;txt.textContent=names(day.ses.filter(function(x){return x.s===nxt&&x.k!=="brk"}))}
+  else{lbl.textContent="Atividades de hoje encerradas";txt.textContent="Veja a grade dos outros dias abaixo."}
+}
+document.getElementById("tabs").addEventListener("click",function(e){var b=e.target.closest("button");if(!b)return;state.day=b.dataset.day;renderTabs();renderBoard()});
+document.getElementById("chips").addEventListener("click",function(e){var b=e.target.closest("button");if(!b)return;state.room=b.dataset.room;renderTabs();renderBoard()});
+document.getElementById("board").addEventListener("click",function(e){
+  var b=e.target.closest("button[data-go]");if(!b)return;
+  state.room=b.dataset.go;renderTabs();renderBoard();
+  var el=document.getElementById("s-"+b.dataset.idx);if(!el)return;
+  var rm=window.matchMedia&&window.matchMedia("(prefers-reduced-motion:reduce)").matches;
+  el.scrollIntoView({behavior:rm?"auto":"smooth",block:"start"});
+  el.classList.add("flash");setTimeout(function(){el.classList.remove("flash")},1800);
+});
+(function(){var n=pvNow(),d=DAYS.filter(function(x){return x.date===n.date})[0];if(d)state.day=d.id;renderTabs();renderBoard();renderNow();
+  setInterval(function(){renderBoard();renderNow()},60000)})();
+</script>
+</body>
+</html>
