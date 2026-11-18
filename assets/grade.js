@@ -158,8 +158,8 @@ var DAYS=[
   ["11:05","Medicina na Força Aérea: como ingressar e o que a carreira oferece?","Dr. Rian Barreto"],
   ["11:20","Encerramento do simpósio e sorteio de brindes",""]]},
  {r:"A",k:"sp",sp:"Boston Scientific",also:["MP1","MP2"],s:"11:40",e:"12:20",t:"Além da angiografia: como a imagem intravascular e o preparo do cálcio mudaram a angioplastia coronária",note:"Dr. Bruno de Castro Coutinho (RN)"},
- {r:"A",k:"cer",s:"12:20",e:"12:50",t:"Assembleia Geral da SOCERON",note:"Associados da SOCERON"},
- {r:"A",k:"cer",s:"12:50",e:"13:30",t:"Cerimônia de encerramento",note:"Premiações e sorteio de brindes e livros"}
+ {r:"A",k:"cer",s:"12:20",e:"12:30",t:"Encerramento do congresso"},
+ {r:"A",k:"cer",s:"12:30",e:"13:30",t:"Assembleia Geral da SOCERON",note:"Associados da SOCERON"}
 ]}
 ];
 /* ====== fim da grade ====== */
