@@ -132,7 +132,7 @@ var DAYS=[
  {r:"MP2",s:"08:50",e:"09:30",t:"Simpósio Acadêmico Multidisciplinar · Cardiologia na prática clínica",talks:[
   ["08:50","Insuficiência cardíaca: da suspeita clínica ao tratamento que muda o prognóstico","Dra. Rafaela Rádner (RO)"],
   ["09:05","Conhecendo os DCEIs (dispositivos cardíacos eletrônicos implantáveis)","Dr. Marcos Rosa Ferreira (RO)"]],
-  mod:"Alexandre Otelo"},
+  mod:"Alexandre Otelo (RO)"},
  {r:"ALL",k:"brk",s:"09:30",e:"10:00",t:"Visita aos estandes, apresentação dos trabalhos em pôster e coffee break"},
  {r:"A",s:"10:00",e:"10:40",t:"Estenose aórtica: a primeira válvula decide a segunda",talks:[
   ["10:00","Estenose aórtica grave assintomática: intervir já ou acompanhar?","Dra. Gislaine Michel Marin Mugrabi (RO)"],
@@ -148,7 +148,7 @@ var DAYS=[
   ["10:00","Dor torácica na infância e adolescência: sinais de alerta e abordagem clínica","Dra. Luciana Silveira Nina de Azevedo (RO)"],
   ["10:10","Quando o tratamento do câncer afeta o coração: os desafios da cardio-oncologia na era das terapias modernas","Dra. Giselle Almeida (RO)"],
   ["10:20","Síndrome cardiorrenal aguda: até onde insistir na diurese e quando iniciar diálise?","Dr. Dhiego Lang (RO)"]],
-  mod:"Alexandre Otelo"},
+  mod:"Alexandre Otelo (RO)"},
  {r:"A",s:"10:50",e:"11:30",t:"Mitral e tricúspide: a era do reparo transcateter chegou ao Norte",talks:[
   ["10:50","Insuficiência mitral: primária ou secundária, e por que isso muda todo o tratamento","Dra. Wendy Sierraalta Navarro (SP)"],
   ["11:00","Reparo mitral sem cirurgia: quem é o paciente ideal e o que esperar do resultado","Dr. Daniel Ferreira Mugrabi (RO)"],
@@ -163,7 +163,7 @@ var DAYS=[
   ["10:50","O caminho até a cardiologia: da graduação ao título de especialista","Dra. Elisangela Henrique Muniz de Oliveira Rocha (RO)"],
   ["11:05","Medicina na Força Aérea: como ingressar e o que a carreira oferece?","Dr. Rian Barreto (RO)"],
   ["11:30","Encerramento do simpósio e sorteio de brindes",""]],
-  mod:"Alexandre Otelo"},
+  mod:"Alexandre Otelo (RO)"},
  {r:"A",k:"sp",sp:"Boston Scientific",also:["MP1","MP2"],s:"11:40",e:"12:20",t:"Além da angiografia: como a imagem intravascular e o preparo do cálcio mudaram a angioplastia coronária",note:"Dr. Bruno de Castro Coutinho (RN)"},
  {r:"A",k:"cer",s:"12:20",e:"12:30",t:"Encerramento do congresso"},
  {r:"A",k:"cer",s:"12:30",e:"13:30",t:"Assembleia Geral da SOCERON",note:"Associados da SOCERON"}
