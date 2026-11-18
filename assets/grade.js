@@ -7,7 +7,7 @@ var ROOMS={A:"Auditório Principal",MP1:"Mini-Plenário 1",MP2:"Mini-Plenário 2
 var DAYS=[
 {id:"sex",label:"Sexta",date:"2026-11-27",short:"27/11",ses:[
  {r:"A",k:"cer",s:"19:00",e:"20:00",t:"Cerimônia de abertura",note:"Hino e discursos"},
- {r:"A",k:"cer",s:"20:00",e:"21:00",t:"Palestra Magna",note:"Dr. Danilo Ferraz de Oliveira Maksud (SP)"},
+ {r:"A",k:"cer",s:"20:00",e:"21:00",t:"Palestra Magna: passado, presente e futuro das intervenções em doenças cardiovasculares",note:"Dr. Danilo Ferraz de Oliveira Maksud (SP)"},
  {r:"A",k:"cer",s:"21:00",e:"22:30",t:"Coquetel de confraternização"}
 ]},
 {id:"sab",label:"Sábado",date:"2026-11-28",short:"28/11",ses:[
@@ -32,7 +32,7 @@ var DAYS=[
   ["08:50","Não é apenas hipertrofia: quando pensar em miocardiopatias","Dr. Rodolfo Luiz Amorim de Oliveira (RO)"],
   ["09:00","Novas evidências no tratamento medicamentoso das miocardiopatias","Dra. Stefany Egito (RO)"],
   ["09:10","Miocardiopatia hipertrófica obstrutiva: opções de tratamento intervencionista","Dr. Sidney Munhoz Junior (MT)"]],
-  mod:"Dr. Rodrigo Gallina (RO)",deb:"Dra. Marilene Rodrigues Carvalho (RO), Dr. Carlos Borelli Zeller (RO), Dr. Carlos Eduardo Faria Silva (RO)"},
+  mod:"Dr. Rodrigo Gallina (RO)",deb:"Dra. Marilene Rodrigues Carvalho (RO), Dr. Carlos Borelli Zeller (RO), Dr. Renan Marquiori (RO)"},
  {r:"ALL",k:"brk",s:"09:30",e:"10:00",t:"Visita aos estandes, apresentação dos trabalhos em pôster e coffee break"},
  {r:"A",s:"10:00",e:"10:40",t:"Insuficiência cardíaca crônica: do quarteto à próxima fronteira",talks:[
   ["10:00","Os quatro pilares em quatro semanas: como titular de verdade no mundo real","Dra. Diana Negreiros (SP)"],
@@ -54,7 +54,7 @@ var DAYS=[
   ["10:50","Obesidade e GLP-1 na doença cardiovascular: de quem é esse paciente?","Dr. André Zimerman (RS)"],
   ["11:00","Diabetes e doença renal crônica: iSGLT2, finerenona e a ordem de entrada das drogas","Dr. Francisco Antonio Helfenstein Fonseca (SP)"],
   ["11:10","Dislipidemia de muito alto risco: até onde baixar o LDL e com o quê","Dr. Carlos Henrique Spesia (RO)"]],
-  mod:"Dra. Stefany Egito (RO)",deb:"Dra. Fabiane Fernandes Schmitt Flores (RO)"},
+  mod:"Dr. Luiz Henrique Gasparelo (RO)",deb:"Dra. Fabiane Fernandes Schmitt Flores (RO), Daniela Caput (RO)"},
  {r:"MP1",s:"10:50",e:"11:30",t:"Heart Team · Dispositivos cardíacos implantáveis: quando vale a pena tratar",talks:[
   ["10:50","A carga arrítmica importa, mas e o resto? Como tomar conduta além da porcentagem do Holter?","Dra. Sarah Schereder (RS)"],
   ["11:00","Indicações de TRC e CDI além do óbvio","Dr. Marcos Rosa Ferreira (RO)"],
@@ -65,7 +65,7 @@ var DAYS=[
  {r:"MP1",s:"13:30",e:"14:30",t:"Simpósio de Hipertensão · MAPA, MRPA, VOP e pressão central",note:"Aula fechada",talks:[
   ["13:30","MAPA, MRPA, VOP e pressão central","Dr. Bruno Augusto Alcova Nogueira (SP)"],
   ["13:50","MAPA, MRPA, VOP e pressão central","Dr. Emerson Costa Porto (BA)"]],
-  deb:"Dr. João Roberto Gemelli (RO)"},
+  mod:"Dr. João Roberto Gemelli (RO)"},
  {r:"MP2",s:"13:30",e:"15:30",t:"Simpósio Multidisciplinar · Módulo 3",talks:[
   ["13:30","Cuidados e vigilância em pacientes em pós-operatório endovascular","Sheila Cristina da Silva Cavalcante Souza, enfermeira (RO)"],
   ["14:00","Métodos de recuperação muscular no paciente crítico: da UTI à reabilitação","Sarana dos Santos Matos, fisioterapeuta (RO)"],
@@ -75,25 +75,25 @@ var DAYS=[
   ["14:30","Strain miocárdico além da fração de ejeção: quando o método realmente muda a conduta?","Dr. Saulo Rodrigo Moreira da Cunha (RO)"],
   ["14:45","Trabalho miocárdico além do clássico strain: por que e quando usar?","Dr. Marcelo Salame (RO)"],
   ["15:00","Eco 3D na vida real: o que eu não consigo enxergar bem no 2D?","Dra. Wendy Sierraalta Navarro (SP)"]],
-  mod:"Dr. Rodolfo Luiz Amorim de Oliveira (RO)",deb:"Dra. Barbara de Figueredo Tenorio (RO), Dr. Igor D'Ávila (AC)"},
+  mod:"Dr. Rodolfo Luiz Amorim de Oliveira (RO)",deb:"Dra. Barbara de Figueredo Tenorio (RO), Dr. Igor D'Ávila (AC), Dr. Jhonathan Gouveia da Mota (RO)"},
  {r:"MP1",s:"14:30",e:"15:30",t:"Simpósio de Hipertensão · Mesa 1",talks:[
   ["14:30","Hormônios e o coração feminino: o manejo seguro da terapia hormonal na IOP e na menopausa","Dra. Ivanice Fernandes Barcellos Gemelli (RO)"],
   ["14:40","Anti-hipertensivos, rigidez arterial e disfunção endotelial","Dr. Bruno Augusto Alcova Nogueira (SP)"],
-  ["14:50","Particularidades e cuidados no hipertenso idoso e superidoso","Dra. Ana Gabriela Caldas Giovanini (RO)"],
+  ["14:50","Particularidades e cuidados no hipertenso idoso e superidoso",""],
   ["15:00","Desafios da disautonomia no paciente hipertenso","Dr. Emerson Costa Porto (BA)"]],
-  deb:"Dr. João Roberto Gemelli (RO)"},
+  mod:"Dr. João Roberto Gemelli (RO)"},
  {r:"ALL",k:"brk",s:"15:30",e:"16:00",t:"Visita aos estandes, apresentação dos trabalhos em pôster e coffee break"},
  {r:"A",s:"16:00",e:"16:40",t:"Emergências cardiovasculares",talks:[
   ["16:00","FA na emergência: quando cardioverter?","Dra. Sarah Schereder (RS)"],
   ["16:10","TEP em 2026: o que mudou na estratificação de risco e na reperfusão?","Dra. Milena Alves (RO)"],
   ["16:20","Síndrome aórtica aguda: diagnóstico e conduta nas primeiras horas","Dr. Jorge Luis da Silva (SP)"]],
-  mod:"Dr. Marcos Rosa Ferreira (RO)",deb:"Dr. Gustavo, pneumologista (RO), Dra. Themis Borche da Silva (RO)"},
+  mod:"Dr. Marcos Rosa Ferreira (RO)",deb:"Dr. Gustavo Ferle, pneumologista (RO), Dra. Themis Borche da Silva (RO)"},
  {r:"MP1",s:"16:00",e:"17:30",t:"Simpósio de Hipertensão · Mesa 2",talks:[
   ["16:00","Abordagem prática da hipertensão na infância: o que todos devem saber","Dra. Luciana Silveira Nina de Azevedo (RO)"],
   ["16:15","Aplicabilidade clínica das novas drogas no tratamento da HAS","Dr. Emerson Costa Porto (BA)"],
   ["16:30","Tratamento da hipertensão no paciente oncológico","Dr. João Roberto Gemelli (RO)"],
   ["16:45","Melhores trabalhos do ESC 2026","Dr. Bruno Augusto Alcova Nogueira (SP)"]],
-  deb:"Dra. Jessica Fontenele Calixto (RO)"},
+  mod:"Dra. Jessica Fontenele Calixto (RO)"},
  {r:"MP2",s:"16:00",e:"18:40",t:"Simpósio Multidisciplinar · Módulo 4",talks:[
   ["16:00","Paciente cardiológico em deterioração clínica: reconhecimento precoce e atuação da enfermagem","Kalliza Kary Rodrigues da Costa, enfermeira (RJ)"],
   ["16:30","Desafio da terapia nutricional no paciente crítico cardiopata","Gabriela de Souza Barbosa, nutricionista (RO)"],
@@ -113,8 +113,12 @@ var DAYS=[
  {r:"MP1",s:"08:00",e:"08:40",t:"POCUS",talks:[
   ["08:00","POCUS no choque indiferenciado: como definir o fenótipo hemodinâmico à beira-leito","Dra. Barbara de Figueredo Tenorio (RO)"],
   ["08:10","POCUS na parada cardíaca e no paciente peri-PCR","Dra. Diana Negreiros (SP)"]],
-  mod:"Dr. Marcelo Salame (RO)",deb:"Dra. Marcela de Aguiar Antonio (RO), Dr. Murilo Salani Gil (RO)"},
- {r:"MP2",s:"08:00",e:"08:40",t:"Apresentação dos trabalhos selecionados"},
+  mod:"Dr. Marcelo Salame (RO)",deb:"Dr. Rodolfo Borges Franco de Macêdo (RO), Dr. Murilo Salani Gil (RO)"},
+ {r:"MP2",s:"08:00",e:"08:40",t:"Apresentação dos trabalhos premiados",talks:[
+  ["08:00","Trabalho premiado 1",""],
+  ["08:10","Trabalho premiado 2",""],
+  ["08:20","Trabalho premiado 3",""]],
+  mod:"Dr. Rodrigo Gallina (RO)",deb:"Dr. Carlos Henrique Spesia (RO), Dra. Stefany Egito (RO)"},
  {r:"A",s:"08:50",e:"09:30",t:"Doença coronariana crônica: anatomia, fisiologia e o que de fato muda desfecho",talks:[
   ["08:50","Isquemia ou anatomia? O que de fato indica a revascularização no paciente crônico","Dr. Bruno de Castro Coutinho (RN)"],
   ["09:00","Oclusão crônica total: quando vale a pena abrir?","Dr. Cleber Henrique (RO)"],
@@ -124,7 +128,7 @@ var DAYS=[
   ["08:50","Cardiopatia reumática: ainda dá para fazer valvoplastia? Como selecionar o paciente em 2026?","Dr. Rodolfo Borges Franco de Macêdo (RO)"],
   ["09:00","Novo consenso de diástole: ganhamos precisão ou perdemos sensibilidade?","Dra. Wendy Sierraalta Navarro (SP)"],
   ["09:10","IA no ecocardiograma: o que já podemos usar na prática?","Dr. Jhonathan Gouveia da Mota (RO)"]],
-  mod:"Dr. Rodolfo Luiz Amorim de Oliveira (RO)",deb:"Dra. Anna Claudia Cerutti (RO), Dra. Raitany Costa de Almeida (RO), Dr. Marcelo Salame (RO)"},
+  mod:"Dr. Rodolfo Luiz Amorim de Oliveira (RO)",deb:"Dr. Saulo Rodrigo Moreira da Cunha (RO), Dr. Raitany Costa de Almeida (RO)"},
  {r:"MP2",s:"08:50",e:"09:30",t:"Simpósio Acadêmico Multidisciplinar · Cardiologia na prática clínica",talks:[
   ["08:50","Insuficiência cardíaca: da suspeita clínica ao tratamento que muda o prognóstico","Dra. Rafaela Rádner (RO)"],
   ["09:05","Conhecendo os DCEIs (dispositivos cardíacos eletrônicos implantáveis)","Dr. Marcos Rosa Ferreira (RO)"]],
@@ -157,7 +161,7 @@ var DAYS=[
   mod:"Dr. Thiago Coimbra Felipe (RO)",deb:"Dr. Andrei Leonardo Freitas de Oliveira (RO), Dr. Carlos Henrique Spesia (RO)"},
  {r:"MP2",s:"10:50",e:"11:40",t:"Simpósio Acadêmico Multidisciplinar · Caminhos na medicina: carreira e oportunidades",talks:[
   ["10:50","O caminho até a cardiologia: da graduação ao título de especialista","Dra. Elisangela Henrique Muniz de Oliveira Rocha (RO)"],
-  ["11:05","Medicina na Força Aérea: como ingressar e o que a carreira oferece?","Dr. Rian Barreto"],
+  ["11:05","Medicina na Força Aérea: como ingressar e o que a carreira oferece?","Dr. Rian Barreto (RO)"],
   ["11:30","Encerramento do simpósio e sorteio de brindes",""]],
   mod:"Alexandre Otelo"},
  {r:"A",k:"sp",sp:"Boston Scientific",also:["MP1","MP2"],s:"11:40",e:"12:20",t:"Além da angiografia: como a imagem intravascular e o preparo do cálcio mudaram a angioplastia coronária",note:"Dr. Bruno de Castro Coutinho (RN)"},
