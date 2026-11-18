@@ -125,9 +125,10 @@ var DAYS=[
   ["09:00","Novo consenso de diástole: ganhamos precisão ou perdemos sensibilidade?","Dra. Wendy Sierraalta Navarro (SP)"],
   ["09:10","IA no ecocardiograma: o que já podemos usar na prática?","Dr. Jhonathan Gouveia da Mota (RO)"]],
   mod:"Dr. Rodolfo Luiz Amorim de Oliveira (RO)",deb:"Dra. Anna Claudia Cerutti (RO), Dra. Raitany Costa de Almeida (RO), Dr. Marcelo Salame (RO)"},
- {r:"MP2",s:"08:50",e:"09:30",t:"Simpósio das Ligas · Cardiologia na prática clínica",talks:[
+ {r:"MP2",s:"08:50",e:"09:30",t:"Simpósio Acadêmico Multidisciplinar · Cardiologia na prática clínica",talks:[
   ["08:50","Insuficiência cardíaca: da suspeita clínica ao tratamento que muda o prognóstico","Dra. Rafaela Rádner (RO)"],
-  ["09:05","Conhecendo os DCEIs (dispositivos cardíacos eletrônicos implantáveis)","Dr. Marcos Rosa Ferreira (RO)"]]},
+  ["09:05","Conhecendo os DCEIs (dispositivos cardíacos eletrônicos implantáveis)","Dr. Marcos Rosa Ferreira (RO)"]],
+  mod:"Alexandre Otelo"},
  {r:"ALL",k:"brk",s:"09:30",e:"10:00",t:"Visita aos estandes, apresentação dos trabalhos em pôster e coffee break"},
  {r:"A",s:"10:00",e:"10:40",t:"Estenose aórtica: a primeira válvula decide a segunda",talks:[
   ["10:00","Estenose aórtica grave assintomática: intervir já ou acompanhar?","Dra. Gislaine Michel Marin Mugrabi (RO)"],
@@ -139,10 +140,11 @@ var DAYS=[
   ["10:10","Do paciente esportista ao cardiopata: como prescrever exercícios físicos?","Dra. Raissa Simonato (RO)"],
   ["10:20","Nunca é tarde para começar: exercício no idoso, da prescrição à adesão","Dr. Lucas Rondina (RO)"]],
   mod:"Dr. Marcelo Salame (RO)",deb:"Dr. Bernardo Dal Ponte Descovi (RO), Dra. Fabiane Fernandes Schmitt Flores (RO)"},
- {r:"MP2",s:"10:00",e:"10:40",t:"Simpósio das Ligas · Interfaces clínicas: o coração e as especialidades",talks:[
+ {r:"MP2",s:"10:00",e:"10:40",t:"Simpósio Acadêmico Multidisciplinar · Interfaces clínicas: o coração e as especialidades",talks:[
   ["10:00","Dor torácica na infância e adolescência: sinais de alerta e abordagem clínica","Dra. Luciana Silveira Nina de Azevedo (RO)"],
   ["10:10","Quando o tratamento do câncer afeta o coração: os desafios da cardio-oncologia na era das terapias modernas","Dra. Giselle Almeida (RO)"],
-  ["10:20","Síndrome cardiorrenal aguda: até onde insistir na diurese e quando iniciar diálise?","Dr. Dhiego Lang (RO)"]]},
+  ["10:20","Síndrome cardiorrenal aguda: até onde insistir na diurese e quando iniciar diálise?","Dr. Dhiego Lang (RO)"]],
+  mod:"Alexandre Otelo"},
  {r:"A",s:"10:50",e:"11:30",t:"Mitral e tricúspide: a era do reparo transcateter chegou ao Norte",talks:[
   ["10:50","Insuficiência mitral: primária ou secundária, e por que isso muda todo o tratamento","Dra. Wendy Sierraalta Navarro (SP)"],
   ["11:00","Reparo mitral sem cirurgia: quem é o paciente ideal e o que esperar do resultado","Dr. Daniel Ferreira Mugrabi (RO)"],
@@ -153,10 +155,11 @@ var DAYS=[
   ["11:00","Melhores práticas no choque cardiogênico","Dra. Themis Borche da Silva (RO)"],
   ["11:10","Tipos de suporte hemodinâmico disponíveis","Dr. Rafael Nunes (RO)"]],
   mod:"Dr. Thiago Coimbra Felipe (RO)",deb:"Dr. Andrei Leonardo Freitas de Oliveira (RO), Dr. Carlos Henrique Spesia (RO)"},
- {r:"MP2",s:"10:50",e:"11:30",t:"Simpósio das Ligas · Caminhos na medicina: carreira e oportunidades",talks:[
-  ["10:50","Carreira médica: caminhos depois da formatura",""],
+ {r:"MP2",s:"10:50",e:"11:40",t:"Simpósio Acadêmico Multidisciplinar · Caminhos na medicina: carreira e oportunidades",talks:[
+  ["10:50","O caminho até a cardiologia: da graduação ao título de especialista","Dra. Elisangela Henrique Muniz de Oliveira Rocha (RO)"],
   ["11:05","Medicina na Força Aérea: como ingressar e o que a carreira oferece?","Dr. Rian Barreto"],
-  ["11:20","Encerramento do simpósio e sorteio de brindes",""]]},
+  ["11:30","Encerramento do simpósio e sorteio de brindes",""]],
+  mod:"Alexandre Otelo"},
  {r:"A",k:"sp",sp:"Boston Scientific",also:["MP1","MP2"],s:"11:40",e:"12:20",t:"Além da angiografia: como a imagem intravascular e o preparo do cálcio mudaram a angioplastia coronária",note:"Dr. Bruno de Castro Coutinho (RN)"},
  {r:"A",k:"cer",s:"12:20",e:"12:30",t:"Encerramento do congresso"},
  {r:"A",k:"cer",s:"12:30",e:"13:30",t:"Assembleia Geral da SOCERON",note:"Associados da SOCERON"}
