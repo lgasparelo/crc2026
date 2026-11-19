@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Eu vou ao CRC 2026 · Crie seu card</title>
+<meta name="description" content="Crie seu card personalizado e mostre que você vai ao XI Congresso Rondoniense de Cardiologia, 27 a 29 de novembro de 2026, Porto Velho.">
+<meta property="og:title" content="Eu vou ao CRC 2026">
+<meta property="og:description" content="Crie seu card e compartilhe nos stories. Marque @soceron.oficial">
+<meta property="og:image" content="https://lgasparelo.github.io/crc2026/assets/icon-512.png">
+<link rel="manifest" href="../manifest.json">
+<meta name="theme-color" content="#0E2238">
+<link rel="apple-touch-icon" href="../assets/icon-180.png">
+<link rel="icon" type="image/png" sizes="192x192" href="../assets/icon-192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Barlow:wght@400;500;600&display=swap">
+<style>
+:root{
+  --paper:#F2F4F7; --surface:#FFFFFF; --surface-2:#E8ECF2;
+  --ink:#0E2238; --ink-2:#3D4E61; --muted:#66758A; --line:#D3DAE3;
+  --red:#C4202B; --blue:#1B5A9E; --blue-soft:#E3EDF8;
+  --display:"Barlow Condensed","Arial Narrow",Arial,sans-serif;
+  --body:"Barlow","Helvetica Neue",Arial,sans-serif;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){
+  :root{--paper:#0A121C;--surface:#121D2A;--surface-2:#1A2838;--ink:#E8EEF5;--ink-2:#B8C4D2;--muted:#8696A8;--line:#283646;--blue:#7FB2EA;--blue-soft:#13263B;color-scheme:dark}
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased}
+a{color:var(--blue)}
+:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+.wrap{max-width:720px;margin:0 auto;padding:0 16px 48px;display:flex;flex-direction:column;gap:24px}
+header.top{background:#0E2238;color:#fff;margin:0 -16px;padding:20px 20px 0}
+.back{display:inline-block;color:#9FB6CF;text-decoration:none;font-size:14.5px;font-weight:500}
+.back:hover{color:#fff}
+.eyebrow{font-family:var(--display);font-weight:600;font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:#9FB6CF;margin-top:14px}
+h1{font-family:var(--display);font-weight:700;font-size:clamp(34px,10vw,52px);line-height:1;margin:8px 0 0;text-transform:uppercase}
+h1 span{color:#FF7C84}
+.lead{margin:14px 0 0;font-size:15.5px;color:#D5DFEA;max-width:52ch}
+.rail{height:14px;margin:22px -20px 0;background:
+  repeating-linear-gradient(90deg,transparent 0 10px,rgba(255,255,255,.28) 10px 14px),
+  linear-gradient(#0000 3px,rgba(255,255,255,.55) 3px 5px,#0000 5px 9px,rgba(255,255,255,.55) 9px 11px,#0000 11px)}
+
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:16px;display:flex;flex-direction:column;gap:14px}
+label{font-family:var(--display);font-weight:600;font-size:14px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+input[type=text]{width:100%;font:inherit;font-size:18px;padding:12px 14px;border:1px solid var(--line);border-radius:6px;background:var(--paper);color:var(--ink)}
+input[type=text]:focus{border-color:var(--blue)}
+.hint{margin:-6px 0 0;font-size:13.5px;color:var(--muted)}
+.tabs{display:flex;gap:6px;background:var(--surface-2);padding:4px;border-radius:8px}
+.tabs button{flex:1;font-family:var(--display);font-weight:700;font-size:15px;letter-spacing:.04em;text-transform:uppercase;padding:10px 6px;border:0;border-radius:6px;background:transparent;color:var(--ink-2);cursor:pointer}
+.tabs button[aria-pressed=true]{background:var(--surface);color:var(--ink);box-shadow:0 1px 2px rgba(0,0,0,.12)}
+.tabs button small{display:block;font-family:var(--body);font-weight:500;font-size:12px;letter-spacing:0;text-transform:none;color:var(--muted)}
+
+.preview{display:flex;justify-content:center}
+canvas{display:block;width:100%;max-width:360px;height:auto;border-radius:10px;box-shadow:0 10px 30px rgba(14,34,56,.25);background:#0E2238}
+.actions{display:flex;flex-direction:column;gap:10px}
+.btn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;font-family:var(--display);font-weight:700;font-size:18px;letter-spacing:.05em;text-transform:uppercase;padding:14px 16px;border-radius:8px;border:0;cursor:pointer;text-decoration:none}
+.btn.primary{background:var(--red);color:#fff}
+.btn.primary:hover{background:#A51A24}
+.btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}
+.btn.ghost:hover{background:var(--surface-2)}
+.btn[disabled]{opacity:.5;cursor:default}
+.ok{font-size:14.5px;color:var(--muted);text-align:center;margin:0;min-height:1.4em}
+
+.steps{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:4px 16px}
+.steps h2{font-family:var(--display);font-weight:700;font-size:22px;text-transform:uppercase;letter-spacing:.03em;margin:12px 0 4px}
+.steps ol{margin:0 0 12px;padding-left:22px;color:var(--ink-2)}
+.steps li{margin:6px 0}
+.steps b{color:var(--ink)}
+footer{font-size:13.5px;color:var(--muted);text-align:center;padding-top:8px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="top">
+  <a class="back" href="../">← Voltar ao site do congresso</a>
+  <div class="eyebrow">XI Congresso Rondoniense de Cardiologia</div>
+  <h1>Eu vou ao <span>CRC 2026</span></h1>
+  <p class="lead">Digite seu nome, baixe o card e compartilhe nos stories. Marque <b>@soceron.oficial</b> e mostre que você faz parte do maior encontro da Cardiologia de Rondônia.</p>
+  <div class="rail" aria-hidden="true"></div>
+</header>
+
+<section class="panel" aria-label="Montar card">
+  <div>
+    <label for="nome">Seu nome</label>
+    <input type="text" id="nome" maxlength="40" autocomplete="name" autocapitalize="words" placeholder="Ex.: Dra. Maria Souza" inputmode="text">
+    <p class="hint">Como você quer aparecer no card. Até 40 caracteres.</p>
+  </div>
+  <div>
+    <label id="fmt-lbl">Formato</label>
+    <div class="tabs" role="group" aria-labelledby="fmt-lbl">
+      <button type="button" data-fmt="story" aria-pressed="true">Stories<small>1080 × 1920</small></button>
+      <button type="button" data-fmt="feed" aria-pressed="false">Feed<small>1080 × 1350</small></button>
+    </div>
+  </div>
+</section>
+
+<section class="preview" aria-label="Pré-visualização">
+  <canvas id="cv" width="1080" height="1920" role="img" aria-label="Pré-visualização do card Eu vou ao CRC 2026"></canvas>
+</section>
+
+<section class="actions">
+  <button type="button" class="btn primary" id="btn-share" hidden>Compartilhar</button>
+  <a class="btn primary" id="btn-down" download="eu-vou-crc2026.png" href="#">Baixar imagem</a>
+  <p class="ok" id="ok"></p>
+</section>
+
+<section class="steps">
+  <h2>Como publicar</h2>
+  <ol>
+    <li>Toque em <b>Compartilhar</b> (ou <b>Baixar imagem</b> e abra o Instagram).</li>
+    <li>Publique nos <b>stories</b> ou no feed.</li>
+    <li>Marque <b>@soceron.oficial</b> e <b>@sbc.cardiol</b>. Vamos repostar!</li>
+  </ol>
+</section>
+
+<footer>XI Congresso Rondoniense de Cardiologia · 27 a 29 de novembro de 2026 · Porto Velho · realização SOCERON, filiada à SBC.</footer>
+</div>
+
+<script>
+(function(){
+  var cv=document.getElementById("cv"),ctx=cv.getContext("2d");
+  var inp=document.getElementById("nome"),ok=document.getElementById("ok");
+  var btnDown=document.getElementById("btn-down"),btnShare=document.getElementById("btn-share");
+  var fmt="story";
+  var imgs={},ready=false;
+
+  function load(src){return new Promise(function(res){var i=new Image();i.onload=function(){res(i)};i.onerror=function(){res(null)};i.src=src})}
+
+  Promise.all([
+    load("../assets/logo-congresso.png"),
+    load("../assets/soceron.png"),
+    load("../assets/sbc-selo.webp"),
+    document.fonts?document.fonts.load('800 100px "Barlow Condensed","Arial Narrow",Arial,sans-serif'):Promise.resolve(),
+    document.fonts?document.fonts.load('600 40px "Barlow Condensed","Arial Narrow",Arial,sans-serif'):Promise.resolve(),
+    document.fonts?document.fonts.load('500 30px "Barlow",Arial,sans-serif'):Promise.resolve()
+  ]).then(function(r){imgs.logo=r[0];imgs.soc=r[1];imgs.sbc=r[2];ready=true;draw()});
+
+  function rr(x,y,w,h,r){ctx.beginPath();ctx.moveTo(x+r,y);ctx.arcTo(x+w,y,x+w,y+h,r);ctx.arcTo(x+w,y+h,x,y+h,r);ctx.arcTo(x,y+h,x,y,r);ctx.arcTo(x,y,x+w,y,r);ctx.closePath()}
+  function fit(img,maxW,maxH){var s=Math.min(maxW/img.width,maxH/img.height);return{w:img.width*s,h:img.height*s}}
+  function fitFont(txt,weight,fam,maxPx,minPx,maxW){var px=maxPx;for(;px>=minPx;px-=2){ctx.font=weight+" "+px+'px "'+fam+'",Arial,sans-serif';if(ctx.measureText(txt).width<=maxW)break}return px}
+  function wrap(txt,maxW){var w=txt.split(/\s+/),lines=[],cur="";w.forEach(function(x){var t=cur?cur+" "+x:x;if(ctx.measureText(t).width>maxW&&cur){lines.push(cur);cur=x}else cur=t});if(cur)lines.push(cur);return lines}
+
+  function rail(y,W){
+    ctx.save();
+    ctx.fillStyle="rgba(255,255,255,.55)";ctx.fillRect(0,y+5,W,4);ctx.fillRect(0,y+17,W,4);
+    ctx.fillStyle="rgba(255,255,255,.28)";for(var x=0;x<W;x+=28){ctx.fillRect(x+20,y,8,26)}
+    ctx.restore();
+  }
+
+  function draw(){
+    var W=1080,H=fmt==="story"?1920:1350;
+    cv.width=W;cv.height=H;
+    var name=(inp.value||"").trim();
+    var M=72;
+
+    // fundo
+    var g=ctx.createLinearGradient(0,0,0,H);g.addColorStop(0,"#0E2238");g.addColorStop(1,"#071526");
+    ctx.fillStyle=g;ctx.fillRect(0,0,W,H);
+    // círculo decorativo
+    ctx.save();ctx.globalAlpha=.08;ctx.fillStyle="#7FB2EA";ctx.beginPath();ctx.arc(W*.85,H*.18,W*.55,0,Math.PI*2);ctx.fill();ctx.restore();
+
+    var top=fmt==="story"?200:96;
+    // logo do congresso em cartão branco
+    if(imgs.logo){
+      var cw=W-M*2,ch=fmt==="story"?300:250;
+      ctx.save();ctx.shadowColor="rgba(0,0,0,.35)";ctx.shadowBlur=30;ctx.shadowOffsetY=10;
+      ctx.fillStyle="#fff";rr(M,top,cw,ch,20);ctx.fill();ctx.restore();
+      var f=fit(imgs.logo,cw-60,ch-40);
+      ctx.drawImage(imgs.logo,M+(cw-f.w)/2,top+(ch-f.h)/2,f.w,f.h);
+      top+=ch;
+    }
+
+    // bloco central
+    var S=fmt==="story";var midTop=top+(S?120:60);
+    ctx.textAlign="center";ctx.textBaseline="alphabetic";
+
+    ctx.fillStyle="#9FB6CF";ctx.font='600 40px "Barlow Condensed","Arial Narrow",Arial,sans-serif';
+    ctx.save();ctx.letterSpacing="8px";ctx.fillText("27 A 29 DE NOVEMBRO · PORTO VELHO",W/2,midTop);ctx.restore();
+
+    var y=midTop+(S?230:180);
+    ctx.fillStyle="#fff";ctx.font='800 '+(S?230:200)+'px "Barlow Condensed","Arial Narrow",Arial,sans-serif';
+    ctx.fillText("EU VOU",W/2,y);
+    // sublinhado vermelho
+    ctx.fillStyle="#E8323E";ctx.fillRect(W/2-150,y+22,300,14);
+
+    y+=(S?150:115);
+    ctx.fillStyle="#FF7C84";ctx.font='700 '+(S?86:80)+'px "Barlow Condensed","Arial Narrow",Arial,sans-serif';
+    ctx.fillText("AO CRC 2026",W/2,y);
+
+    // nome
+    y+=(S?180:120);
+    if(name){
+      var px=fitFont(name,"600","Barlow Condensed",S?96:88,56,W-M*2);
+      ctx.font='600 '+px+'px "Barlow Condensed","Arial Narrow",Arial,sans-serif';
+      var lines=wrap(name,W-M*2);
+      if(lines.length>2){lines=lines.slice(0,2)}
+      ctx.fillStyle="#fff";
+      lines.forEach(function(l,i){ctx.fillText(l,W/2,y+i*(px*1.1))});
+      y+=px*1.1*(lines.length-1);
+      ctx.fillStyle="#D5DFEA";ctx.font='500 34px "Barlow",Arial,sans-serif';
+      ctx.fillText("estará no XI Congresso Rondoniense de Cardiologia",W/2,y+(S?66:58));
+    }else{
+      ctx.fillStyle="rgba(255,255,255,.35)";ctx.font='600 72px "Barlow Condensed","Arial Narrow",Arial,sans-serif';
+      ctx.fillText("SEU NOME AQUI",W/2,y);
+    }
+
+    // rodapé (ancorado pela base)
+    var bw=W-M*2,bh=120,by=H-bh-80;
+    rail(by-215,W);
+    ctx.fillStyle="#D5DFEA";ctx.font='500 32px "Barlow",Arial,sans-serif';
+    ctx.fillText("Assembleia Legislativa de Rondônia",W/2,by-120);
+    ctx.fillStyle="#FF7C84";ctx.font='700 46px "Barlow Condensed","Arial Narrow",Arial,sans-serif';
+    ctx.save();ctx.letterSpacing="2px";ctx.fillText("@soceron.oficial",W/2,by-50);ctx.restore();
+
+    // logos SOCERON + SBC sobre branco
+    ctx.fillStyle="#fff";rr(M,by,bw,bh,16);ctx.fill();
+    var pad=24,items=[],tw=0;
+    if(imgs.soc){var a=fit(imgs.soc,520,bh-pad*2);items.push({i:imgs.soc,w:a.w,h:a.h});tw+=a.w}
+    if(imgs.sbc){var b=fit(imgs.sbc,200,bh-pad*2);items.push({i:imgs.sbc,w:b.w,h:b.h});tw+=b.w}
+    var gap=70,x=M+(bw-(tw+gap*(items.length-1)))/2;
+    items.forEach(function(it){ctx.drawImage(it.i,x,by+(bh-it.h)/2,it.w,it.h);x+=it.w+gap});
+    ctx.fillStyle="#66758A";ctx.font='500 22px "Barlow",Arial,sans-serif';
+    ctx.fillText("lgasparelo.github.io/crc2026",W/2,H-30);
+
+    updateLinks();
+  }
+
+  function updateLinks(){
+    try{btnDown.href=cv.toDataURL("image/png")}catch(e){}
+    btnDown.download="eu-vou-crc2026-"+fmt+".png";
+  }
+
+  inp.addEventListener("input",function(){if(ready)draw()});
+  document.querySelectorAll(".tabs button").forEach(function(b){
+    b.addEventListener("click",function(){
+      fmt=b.dataset.fmt;
+      document.querySelectorAll(".tabs button").forEach(function(o){o.setAttribute("aria-pressed",o===b?"true":"false")});
+      if(ready)draw();
+    });
+  });
+
+  btnDown.addEventListener("click",function(){
+    if(!inp.value.trim()){ok.textContent="Digite seu nome antes de baixar.";inp.focus();}
+    else ok.textContent="Imagem salva. Agora é só publicar e marcar @soceron.oficial.";
+  });
+
+  // Compartilhar direto (celular)
+  if(navigator.canShare){
+    try{
+      var test=new File([new Blob()],"t.png",{type:"image/png"});
+      if(navigator.canShare({files:[test]}))btnShare.hidden=false;
+    }catch(e){}
+  }
+  btnShare.addEventListener("click",function(){
+    if(!inp.value.trim()){ok.textContent="Digite seu nome antes de compartilhar.";inp.focus();return}
+    cv.toBlob(function(blob){
+      var file=new File([blob],"eu-vou-crc2026.png",{type:"image/png"});
+      navigator.share({files:[file],title:"Eu vou ao CRC 2026",text:"Eu vou ao XI Congresso Rondoniense de Cardiologia! @soceron.oficial"})
+        .then(function(){ok.textContent="Compartilhado. Obrigado por divulgar o CRC 2026!"})
+        .catch(function(){});
+    },"image/png");
+  });
+
+  // nome vindo pela URL (?nome=...)
+  try{var q=new URLSearchParams(location.search).get("nome");if(q)inp.value=q.slice(0,40)}catch(e){}
+})();
+</script>
+</body>
+</html>
