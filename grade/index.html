@@ -88,6 +88,12 @@ h1 span{color:#FF7C84}
 .apoio li:last-child{border-bottom:0}
 .apoio b{font-weight:600}
 .apoio span{font-size:14px;color:var(--muted)}
+.brand.tier-gold{border:2px solid #C9A227;padding:22px}.brand.tier-gold img{max-height:110px}
+.brand.tier-silver{border:2px solid #A8ADB5;padding:18px}.brand.tier-silver img{max-height:80px}
+.sponsors img.seal{max-height:96px}
+.sponsors.trio{grid-template-columns:repeat(3,minmax(0,1fr))}
+.sponsors.duo{grid-template-columns:repeat(2,minmax(0,1fr))}
+.sponsors.trio .brand{padding:10px}
 .brand.dark{background:#0E2238;border-color:#0E2238}
 .brand.word{font-family:var(--display);font-weight:700;font-size:24px;letter-spacing:.04em;color:#0E2238}
 .insta li{padding:0}
@@ -273,6 +279,34 @@ nav.dock a:hover{color:var(--red)}
   <div class="chips" id="chips" role="group" aria-label="Sala"></div>
   <div class="board" id="board"></div>
   <p class="sec-note">Horários de Porto Velho. A grade pode sofrer ajustes de última hora.</p>
+</section>
+
+<section id="patrocinadores">
+  <h2>Realização e patrocínio</h2>
+  <p class="sub">Realização</p>
+  <div class="brand big"><img src="../assets/soceron.png" alt="SOCERON, Sociedade de Cardiologia de Rondônia, filiada à SBC" width="775" height="215"></div>
+  <p class="sub">Patrocínio ouro</p>
+  <div class="brand big tier-gold"><img src="../assets/intermedical.png" alt="InterMedical" width="365" height="140"></div>
+  <p class="sub">Patrocínio prata</p>
+  <div class="brand big tier-silver"><img src="../assets/smt.png" alt="SMT" width="300" height="90"></div>
+  <p class="sub">Patrocínio bronze</p>
+  <div class="sponsors">
+    <div class="brand"><img src="../assets/libbs.png" alt="Libbs" width="225" height="120"></div>
+    <div class="brand"><img src="../assets/discomed.png" alt="Discomed" width="335" height="95"></div>
+    <div class="brand"><img src="../assets/boston.webp" alt="Boston Scientific" width="240" height="105"></div>
+    <div class="brand"><img src="../assets/edwards.webp" alt="Edwards Lifesciences" width="260" height="67"></div>
+    <div class="brand"><img src="../assets/icr.webp" alt="Instituto do Coração de Rondônia" width="260" height="69"></div>
+  </div>
+  <p class="sub">Apoio</p>
+  <div class="sponsors trio">
+    <div class="brand"><img class="seal" src="../assets/sbc-selo.webp" alt="Sociedade Brasileira de Cardiologia" width="241" height="251"></div>
+    <div class="brand"><img class="seal" src="../assets/camufro.webp" alt="CAMUFRO, Centro Acadêmico de Medicina da Universidade Federal de Rondônia" width="248" height="280"></div>
+    <div class="brand"><img class="seal" src="../assets/licar.webp" alt="LICAR, Liga Rondoniense de Cardiologia Clínica e Cirúrgica" width="280" height="279"></div>
+  </div>
+  <div class="sponsors duo">
+    <div class="brand"><img class="seal" src="../assets/alero-brasao.webp" alt="Assembleia Legislativa do Estado de Rondônia" width="180" height="180"></div>
+    <div class="brand"><img src="../assets/crf-ro.webp" alt="Conselho Regional de Farmácia do Estado de Rondônia" width="240" height="105"></div>
+  </div>
 </section>
 
 <footer>XI Congresso Rondoniense de Cardiologia, 16º Simpósio de Hipertensão Arterial Sistêmica e 2º Simpósio Multidisciplinar · realização SOCERON, filiada à Sociedade Brasileira de Cardiologia.</footer>
