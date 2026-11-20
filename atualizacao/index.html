@@ -35,6 +35,12 @@ a{color:var(--blue)}
 header.top{background:#0E2238;color:#fff;margin:0 -16px;padding:20px 20px 0}
 .back{display:inline-block;color:#9FB6CF;text-decoration:none;font-size:14.5px;font-weight:500}
 .back:hover{color:#fff}
+.logos{position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;gap:clamp(16px,5vw,32px);background:#fff;border-radius:14px;padding:18px 20px 26px;margin-top:16px;box-shadow:0 10px 30px rgba(0,0,0,.35)}
+.logos::after{content:"";position:absolute;left:0;right:0;bottom:0;height:8px;background:linear-gradient(90deg,#1B5A9E,#0E2238 55%,#C4202B)}
+.logos img{display:block;height:auto;width:auto;mix-blend-mode:multiply}
+.logos .soc{max-height:64px;max-width:62%}
+.logos .sbc{max-height:78px;max-width:24%}
+.logos i{width:2px;align-self:stretch;background:#D3DAE3}
 .eyebrow{font-family:var(--display);font-weight:600;font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:#9FB6CF;margin-top:14px}
 h1{font-family:var(--display);font-weight:700;font-size:clamp(34px,10vw,52px);line-height:1;margin:8px 0 0;text-transform:uppercase}
 h1 span{color:#FF7C84}
@@ -67,6 +73,11 @@ footer{font-size:13.5px;color:var(--muted);text-align:center;padding-top:8px}
 
 <header class="top">
   <a class="back" href="../">← Voltar ao site do congresso</a>
+  <div class="logos">
+    <img class="soc" src="../assets/soceron.png" alt="SOCERON, Sociedade de Cardiologia de Rondônia, filiada à SBC" width="775" height="215">
+    <i aria-hidden="true"></i>
+    <img class="sbc" src="../assets/sbc-selo.webp" alt="Sociedade Brasileira de Cardiologia" width="241" height="251">
+  </div>
   <div class="eyebrow">SOCERON · Sociedade Brasileira de Cardiologia</div>
   <h1>Atualização <span>cadastral</span></h1>
   <p class="lead">A SBC está atualizando o cadastro de todos os associados. Se você é associado em Rondônia, preencha o formulário e confirme seu vínculo com a <b>SOCERON</b>.</p>
