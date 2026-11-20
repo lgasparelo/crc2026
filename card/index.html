@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Eu vou ao CRC 2026 · Crie seu card</title>
-<meta name="description" content="Crie seu card personalizado e mostre que você vai ao XI Congresso Rondoniense de Cardiologia, 27 a 29 de novembro de 2026, Porto Velho.">
-<meta property="og:title" content="Eu vou ao CRC 2026">
-<meta property="og:description" content="Crie seu card e compartilhe nos stories. Marque @soceron.oficial">
+<title>Eu vou ao Congresso Rondoniense de Cardiologia · Crie seu card</title>
+<meta name="description" content="Crie seu card personalizado com sua foto e mostre que você vai ao XI Congresso Rondoniense de Cardiologia, 27 a 29 de novembro de 2026, Porto Velho.">
+<meta property="og:title" content="Eu vou ao Congresso Rondoniense de Cardiologia">
+<meta property="og:description" content="Crie seu card com sua foto e compartilhe nos stories. Marque @soceron.oficial">
 <meta property="og:image" content="https://lgasparelo.github.io/crc2026/assets/icon-512.png">
 <link rel="manifest" href="../manifest.json">
 <meta name="theme-color" content="#0E2238">
@@ -19,19 +19,19 @@
 :root{
   --paper:#F2F4F7; --surface:#FFFFFF; --surface-2:#E8ECF2;
   --ink:#0E2238; --ink-2:#3D4E61; --muted:#66758A; --line:#D3DAE3;
-  --red:#C4202B; --blue:#1B5A9E; --blue-soft:#E3EDF8;
+  --red:#C4202B; --blue:#1B5A9E; --blue-soft:#E3EDF8; --green:#0F7352;
   --display:"Barlow Condensed","Arial Narrow",Arial,sans-serif;
   --body:"Barlow","Helvetica Neue",Arial,sans-serif;
   color-scheme:light;
 }
 @media (prefers-color-scheme:dark){
-  :root{--paper:#0A121C;--surface:#121D2A;--surface-2:#1A2838;--ink:#E8EEF5;--ink-2:#B8C4D2;--muted:#8696A8;--line:#283646;--blue:#7FB2EA;--blue-soft:#13263B;color-scheme:dark}
+  :root{--paper:#0A121C;--surface:#121D2A;--surface-2:#1A2838;--ink:#E8EEF5;--ink-2:#B8C4D2;--muted:#8696A8;--line:#283646;--blue:#7FB2EA;--blue-soft:#13263B;--green:#5CCBA3;color-scheme:dark}
 }
 *{box-sizing:border-box}
 body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased}
 a{color:var(--blue)}
 :focus-visible{outline:3px solid var(--blue);outline-offset:2px}
-.wrap{max-width:720px;margin:0 auto;padding:0 16px 48px;display:flex;flex-direction:column;gap:24px}
+.wrap{max-width:720px;margin:0 auto;padding:0 16px 48px;display:flex;flex-direction:column;gap:22px}
 header.top{background:#0E2238;color:#fff;margin:0 -16px;padding:20px 20px 0}
 .back{display:inline-block;color:#9FB6CF;text-decoration:none;font-size:14.5px;font-weight:500}
 .back:hover{color:#fff}
@@ -43,30 +43,54 @@ h1 span{color:#FF7C84}
   repeating-linear-gradient(90deg,transparent 0 10px,rgba(255,255,255,.28) 10px 14px),
   linear-gradient(#0000 3px,rgba(255,255,255,.55) 3px 5px,#0000 5px 9px,rgba(255,255,255,.55) 9px 11px,#0000 11px)}
 
-.panel{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:16px;display:flex;flex-direction:column;gap:14px}
-label{font-family:var(--display);font-weight:600;font-size:14px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:16px;display:flex;flex-direction:column;gap:16px}
+.step{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.step i{font-style:normal;font-family:var(--display);font-weight:700;font-size:15px;width:26px;height:26px;border-radius:50%;background:var(--ink);color:#fff;display:grid;place-items:center}
+.step label,.step span{font-family:var(--display);font-weight:600;font-size:14px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
 input[type=text]{width:100%;font:inherit;font-size:18px;padding:12px 14px;border:1px solid var(--line);border-radius:6px;background:var(--paper);color:var(--ink)}
 input[type=text]:focus{border-color:var(--blue)}
-.hint{margin:-6px 0 0;font-size:13.5px;color:var(--muted)}
+.hint{margin:6px 0 0;font-size:13.5px;color:var(--muted)}
 .tabs{display:flex;gap:6px;background:var(--surface-2);padding:4px;border-radius:8px}
-.tabs button{flex:1;font-family:var(--display);font-weight:700;font-size:15px;letter-spacing:.04em;text-transform:uppercase;padding:10px 6px;border:0;border-radius:6px;background:transparent;color:var(--ink-2);cursor:pointer}
+.tabs{flex-wrap:wrap}
+.tabs button{flex:1 1 30%;font-family:var(--display);font-weight:700;font-size:15px;letter-spacing:.04em;text-transform:uppercase;padding:10px 6px;border:0;border-radius:6px;background:transparent;color:var(--ink-2);cursor:pointer}
 .tabs button[aria-pressed=true]{background:var(--surface);color:var(--ink);box-shadow:0 1px 2px rgba(0,0,0,.12)}
 .tabs button small{display:block;font-family:var(--body);font-weight:500;font-size:12px;letter-spacing:0;text-transform:none;color:var(--muted)}
 
-.preview{display:flex;justify-content:center}
-canvas{display:block;width:100%;max-width:360px;height:auto;border-radius:10px;box-shadow:0 10px 30px rgba(14,34,56,.25);background:#0E2238}
+.photo-row{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.file-btn{display:inline-flex;align-items:center;gap:8px;font-family:var(--display);font-weight:700;font-size:16px;letter-spacing:.04em;text-transform:uppercase;padding:11px 16px;border-radius:6px;border:0;background:var(--blue);color:#fff;cursor:pointer}
+.file-btn:hover{filter:brightness(1.08)}
+#file{position:absolute;width:1px;height:1px;opacity:0;overflow:hidden}
+.file-name{font-size:14px;color:var(--muted)}
+.adjust{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:12px}
+.adjust .grp{display:flex;flex-direction:column;gap:4px}
+.adjust .grp span{font-size:12px;color:var(--muted);text-align:center;text-transform:uppercase;letter-spacing:.08em;font-family:var(--display);font-weight:600}
+.adjust .pair{display:flex;gap:6px}
+.adjust button{flex:1;font:inherit;font-size:18px;font-weight:600;padding:9px 0;border:1px solid var(--line);border-radius:6px;background:var(--surface);color:var(--ink);cursor:pointer;min-height:44px}
+.adjust button:hover{background:var(--surface-2)}
+.adjust button.txt{font-family:var(--display);font-size:13px;letter-spacing:.05em;text-transform:uppercase}
+.adjust .mover{grid-column:1/-1}
+.dpad{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
+.dpad button{font-size:22px}
+.drag-hint{margin:8px 0 0;font-size:13.5px;color:var(--muted);text-align:center}
+
+.preview{display:flex;flex-direction:column;align-items:center;gap:8px}
+.preview small{color:var(--muted);font-size:13px}
+canvas{display:block;width:100%;max-width:300px;height:auto;border-radius:10px;box-shadow:0 10px 30px rgba(14,34,56,.25);background:#0E2238;touch-action:none;cursor:grab}
+canvas.dragging{cursor:grabbing}
 .actions{display:flex;flex-direction:column;gap:10px}
 .btn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;font-family:var(--display);font-weight:700;font-size:18px;letter-spacing:.05em;text-transform:uppercase;padding:14px 16px;border-radius:8px;border:0;cursor:pointer;text-decoration:none}
 .btn.primary{background:var(--red);color:#fff}
 .btn.primary:hover{background:#A51A24}
 .btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}
 .btn.ghost:hover{background:var(--surface-2)}
-.btn[disabled]{opacity:.5;cursor:default}
 .ok{font-size:14.5px;color:var(--muted);text-align:center;margin:0;min-height:1.4em}
+.ok.good{color:var(--green)}
 
-.steps{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:4px 16px}
-.steps h2{font-family:var(--display);font-weight:700;font-size:22px;text-transform:uppercase;letter-spacing:.03em;margin:12px 0 4px}
-.steps ol{margin:0 0 12px;padding-left:22px;color:var(--ink-2)}
+.caption{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:16px;display:flex;flex-direction:column;gap:10px}
+.caption h2,.steps h2{font-family:var(--display);font-weight:700;font-size:22px;text-transform:uppercase;letter-spacing:.03em;margin:0}
+textarea{width:100%;font:inherit;font-size:15px;line-height:1.5;padding:12px 14px;border:1px solid var(--line);border-radius:6px;background:var(--paper);color:var(--ink);resize:vertical;min-height:150px}
+.steps{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:16px}
+.steps ol{margin:8px 0 0;padding-left:22px;color:var(--ink-2)}
 .steps li{margin:6px 0}
 .steps b{color:var(--ink)}
 footer{font-size:13.5px;color:var(--muted);text-align:center;padding-top:8px}
@@ -78,19 +102,56 @@ footer{font-size:13.5px;color:var(--muted);text-align:center;padding-top:8px}
 <header class="top">
   <a class="back" href="../">← Voltar ao site do congresso</a>
   <div class="eyebrow">XI Congresso Rondoniense de Cardiologia</div>
-  <h1>Eu vou ao <span>CRC 2026</span></h1>
-  <p class="lead">Digite seu nome, baixe o card e compartilhe nos stories. Marque <b>@soceron.oficial</b> e mostre que você faz parte do maior encontro da Cardiologia de Rondônia.</p>
+  <h1>Eu vou ao <span>Congresso Rondoniense de Cardiologia</span></h1>
+  <p class="lead">Coloque sua foto e seu nome, baixe o card e publique nos stories. Marque <b>@soceron.oficial</b> e mostre que você faz parte do maior encontro da Cardiologia de Rondônia.</p>
   <div class="rail" aria-hidden="true"></div>
 </header>
 
+<section class="preview" aria-label="Pré-visualização">
+  <canvas id="cv" width="1080" height="1920" role="img" aria-label="Pré-visualização do card Eu vou ao Congresso Rondoniense de Cardiologia"></canvas>
+  <small>Pré-visualização ao vivo — ajuste a foto nos controles abaixo.</small>
+</section>
+
 <section class="panel" aria-label="Montar card">
   <div>
-    <label for="nome">Seu nome</label>
+    <div class="step"><i>1</i><span>Sua foto</span></div>
+    <div class="photo-row">
+      <label class="file-btn" for="file">📷 Escolher foto</label>
+      <input type="file" id="file" accept="image/*">
+      <span class="file-name" id="file-name">Nenhuma foto selecionada</span>
+    </div>
+    <div class="adjust" id="adjust" hidden>
+      <div class="grp"><span>Zoom</span><div class="pair"><button type="button" data-act="zoom-" aria-label="Diminuir zoom">−</button><button type="button" data-act="zoom+" aria-label="Aumentar zoom">+</button></div></div>
+      <div class="grp"><span>Girar</span><div class="pair"><button type="button" data-act="rot-" aria-label="Girar para a esquerda">↶</button><button type="button" data-act="rot+" aria-label="Girar para a direita">↷</button></div></div>
+      <div class="grp"><span>Ajuste</span><div class="pair"><button type="button" class="txt" data-act="center">Centralizar</button><button type="button" class="txt" data-act="reset">Reset</button></div></div>
+      <div class="grp mover"><span>Mover a foto</span>
+        <div class="dpad">
+          <button type="button" data-act="up" aria-label="Mover para cima">↑</button>
+          <button type="button" data-act="left" aria-label="Mover para a esquerda">←</button>
+          <button type="button" data-act="down" aria-label="Mover para baixo">↓</button>
+          <button type="button" data-act="right" aria-label="Mover para a direita">→</button>
+        </div>
+      </div>
+    </div>
+    <p class="drag-hint" id="drag-hint" hidden>Use as setas (segure para mover contínuo) ou arraste a foto no card. No celular, pinça para zoom.</p>
+  </div>
+  <div>
+    <div class="step"><i>2</i><label for="nome">Seu nome</label></div>
     <input type="text" id="nome" maxlength="40" autocomplete="name" autocapitalize="words" placeholder="Ex.: Dra. Maria Souza" inputmode="text">
     <p class="hint">Como você quer aparecer no card. Até 40 caracteres.</p>
   </div>
+  <div id="bg-wrap">
+    <div class="step"><i>3</i><span id="bg-lbl">Fundo</span></div>
+    <div class="tabs bgs" role="group" aria-labelledby="bg-lbl">
+      <button type="button" data-bg="0" aria-pressed="true">Rio Madeira</button>
+      <button type="button" data-bg="1" aria-pressed="false">Madeira-Mamoré</button>
+      <button type="button" data-bg="2" aria-pressed="false">Forte Príncipe</button>
+      <button type="button" data-bg="3" aria-pressed="false">Bandeira de RO</button>
+      <button type="button" data-bg="4" aria-pressed="false">Parapente</button>
+    </div>
+  </div>
   <div>
-    <label id="fmt-lbl">Formato</label>
+    <div class="step"><i>4</i><span id="fmt-lbl">Formato</span></div>
     <div class="tabs" role="group" aria-labelledby="fmt-lbl">
       <button type="button" data-fmt="story" aria-pressed="true">Stories<small>1080 × 1920</small></button>
       <button type="button" data-fmt="feed" aria-pressed="false">Feed<small>1080 × 1350</small></button>
@@ -98,22 +159,33 @@ footer{font-size:13.5px;color:var(--muted);text-align:center;padding-top:8px}
   </div>
 </section>
 
-<section class="preview" aria-label="Pré-visualização">
-  <canvas id="cv" width="1080" height="1920" role="img" aria-label="Pré-visualização do card Eu vou ao CRC 2026"></canvas>
-</section>
 
 <section class="actions">
   <button type="button" class="btn primary" id="btn-share" hidden>Compartilhar</button>
-  <a class="btn primary" id="btn-down" download="eu-vou-crc2026.png" href="#">Baixar imagem</a>
+  <a class="btn primary" id="btn-down" href="#" role="button">Baixar card</a>
   <p class="ok" id="ok"></p>
+</section>
+
+<section class="caption">
+  <h2>Legenda sugerida</h2>
+  <textarea id="legenda" rows="7">Eu vou ao Congresso Rondoniense de Cardiologia! 🫀
+
+De 27 a 29 de novembro estarei em Porto Velho no XI Congresso Rondoniense de Cardiologia, com o 16º Simpósio de Hipertensão Arterial Sistêmica e o 2º Simpósio Multidisciplinar. Ciência, atualização e troca entre quem faz a Cardiologia de Rondônia.
+
+Vem comigo! Inscrições em sbc.iweventos.com.br/evento/ccer2026
+
+@soceron.oficial @sbc.cardiol
+#CRC2026 #SOCERON #Cardiologia #PortoVelho</textarea>
+  <button type="button" class="btn ghost" id="btn-copy">📋 Copiar legenda</button>
+  <p class="ok" id="ok-copy"></p>
 </section>
 
 <section class="steps">
   <h2>Como publicar</h2>
   <ol>
-    <li>Toque em <b>Compartilhar</b> (ou <b>Baixar imagem</b> e abra o Instagram).</li>
-    <li>Publique nos <b>stories</b> ou no feed.</li>
-    <li>Marque <b>@soceron.oficial</b> e <b>@sbc.cardiol</b>. Vamos repostar!</li>
+    <li>Toque em <b>Baixar card</b> (ou <b>Compartilhar</b>, no celular).</li>
+    <li>Abra o Instagram, crie um <b>story</b> ou post e escolha o card na galeria.</li>
+    <li>Cole a legenda, marque <b>@soceron.oficial</b> e <b>@sbc.cardiol</b>. Vamos repostar!</li>
   </ol>
 </section>
 
@@ -123,149 +195,244 @@ footer{font-size:13.5px;color:var(--muted);text-align:center;padding-top:8px}
 <script>
 (function(){
   var cv=document.getElementById("cv"),ctx=cv.getContext("2d");
-  var inp=document.getElementById("nome"),ok=document.getElementById("ok");
-  var btnDown=document.getElementById("btn-down"),btnShare=document.getElementById("btn-share");
-  var fmt="story";
-  var imgs={},ready=false;
+  var inp=document.getElementById("nome"),ok=document.getElementById("ok"),okCopy=document.getElementById("ok-copy");
+  var btnDown=document.getElementById("btn-down"),btnShare=document.getElementById("btn-share"),btnCopy=document.getElementById("btn-copy");
+  var fileIn=document.getElementById("file"),fileName=document.getElementById("file-name"),adjust=document.getElementById("adjust"),dragHint=document.getElementById("drag-hint");
+  var fmt="story",imgs={},ready=false;
+  // Fundos reais de Rondônia (fotos em assets/bg/). Ordem = ordem dos botões.
+  var BGS=[{id:"rio",label:"Rio Madeira",src:"../assets/bg/rio.jpg"},
+           {id:"efmm",label:"Madeira-Mamoré",src:"../assets/bg/efmm.jpg"},
+           {id:"forte",label:"Forte Príncipe da Beira",src:"../assets/bg/forte.jpg"},
+           {id:"bandeira",label:"Bandeira de RO",src:"../assets/bg/bandeira.jpg"},
+           {id:"parapente",label:"Parapente",src:"../assets/bg/parapente.jpg"}];
+  var bgIdx=0,bgImgs={};
+  var photo=null,ph={zoom:1,rot:0,dx:0,dy:0};
+  var circle={cx:0,cy:0,r:0};
 
   function load(src){return new Promise(function(res){var i=new Image();i.onload=function(){res(i)};i.onerror=function(){res(null)};i.src=src})}
-
   Promise.all([
-    load("../assets/logo-congresso.png"),
-    load("../assets/soceron.png"),
-    load("../assets/sbc-selo.webp"),
-    document.fonts?document.fonts.load('800 100px "Barlow Condensed","Arial Narrow",Arial,sans-serif'):Promise.resolve(),
-    document.fonts?document.fonts.load('600 40px "Barlow Condensed","Arial Narrow",Arial,sans-serif'):Promise.resolve(),
-    document.fonts?document.fonts.load('500 30px "Barlow",Arial,sans-serif'):Promise.resolve()
-  ]).then(function(r){imgs.logo=r[0];imgs.soc=r[1];imgs.sbc=r[2];ready=true;draw()});
+    load("../assets/logo-congresso.png"),load("../assets/soceron.png"),load("../assets/sbc-selo.webp"),
+    document.fonts?document.fonts.load('800 100px "Barlow Condensed"'):Promise.resolve(),
+    document.fonts?document.fonts.load('600 40px "Barlow Condensed"'):Promise.resolve(),
+    document.fonts?document.fonts.load('500 30px "Barlow"'):Promise.resolve()
+  ]).then(function(r){imgs.logo=r[0];imgs.soc=r[1];imgs.sbc=r[2];ready=true;draw();
+    BGS.forEach(function(bg,i){load(bg.src).then(function(im){if(im){bgImgs[bg.id]=im;showBgBtn(i);if(i===bgIdx)draw()}})});
+  });
+  function showBgBtn(i){var b=document.querySelector('.bgs button[data-bg="'+i+'"]');if(b){b.hidden=false;document.getElementById("bg-wrap").hidden=false}}
 
+  var FC='"Barlow Condensed","Arial Narrow",Arial,sans-serif',FB='"Barlow",Arial,sans-serif';
   function rr(x,y,w,h,r){ctx.beginPath();ctx.moveTo(x+r,y);ctx.arcTo(x+w,y,x+w,y+h,r);ctx.arcTo(x+w,y+h,x,y+h,r);ctx.arcTo(x,y+h,x,y,r);ctx.arcTo(x,y,x+w,y,r);ctx.closePath()}
   function fit(img,maxW,maxH){var s=Math.min(maxW/img.width,maxH/img.height);return{w:img.width*s,h:img.height*s}}
-  function fitFont(txt,weight,fam,maxPx,minPx,maxW){var px=maxPx;for(;px>=minPx;px-=2){ctx.font=weight+" "+px+'px "'+fam+'",Arial,sans-serif';if(ctx.measureText(txt).width<=maxW)break}return px}
+  function fitFont(txt,weight,maxPx,minPx,maxW){var px=maxPx;for(;px>=minPx;px-=2){ctx.font=weight+" "+px+"px "+FC;if(ctx.measureText(txt).width<=maxW)break}return px}
   function wrap(txt,maxW){var w=txt.split(/\s+/),lines=[],cur="";w.forEach(function(x){var t=cur?cur+" "+x:x;if(ctx.measureText(t).width>maxW&&cur){lines.push(cur);cur=x}else cur=t});if(cur)lines.push(cur);return lines}
+  function rail(y,W){ctx.save();ctx.fillStyle="rgba(255,255,255,.55)";ctx.fillRect(0,y+5,W,4);ctx.fillRect(0,y+17,W,4);ctx.fillStyle="rgba(255,255,255,.28)";for(var x=0;x<W;x+=28){ctx.fillRect(x+20,y,8,26)}ctx.restore()}
 
-  function rail(y,W){
-    ctx.save();
-    ctx.fillStyle="rgba(255,255,255,.55)";ctx.fillRect(0,y+5,W,4);ctx.fillRect(0,y+17,W,4);
-    ctx.fillStyle="rgba(255,255,255,.28)";for(var x=0;x<W;x+=28){ctx.fillRect(x+20,y,8,26)}
+
+  function drawPhoto(cx,cy,r){
+    circle={cx:cx,cy:cy,r:r};
+    // brilho atrás da foto
+    var glow=ctx.createRadialGradient(cx,cy,r*.6,cx,cy,r*1.9);
+    glow.addColorStop(0,"rgba(232,50,62,.28)");glow.addColorStop(1,"rgba(232,50,62,0)");
+    ctx.fillStyle=glow;ctx.fillRect(cx-r*2,cy-r*2,r*4,r*4);
+    // anel em gradiente
+    var ring=ctx.createLinearGradient(cx-r,cy-r,cx+r,cy+r);
+    ring.addColorStop(0,"#FF7C84");ring.addColorStop(.5,"#E8323E");ring.addColorStop(1,"#7FB2EA");
+    ctx.save();ctx.beginPath();ctx.arc(cx,cy,r+14,0,Math.PI*2);ctx.fillStyle=ring;ctx.fill();
+    ctx.beginPath();ctx.arc(cx,cy,r+6,0,Math.PI*2);ctx.fillStyle="#0E2238";ctx.fill();ctx.restore();
+    ctx.save();ctx.beginPath();ctx.arc(cx,cy,r,0,Math.PI*2);ctx.clip();
+    if(photo){
+      var rotW=(ph.rot%180)?photo.height:photo.width,rotH=(ph.rot%180)?photo.width:photo.height;
+      var base=Math.max(2*r/rotW,2*r/rotH)*ph.zoom;
+      ctx.translate(cx+ph.dx,cy+ph.dy);ctx.rotate(ph.rot*Math.PI/180);ctx.scale(base,base);
+      ctx.drawImage(photo,-photo.width/2,-photo.height/2);
+    }else{
+      ctx.fillStyle="#1A2838";ctx.fillRect(cx-r,cy-r,2*r,2*r);
+      ctx.fillStyle="#9FB6CF";ctx.textAlign="center";ctx.textBaseline="middle";
+      ctx.font="700 "+Math.round(r*.5)+"px "+FC;ctx.fillText("SUA",cx,cy-r*.22);ctx.fillText("FOTO",cx,cy+r*.28);
+      ctx.textBaseline="alphabetic";
+    }
     ctx.restore();
   }
 
   function draw(){
-    var W=1080,H=fmt==="story"?1920:1350;
+    var S=fmt==="story",W=1080,H=S?1920:1350;
     cv.width=W;cv.height=H;
-    var name=(inp.value||"").trim();
-    var M=72;
+    var name=(inp.value||"").trim(),M=72;
 
-    // fundo
-    var g=ctx.createLinearGradient(0,0,0,H);g.addColorStop(0,"#0E2238");g.addColorStop(1,"#071526");
+    // fundo: gradiente + luzes suaves
+    var g=ctx.createLinearGradient(0,0,0,H);g.addColorStop(0,"#13304F");g.addColorStop(.45,"#0E2238");g.addColorStop(1,"#061322");
     ctx.fillStyle=g;ctx.fillRect(0,0,W,H);
-    // círculo decorativo
-    ctx.save();ctx.globalAlpha=.08;ctx.fillStyle="#7FB2EA";ctx.beginPath();ctx.arc(W*.85,H*.18,W*.55,0,Math.PI*2);ctx.fill();ctx.restore();
-
-    var top=fmt==="story"?200:96;
-    // logo do congresso em cartão branco
-    if(imgs.logo){
-      var cw=W-M*2,ch=fmt==="story"?300:250;
-      ctx.save();ctx.shadowColor="rgba(0,0,0,.35)";ctx.shadowBlur=30;ctx.shadowOffsetY=10;
-      ctx.fillStyle="#fff";rr(M,top,cw,ch,20);ctx.fill();ctx.restore();
-      var f=fit(imgs.logo,cw-60,ch-40);
-      ctx.drawImage(imgs.logo,M+(cw-f.w)/2,top+(ch-f.h)/2,f.w,f.h);
-      top+=ch;
+    // foto de Rondônia ao fundo: cobre o card, dessaturada, escurecida e azulada
+    var bgIm=bgImgs[BGS[bgIdx]&&BGS[bgIdx].id];
+    if(bgIm){
+      var sc=Math.max(W/bgIm.width,H/bgIm.height),bw0=bgIm.width*sc,bh0=bgIm.height*sc;
+      ctx.save();ctx.filter="grayscale(.5) contrast(1.05) brightness(.85) blur(2px)";ctx.globalAlpha=.7;
+      ctx.drawImage(bgIm,(W-bw0)/2,(H-bh0)/2,bw0,bh0);ctx.restore();
+      ctx.save();ctx.globalCompositeOperation="multiply";ctx.fillStyle="rgba(27,90,158,.75)";ctx.fillRect(0,0,W,H);ctx.restore(); // tom azul
+      var v=ctx.createLinearGradient(0,0,0,H);v.addColorStop(0,"rgba(14,34,56,.85)");v.addColorStop(.3,"rgba(14,34,56,.35)");v.addColorStop(.7,"rgba(14,34,56,.45)");v.addColorStop(1,"rgba(6,19,34,.92)");
+      ctx.fillStyle=v;ctx.fillRect(0,0,W,H); // escurece topo e base para o texto ler bem
     }
+    var l1=ctx.createRadialGradient(W*.9,H*.08,0,W*.9,H*.08,W*.8);l1.addColorStop(0,"rgba(127,178,234,.22)");l1.addColorStop(1,"rgba(127,178,234,0)");
+    ctx.fillStyle=l1;ctx.fillRect(0,0,W,H);
+    var l2=ctx.createRadialGradient(W*.05,H*.95,0,W*.05,H*.95,W*.7);l2.addColorStop(0,"rgba(232,50,62,.16)");l2.addColorStop(1,"rgba(232,50,62,0)");
+    ctx.fillStyle=l2;ctx.fillRect(0,0,W,H);
 
-    // bloco central
-    var S=fmt==="story";var midTop=top+(S?120:60);
+    // cartão da logo do congresso
+    var MC=S?150:130,top=S?120:64,cw=W-MC*2,ch=S?250:180;
+    if(imgs.logo){
+      ctx.save();ctx.shadowColor="rgba(0,0,0,.4)";ctx.shadowBlur=40;ctx.shadowOffsetY=14;
+      ctx.fillStyle="#fff";rr(MC,top,cw,ch,26);ctx.fill();ctx.restore();
+      // faixa de acabamento na base do cartão
+      ctx.save();rr(MC,top,cw,ch,26);ctx.clip();
+      var bar=ctx.createLinearGradient(MC,0,MC+cw,0);bar.addColorStop(0,"#1B5A9E");bar.addColorStop(.55,"#0E2238");bar.addColorStop(1,"#C4202B");
+      ctx.fillStyle=bar;ctx.fillRect(MC,top+ch-10,cw,10);ctx.restore();
+      var f=fit(imgs.logo,cw-70,ch-50);ctx.drawImage(imgs.logo,MC+(cw-f.w)/2,top+(ch-10-f.h)/2,f.w,f.h);
+    }
+    var y=top+ch;
     ctx.textAlign="center";ctx.textBaseline="alphabetic";
 
-    ctx.fillStyle="#9FB6CF";ctx.font='600 40px "Barlow Condensed","Arial Narrow",Arial,sans-serif';
-    ctx.save();ctx.letterSpacing="8px";ctx.fillText("27 A 29 DE NOVEMBRO · PORTO VELHO",W/2,midTop);ctx.restore();
+    // datas
+    y+=S?84:64;
+    ctx.fillStyle="#9FB6CF";ctx.font="600 "+(S?38:34)+"px "+FC;
+    ctx.save();ctx.letterSpacing="7px";ctx.fillText("27 A 29 DE NOVEMBRO · PORTO VELHO",W/2,y);ctx.restore();
 
-    var y=midTop+(S?230:180);
-    ctx.fillStyle="#fff";ctx.font='800 '+(S?230:200)+'px "Barlow Condensed","Arial Narrow",Arial,sans-serif';
-    ctx.fillText("EU VOU",W/2,y);
-    // sublinhado vermelho
-    ctx.fillStyle="#E8323E";ctx.fillRect(W/2-150,y+22,300,14);
+    // EU VOU
+    var big=S?210:140;y+=S?190:132;
+    ctx.save();ctx.shadowColor="rgba(0,0,0,.35)";ctx.shadowBlur=24;ctx.shadowOffsetY=6;
+    ctx.fillStyle="#fff";ctx.font="800 "+big+"px "+FC;ctx.letterSpacing="4px";ctx.fillText("EU VOU",W/2,y);ctx.restore();
+    ctx.fillStyle="#E8323E";rr(W/2-120,y+20,240,10,5);ctx.fill();
+    y+=S?112:80;
+    var sub=fitFont("AO XI CONGRESSO RONDONIENSE","700",S?60:50,36,W-M*2-60);
+    ctx.fillStyle="#FF7C84";ctx.font="700 "+sub+"px "+FC;
+    ctx.save();ctx.letterSpacing="2px";
+    ctx.fillText("AO XI CONGRESSO RONDONIENSE",W/2,y);
+    ctx.fillText("DE CARDIOLOGIA · 2026",W/2,y+sub*1.12);ctx.restore();
+    y+=sub*1.12;
 
-    y+=(S?150:115);
-    ctx.fillStyle="#FF7C84";ctx.font='700 '+(S?86:80)+'px "Barlow Condensed","Arial Narrow",Arial,sans-serif';
-    ctx.fillText("AO CRC 2026",W/2,y);
+    // foto
+    var r=S?195:125;y+=S?56:40;
+    drawPhoto(W/2,y+r,r);
+    y+=2*r;
 
     // nome
-    y+=(S?180:120);
+    y+=S?104:88;
+    var bh=S?132:112,by=H-bh-84;
     if(name){
-      var px=fitFont(name,"600","Barlow Condensed",S?96:88,56,W-M*2);
-      ctx.font='600 '+px+'px "Barlow Condensed","Arial Narrow",Arial,sans-serif';
-      var lines=wrap(name,W-M*2);
-      if(lines.length>2){lines=lines.slice(0,2)}
+      var px=fitFont(name,"600",S?92:76,52,W-M*2);
+      ctx.font="600 "+px+"px "+FC;
+      var lines=wrap(name,W-M*2).slice(0,2);
       ctx.fillStyle="#fff";
       lines.forEach(function(l,i){ctx.fillText(l,W/2,y+i*(px*1.1))});
       y+=px*1.1*(lines.length-1);
-      ctx.fillStyle="#D5DFEA";ctx.font='500 34px "Barlow",Arial,sans-serif';
-      ctx.fillText("estará no XI Congresso Rondoniense de Cardiologia",W/2,y+(S?66:58));
+      if(S){ctx.fillStyle="#D5DFEA";ctx.font="500 32px "+FB;ctx.fillText("Rondônia inteira se encontra em Porto Velho",W/2,y+62)}
     }else{
-      ctx.fillStyle="rgba(255,255,255,.35)";ctx.font='600 72px "Barlow Condensed","Arial Narrow",Arial,sans-serif';
-      ctx.fillText("SEU NOME AQUI",W/2,y);
+      ctx.fillStyle="rgba(255,255,255,.35)";ctx.font="600 "+(S?72:60)+"px "+FC;ctx.fillText("SEU NOME AQUI",W/2,y);
     }
 
-    // rodapé (ancorado pela base)
-    var bw=W-M*2,bh=120,by=H-bh-80;
-    rail(by-215,W);
-    ctx.fillStyle="#D5DFEA";ctx.font='500 32px "Barlow",Arial,sans-serif';
-    ctx.fillText("Assembleia Legislativa de Rondônia",W/2,by-120);
-    ctx.fillStyle="#FF7C84";ctx.font='700 46px "Barlow Condensed","Arial Narrow",Arial,sans-serif';
-    ctx.save();ctx.letterSpacing="2px";ctx.fillText("@soceron.oficial",W/2,by-50);ctx.restore();
+    // rodapé
+    if(S){rail(by-196,W);ctx.fillStyle="#D5DFEA";ctx.font="500 32px "+FB;ctx.fillText("Assembleia Legislativa de Rondônia",W/2,by-118)}
+    ctx.fillStyle="#FF7C84";ctx.font="700 "+(S?46:42)+"px "+FC;
+    ctx.save();ctx.letterSpacing="2px";ctx.fillText("@soceron.oficial",W/2,by-(S?58:38));ctx.restore();
 
-    // logos SOCERON + SBC sobre branco
-    ctx.fillStyle="#fff";rr(M,by,bw,bh,16);ctx.fill();
-    var pad=24,items=[],tw=0;
-    if(imgs.soc){var a=fit(imgs.soc,520,bh-pad*2);items.push({i:imgs.soc,w:a.w,h:a.h});tw+=a.w}
-    if(imgs.sbc){var b=fit(imgs.sbc,200,bh-pad*2);items.push({i:imgs.sbc,w:b.w,h:b.h});tw+=b.w}
-    var gap=70,x=M+(bw-(tw+gap*(items.length-1)))/2;
-    items.forEach(function(it){ctx.drawImage(it.i,x,by+(bh-it.h)/2,it.w,it.h);x+=it.w+gap});
-    ctx.fillStyle="#66758A";ctx.font='500 22px "Barlow",Arial,sans-serif';
-    ctx.fillText("lgasparelo.github.io/crc2026",W/2,H-30);
+    // realização: SOCERON + SBC
+    var bw=W-MC*2;
+    ctx.fillStyle="#9FB6CF";ctx.font="600 22px "+FC;
+    if(S){ctx.save();ctx.letterSpacing="5px";ctx.fillText("REALIZAÇÃO",W/2,by-16);ctx.restore()}
+    ctx.save();ctx.shadowColor="rgba(0,0,0,.35)";ctx.shadowBlur=30;ctx.shadowOffsetY=10;ctx.fillStyle="#fff";rr(MC,by,bw,bh,22);ctx.fill();ctx.restore();
+    var pad=26,soc=imgs.soc?fit(imgs.soc,440,bh-pad*2):null,sbc=imgs.sbc?fit(imgs.sbc,160,bh-pad*2):null;
+    var gapL=44,divW=2,tw=(soc?soc.w:0)+(sbc?sbc.w:0)+(soc&&sbc?gapL*2+divW:0);
+    var x=MC+(bw-tw)/2;
+    if(soc){ctx.drawImage(imgs.soc,x,by+(bh-soc.h)/2,soc.w,soc.h);x+=soc.w}
+    if(soc&&sbc){x+=gapL;ctx.fillStyle="#D3DAE3";ctx.fillRect(x,by+pad,divW,bh-pad*2);x+=divW+gapL}
+    if(sbc){ctx.drawImage(imgs.sbc,x,by+(bh-sbc.h)/2,sbc.w,sbc.h)}
+    ctx.fillStyle="#7F8FA3";ctx.font="500 22px "+FB;ctx.fillText("lgasparelo.github.io/crc2026",W/2,H-30);
 
     updateLinks();
   }
+  function updateLinks(){}
 
-  function updateLinks(){
-    try{btnDown.href=cv.toDataURL("image/png")}catch(e){}
-    btnDown.download="eu-vou-crc2026-"+fmt+".png";
-  }
+  fileIn.addEventListener("change",function(){
+    var f=fileIn.files&&fileIn.files[0];if(!f)return;
+    fileName.textContent=f.name;
+    var done=function(img){photo=img;ph={zoom:1,rot:0,dx:0,dy:0};adjust.hidden=false;dragHint.hidden=false;draw()};
+    function fallback(){var url=URL.createObjectURL(f);var i=new Image();i.onload=function(){done(i)};i.src=url}
+    if(window.createImageBitmap){createImageBitmap(f,{imageOrientation:"from-image"}).then(done).catch(fallback)}else fallback();
+  });
+  var hold=null;
+  adjust.addEventListener("pointerdown",function(e){var b=e.target.closest("button[data-act]");if(!b||!/^(up|down|left|right|zoom)/.test(b.dataset.act))return;
+    clearInterval(hold);hold=setInterval(function(){b.click()},90)});
+  ["pointerup","pointerleave","pointercancel"].forEach(function(ev){adjust.addEventListener(ev,function(){clearInterval(hold);hold=null})});
+  adjust.addEventListener("click",function(e){
+    var b=e.target.closest("button");if(!b||!photo)return;
+    var a=b.dataset.act;
+    if(a==="zoom+")ph.zoom=Math.min(4,ph.zoom*1.12);
+    if(a==="zoom-")ph.zoom=Math.max(1,ph.zoom/1.12);
+    if(a==="rot+")ph.rot=(ph.rot+90)%360;
+    if(a==="rot-")ph.rot=(ph.rot+270)%360;
+    var step=18;
+    if(a==="up")ph.dy-=step;if(a==="down")ph.dy+=step;if(a==="left")ph.dx-=step;if(a==="right")ph.dx+=step;
+    if(a==="center"){ph.dx=0;ph.dy=0}
+    if(a==="reset")ph={zoom:1,rot:0,dx:0,dy:0};
+    draw();
+  });
+  var drag=null,pinch=null;
+  cv.addEventListener("pointerdown",function(e){
+    if(!photo||pinch)return;
+    var rect=cv.getBoundingClientRect(),k=cv.width/rect.width;
+    var x=(e.clientX-rect.left)*k,yy=(e.clientY-rect.top)*k;
+    if(Math.hypot(x-circle.cx,yy-circle.cy)>circle.r*1.3)return;
+    drag={x:e.clientX,y:e.clientY,dx:ph.dx,dy:ph.dy,k:k};cv.setPointerCapture(e.pointerId);cv.classList.add("dragging");
+  });
+  cv.addEventListener("pointermove",function(e){if(!drag)return;ph.dx=drag.dx+(e.clientX-drag.x)*drag.k;ph.dy=drag.dy+(e.clientY-drag.y)*drag.k;draw()});
+  function endDrag(){drag=null;cv.classList.remove("dragging")}
+  cv.addEventListener("pointerup",endDrag);cv.addEventListener("pointercancel",endDrag);
+  cv.addEventListener("touchstart",function(e){if(e.touches.length===2&&photo){pinch={d:Math.hypot(e.touches[0].clientX-e.touches[1].clientX,e.touches[0].clientY-e.touches[1].clientY),z:ph.zoom};drag=null}},{passive:true});
+  cv.addEventListener("touchmove",function(e){if(pinch&&e.touches.length===2){var d=Math.hypot(e.touches[0].clientX-e.touches[1].clientX,e.touches[0].clientY-e.touches[1].clientY);ph.zoom=Math.min(4,Math.max(1,pinch.z*d/pinch.d));draw()}},{passive:true});
+  cv.addEventListener("touchend",function(){pinch=null},{passive:true});
 
+  document.querySelectorAll(".bgs button").forEach(function(b){
+    b.addEventListener("click",function(){bgIdx=+b.dataset.bg;document.querySelectorAll(".bgs button").forEach(function(o){o.setAttribute("aria-pressed",o===b?"true":"false")});if(ready)draw()});
+  });
   inp.addEventListener("input",function(){if(ready)draw()});
-  document.querySelectorAll(".tabs button").forEach(function(b){
-    b.addEventListener("click",function(){
-      fmt=b.dataset.fmt;
-      document.querySelectorAll(".tabs button").forEach(function(o){o.setAttribute("aria-pressed",o===b?"true":"false")});
-      if(ready)draw();
-    });
+  document.querySelectorAll("button[data-fmt]").forEach(function(b){
+    b.addEventListener("click",function(){fmt=b.dataset.fmt;document.querySelectorAll("button[data-fmt]").forEach(function(o){o.setAttribute("aria-pressed",o===b?"true":"false")});if(ready)draw()});
   });
 
-  btnDown.addEventListener("click",function(){
-    if(!inp.value.trim()){ok.textContent="Digite seu nome antes de baixar.";inp.focus();}
-    else ok.textContent="Imagem salva. Agora é só publicar e marcar @soceron.oficial.";
-  });
-
-  // Compartilhar direto (celular)
-  if(navigator.canShare){
-    try{
-      var test=new File([new Blob()],"t.png",{type:"image/png"});
-      if(navigator.canShare({files:[test]}))btnShare.hidden=false;
-    }catch(e){}
+  function validate(){
+    if(!photo){ok.className="ok";ok.textContent="Escolha uma foto antes de baixar.";return false}
+    if(!inp.value.trim()){ok.className="ok";ok.textContent="Digite seu nome antes de baixar.";inp.focus();return false}
+    return true;
   }
-  btnShare.addEventListener("click",function(){
-    if(!inp.value.trim()){ok.textContent="Digite seu nome antes de compartilhar.";inp.focus();return}
+  function nomeArquivo(){return "eu-vou-congresso-rondoniense-2026-"+fmt+".png"}
+  btnDown.addEventListener("click",function(e){
+    e.preventDefault();
+    if(!validate())return;
+    ok.className="ok";ok.textContent="Gerando imagem…";
     cv.toBlob(function(blob){
-      var file=new File([blob],"eu-vou-crc2026.png",{type:"image/png"});
-      navigator.share({files:[file],title:"Eu vou ao CRC 2026",text:"Eu vou ao XI Congresso Rondoniense de Cardiologia! @soceron.oficial"})
-        .then(function(){ok.textContent="Compartilhado. Obrigado por divulgar o CRC 2026!"})
-        .catch(function(){});
+      if(!blob){ok.textContent="Não consegui gerar a imagem. Tente de novo.";return}
+      var url=URL.createObjectURL(blob),a=document.createElement("a");
+      a.href=url;a.download=nomeArquivo();a.rel="noopener";a.style.display="none";
+      document.body.appendChild(a);
+      if("download" in a){a.click()}else{window.open(url,"_blank")}
+      setTimeout(function(){URL.revokeObjectURL(url);a.remove()},4000);
+      ok.className="ok good";ok.textContent="Card salvo (pasta Downloads ou Fotos). Agora é só publicar e marcar @soceron.oficial.";
     },"image/png");
   });
-
-  // nome vindo pela URL (?nome=...)
+  if(navigator.canShare){try{if(navigator.canShare({files:[new File([new Blob()],"t.png",{type:"image/png"})]}))btnShare.hidden=false}catch(e){}}
+  btnShare.addEventListener("click",function(){
+    if(!validate())return;
+    cv.toBlob(function(blob){
+      var file=new File([blob],nomeArquivo(),{type:"image/png"});
+      navigator.share({files:[file],title:"Eu vou ao Congresso Rondoniense de Cardiologia",text:document.getElementById("legenda").value})
+        .then(function(){ok.className="ok good";ok.textContent="Compartilhado. Obrigado por divulgar o Congresso!"}).catch(function(){});
+    },"image/png");
+  });
+  btnCopy.addEventListener("click",function(){
+    var t=document.getElementById("legenda");
+    var fin=function(){okCopy.className="ok good";okCopy.textContent="Legenda copiada. Cole na sua publicação."};
+    var legacy=function(){t.select();document.execCommand("copy");fin()};
+    if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(t.value).then(fin).catch(legacy);else legacy();
+  });
   try{var q=new URLSearchParams(location.search).get("nome");if(q)inp.value=q.slice(0,40)}catch(e){}
 })();
 </script>
