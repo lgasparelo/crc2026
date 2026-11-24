@@ -22,23 +22,23 @@ var DAYS=[
  {r:"MP1",s:"08:00",e:"08:40",t:"Dor no peito às 3h da manhã: quem eu libero, quem eu interno?",talks:[
   ["08:00","Troponina de alta sensibilidade e escore HEART: o protocolo que evita o erro","Dr. Luiz Carlos Benittez Junior (RO)"],
   ["08:10","O paciente que parece bem mas não está: os sinais de alarme que não dá pra perder","Dra. Leisle de Freitas Diniz (RO)"]],
-  mod:"Dr. Carlos Henrique Spesia (RO)",deb:"Dr. Adalberto Machado Coelho (RO), Dr. Marcio Messias (AC), Dra. Stefany Egito (RO)"},
+  mod:"Dr. Carlos Henrique Spesia (RO)",deb:"Dr. Marcio Messias (AC), Dra. Stefany Egito (RO)"},
  {r:"A",s:"08:40",e:"09:30",t:"Fibrilação atrial hoje: controle sintomático, prevenção embólica e oclusão percutânea do apêndice",talks:[
   ["08:40","Controle de ritmo vs. controle de frequência na FA: o que as evidências atuais dizem sobre remodelamento e sobrevida?","Dr. Carlos Eduardo Duarte (SP)"],
   ["08:50","O cardiologista clínico diante da fibrilação atrial: quem, quando e como anticoagular em cenários complexos","Dr. Pablo Brasil (RO)"],
   ["09:00","Fechamento percutâneo do apêndice atrial esquerdo: quem é o candidato ideal?","Dr. Danilo Ferraz de Oliveira Maksud (SP)"]],
-  mod:"Dr. Marcos Rosa Ferreira (RO)",deb:"Dr. Cristóvão de Oliveira dos Silva (RO), Dr. Thiago Coimbra Felipe (RO)"},
+  mod:"Dr. Marcos Rosa Ferreira (RO)",deb:"Dr. Cristóvão de Oliveira dos Silva (RO), Dr. Thiago Coimbra Felipe (RO), Dr. José Carlos Couri"},
  {r:"MP1",s:"08:50",e:"09:30",t:"Miocardiopatias: do diagnóstico ao tratamento intervencionista",talks:[
   ["08:50","Não é apenas hipertrofia: quando pensar em miocardiopatias","Dr. Rodolfo Luiz Amorim de Oliveira (RO)"],
   ["09:00","Novas evidências no tratamento medicamentoso das miocardiopatias","Dra. Stefany Egito (RO)"],
   ["09:10","Miocardiopatia hipertrófica obstrutiva: opções de tratamento intervencionista","Dr. Sidney Munhoz Junior (MT)"]],
-  mod:"Dr. Rodrigo Gallina (RO)",deb:"Dra. Marilene Rodrigues Carvalho (RO), Dr. Carlos Borelli Zeller (RO), Dr. Renan Marquiori (RO)"},
+  mod:"Dr. Rodrigo Gallina (RO)",deb:"Dr. Renan Marquiori (RO)"},
  {r:"ALL",k:"brk",s:"09:30",e:"10:00",t:"Visita aos estandes, apresentação dos trabalhos em pôster e coffee break"},
  {r:"A",s:"10:00",e:"10:40",t:"Insuficiência cardíaca crônica: do quarteto à próxima fronteira",talks:[
   ["10:00","Os quatro pilares em quatro semanas: como titular de verdade no mundo real","Dra. Diana Negreiros (SP)"],
-  ["10:10","Além do quarteto: as terapias emergentes que já mudam a sobrevida na IC","Dr. Marcus Vinicius Nunes Batista (RO)"],
+  ["10:10","Além do quarteto: as terapias emergentes que já mudam a sobrevida na IC","Dra. Rafaela Rádner (RO)"],
   ["10:20","Ressincronização cardíaca no consultório: como avaliar a resposta e o que fazer com os não respondedores?","Dr. Carlos Eduardo Duarte (SP)"]],
-  mod:"Dr. Carlos Henrique Spesia (RO)",deb:"Dr. Valmir Favaro Martins (RO), Dr. Lucas da Silva Graça (RO), Dra. Alessandra Arêdes Moraes de Mendonça (RO)"},
+  mod:"Dr. Carlos Henrique Spesia (RO)",deb:"Dr. Valmir Favaro Martins (RO), Dra. Alessandra Arêdes Moraes de Mendonça (RO)"},
  {r:"MP1",s:"10:00",e:"10:40",t:"Heart Team · DAC crônica: da estratificação à decisão de revascularização",talks:[
   ["10:00","Caso clínico","Dra. Teynan Nunes (RO)"],
   ["10:10","Tratamento clínico otimizado: os limites da terapia medicamentosa","Dr. André Zimerman (RS)"],
@@ -54,12 +54,12 @@ var DAYS=[
   ["10:50","Obesidade e GLP-1 na doença cardiovascular: de quem é esse paciente?","Dr. André Zimerman (RS)"],
   ["11:00","Diabetes e doença renal crônica: iSGLT2, finerenona e a ordem de entrada das drogas","Dr. Francisco Antonio Helfenstein Fonseca (SP)"],
   ["11:10","Dislipidemia de muito alto risco: até onde baixar o LDL e com o quê","Dr. Carlos Henrique Spesia (RO)"]],
-  mod:"Dr. Luiz Henrique Gasparelo (RO)",deb:"Dra. Fabiane Fernandes Schmitt Flores (RO), Daniela Caput (RO)"},
+  mod:"Dr. Luiz Henrique Gasparelo (RO)",deb:"Dra. Fabiane Fernandes Schmitt Flores (RO), Mardelson Nery (AC)"},
  {r:"MP1",s:"10:50",e:"11:30",t:"Heart Team · Dispositivos cardíacos implantáveis: quando vale a pena tratar",talks:[
   ["10:50","A carga arrítmica importa, mas e o resto? Como tomar conduta além da porcentagem do Holter?","Dra. Sarah Schereder (RS)"],
   ["11:00","Indicações de TRC e CDI além do óbvio","Dr. Marcos Rosa Ferreira (RO)"],
   ["11:10","Marcapasso sem eletrodos na prática clínica: quais pacientes realmente se beneficiam desta tecnologia?","Dr. Carlos Eduardo Duarte (SP)"]],
-  mod:"Dr. Pablo Brasil (RO)",deb:"Dr. Marcelo Tabosa (RO), Dr. Carlos Borelli Zeller (RO)"},
+  mod:"Dr. Pablo Brasil (RO)",deb:"Dr. Marcelo Tabosa (RO)"},
  {r:"A",k:"sp",sp:"LIBBS",also:["MP1"],s:"11:40",e:"12:20",t:"O paciente cardiovascular de alto risco: da prevenção à redução de eventos. Estratégias atuais para lipídios, hipertensão e doença aterotrombótica",note:"Dr. Francisco Antonio Helfenstein Fonseca (SP)"},
  {r:"ALL",k:"brk",s:"12:30",e:"13:30",t:"Intervalo para almoço"},
  {r:"MP1",s:"13:30",e:"14:30",t:"Simpósio de Hipertensão · MAPA, MRPA, VOP e pressão central",note:"Aula fechada",talks:[
@@ -79,7 +79,7 @@ var DAYS=[
  {r:"MP1",s:"14:30",e:"15:30",t:"Simpósio de Hipertensão · Mesa 1",talks:[
   ["14:30","Hormônios e o coração feminino: o manejo seguro da terapia hormonal na IOP e na menopausa","Dra. Ivanice Fernandes Barcellos Gemelli (RO)"],
   ["14:40","Anti-hipertensivos, rigidez arterial e disfunção endotelial","Dr. Bruno Augusto Alcova Nogueira (SP)"],
-  ["14:50","Particularidades e cuidados no hipertenso idoso e superidoso",""],
+  ["14:50","Hipertensão no paciente oncológico","Dr. João Roberto Gemelli (RO)"],
   ["15:00","Desafios da disautonomia no paciente hipertenso","Dr. Emerson Costa Porto (BA)"]],
   mod:"Dr. João Roberto Gemelli (RO)"},
  {r:"ALL",k:"brk",s:"15:30",e:"16:00",t:"Visita aos estandes, apresentação dos trabalhos em pôster e coffee break"},
@@ -91,7 +91,7 @@ var DAYS=[
  {r:"MP1",s:"16:00",e:"17:30",t:"Simpósio de Hipertensão · Mesa 2",talks:[
   ["16:00","Abordagem prática da hipertensão na infância: o que todos devem saber","Dra. Luciana Silveira Nina de Azevedo (RO)"],
   ["16:15","Aplicabilidade clínica das novas drogas no tratamento da HAS","Dr. Emerson Costa Porto (BA)"],
-  ["16:30","Tratamento da hipertensão no paciente oncológico","Dr. João Roberto Gemelli (RO)"],
+  ["16:30","Análogos de GLP-1 e hipertensão","Dr. João Roberto Gemelli (RO)"],
   ["16:45","Melhores trabalhos do ESC 2026","Dr. Bruno Augusto Alcova Nogueira (SP)"]],
   mod:"Dra. Jessica Fontenele Calixto (RO)"},
  {r:"MP2",s:"16:00",e:"18:40",t:"Simpósio Multidisciplinar · Módulo 4",talks:[
@@ -106,7 +106,7 @@ var DAYS=[
   ["16:50","Highlights em doença arterial coronariana e prevenção cardiovascular","Dr. Cristóvão de Oliveira dos Silva (RO)"],
   ["17:00","Highlights em insuficiência cardíaca e miocardiopatias","Dra. Rafaela Rádner (RO)"],
   ["17:10","Highlights em antiplaquetários e anticoagulação","Dr. Renan Marquiori (RO)"]],
-  mod:"Dr. Rodrigo Gallina (RO)",deb:"Dr. Francisco Antonio Helfenstein Fonseca (SP), Dr. Marcus Vinicius Nunes Batista (RO)"},
+  mod:"Dr. Rodrigo Gallina (RO)",deb:"Milena Stedile (RO)"},
  {r:"A",k:"sp",sp:"Edwards",also:["MP1"],s:"17:40",e:"18:20",t:"Da exceção à rotina: como a TAVI transformou o tratamento da doença valvar",note:"Dr. Ricardo Wang (MG)"}
 ]},
 {id:"dom",label:"Domingo",date:"2026-11-29",short:"29/11",ses:[
