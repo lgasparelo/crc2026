@@ -63,8 +63,7 @@ var DAYS=[
  {r:"A",k:"sp",sp:"LIBBS",also:["MP1"],s:"11:40",e:"12:20",t:"O paciente cardiovascular de alto risco: da prevenção à redução de eventos. Estratégias atuais para lipídios, hipertensão e doença aterotrombótica",note:"Dr. Francisco Antonio Helfenstein Fonseca (SP)"},
  {r:"ALL",k:"brk",s:"12:30",e:"13:30",t:"Intervalo para almoço"},
  {r:"MP1",s:"13:30",e:"14:30",t:"Simpósio de Hipertensão · MAPA, MRPA, VOP e pressão central",note:"Aula fechada",talks:[
-  ["13:30","MAPA, MRPA, VOP e pressão central","Dr. Bruno Augusto Alcova Nogueira (SP)"],
-  ["13:50","MAPA, MRPA, VOP e pressão central","Dr. Emerson Costa Porto (BA)"]],
+  ["13:30","MAPA, MRPA, VOP e pressão central","Dr. Bruno Augusto Alcova Nogueira (SP) e Dr. Emerson Costa Porto (BA)"]],
   mod:"Dr. João Roberto Gemelli (RO)"},
  {r:"MP2",s:"13:30",e:"15:30",t:"Simpósio Multidisciplinar · Módulo 3",talks:[
   ["13:30","Cuidados e vigilância em pacientes em pós-operatório endovascular","Sheila Cristina da Silva Cavalcante Souza, enfermeira (RO)"],
