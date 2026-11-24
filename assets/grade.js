@@ -1,7 +1,7 @@
 /* ====== GRADE: edite aqui ======
    Fonte: Cronograma_CRC_2026_OFICIAL.xlsx, aba "CRC 2026 - OFICIAL".
    r: A = Auditório Principal, MP1 = Mini-Plenário 1, MP2 = Mini-Plenário 2, ALL = todas
-   k: "sp" patrocinada, "cer" cerimônia, "brk" intervalo. talks: [horário, título, palestrante]
+   k: "sp" patrocinada, "cer" cerimônia, "brk" intervalo. talks: [horário, título, palestrante ou ["palestrante 1","palestrante 2"]]
    Este arquivo é usado pela página inicial (faixa Agora / A seguir) e pela grade (/grade). */
 var ROOMS={A:"Auditório Principal",MP1:"Mini-Plenário 1",MP2:"Mini-Plenário 2",ALL:"Todas as salas"};
 var DAYS=[
@@ -63,7 +63,7 @@ var DAYS=[
  {r:"A",k:"sp",sp:"LIBBS",also:["MP1"],s:"11:40",e:"12:20",t:"O paciente cardiovascular de alto risco: da prevenção à redução de eventos. Estratégias atuais para lipídios, hipertensão e doença aterotrombótica",note:"Dr. Francisco Antonio Helfenstein Fonseca (SP)"},
  {r:"ALL",k:"brk",s:"12:30",e:"13:30",t:"Intervalo para almoço"},
  {r:"MP1",s:"13:30",e:"14:30",t:"Simpósio de Hipertensão · MAPA, MRPA, VOP e pressão central",note:"Aula fechada",talks:[
-  ["13:30","MAPA, MRPA, VOP e pressão central","Dr. Bruno Augusto Alcova Nogueira (SP) e Dr. Emerson Costa Porto (BA)"]],
+  ["13:30","MAPA, MRPA, VOP e pressão central",["Dr. Bruno Augusto Alcova Nogueira (SP)","Dr. Emerson Costa Porto (BA)"]]],
   mod:"Dr. João Roberto Gemelli (RO)"},
  {r:"MP2",s:"13:30",e:"15:30",t:"Simpósio Multidisciplinar · Módulo 3",talks:[
   ["13:30","Cuidados e vigilância em pacientes em pós-operatório endovascular","Sheila Cristina da Silva Cavalcante Souza, enfermeira (RO)"],

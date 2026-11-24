@@ -323,7 +323,7 @@ nav.dock a:hover{color:var(--red)}
   <a href="https://sbc.iweventos.com.br/evento/ccer2026/home" target="_blank" rel="noopener">Completa</a>
 </nav>
 
-<script src="../assets/grade.js"></script>
+<script src="../assets/grade.js?v=20261123c"></script>
 <script>
 /* ====== GRADE: dados em ../assets/grade.js ======
    Fonte: Cronograma_CRC_2026_OFICIAL.xlsx, aba "CRC 2026 - OFICIAL" (lida em 16/11/2026, 23h).
@@ -362,7 +362,7 @@ function card(day,x,now,nxt){
     +(live?'<span class="pill live">Agora</span>':'')+(x.s===nxt?'<span class="pill next">A seguir</span>':'')
     +'</div><h3>'+esc(x.t)+'</h3>';
   if(x.note)h+='<p>'+esc(x.note)+'</p>';
-  if(x.talks)h+='<ol>'+x.talks.map(function(t){return'<li><time>'+t[0]+'</time><div>'+esc(t[1])+(t[2]?'<span>'+esc(t[2])+'</span>':'')+'</div></li>'}).join("")+'</ol>';
+  if(x.talks)h+='<ol>'+x.talks.map(function(t){return'<li><time>'+t[0]+'</time><div>'+esc(t[1])+(t[2]?[].concat(t[2]).map(function(n){return'<span>'+esc(n)+'</span>'}).join(''):'')+'</div></li>'}).join("")+'</ol>';
   if(x.mod)h+='<p class="panel"><b>Moderação:</b> '+esc(x.mod)+'</p>'; /* debatedores (x.deb) ocultos por ora */
   return h+'</article>';
 }
