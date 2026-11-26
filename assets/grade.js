@@ -1,9 +1,9 @@
 /* ====== GRADE: edite aqui ======
    Fonte: Cronograma_CRC_2026_OFICIAL.xlsx, aba "CRC 2026 - OFICIAL".
-   r: A = Auditório Principal, MP1 = Mini-Plenário 1, MP2 = Mini-Plenário 2, ALL = todas
+   r: A = Auditório Principal, MP1 = Plenarinho 2, MP2 = Plenarinho 1, ALL = todas
    k: "sp" patrocinada, "cer" cerimônia, "brk" intervalo. talks: [horário, título, palestrante ou ["palestrante 1","palestrante 2"]]
    Este arquivo é usado pela página inicial (faixa Agora / A seguir) e pela grade (/grade). */
-var ROOMS={A:"Auditório Principal",MP1:"Mini-Plenário 1",MP2:"Mini-Plenário 2",ALL:"Todas as salas"};
+var ROOMS={A:"Auditório Principal",MP1:"Plenarinho 2",MP2:"Plenarinho 1",ALL:"Todas as salas"};
 var DAYS=[
 {id:"sex",label:"Sexta",date:"2026-11-27",short:"27/11",ses:[
  {r:"A",k:"cer",s:"19:00",e:"20:00",t:"Cerimônia de abertura",note:"Hino e discursos"},

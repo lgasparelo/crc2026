@@ -327,7 +327,7 @@ nav.dock a:hover{color:var(--red)}
 <script>
 /* ====== GRADE: dados em ../assets/grade.js ======
    Fonte: Cronograma_CRC_2026_OFICIAL.xlsx, aba "CRC 2026 - OFICIAL" (lida em 16/11/2026, 23h).
-   r: A = Auditório Principal, MP1 = Mini-Plenário 1, MP2 = Mini-Plenário 2, ALL = todas
+   r: A = Auditório Principal, MP1 = Plenarinho 2, MP2 = Plenarinho 1, ALL = todas
    k: "sp" patrocinada, "cer" cerimônia, "brk" intervalo. talks: [horário, título, palestrante] */
 
 var state={day:"sex",room:"all"};
@@ -351,7 +351,7 @@ function nextStart(day,now){
 function renderTabs(){
   document.getElementById("tabs").innerHTML=DAYS.map(function(d){
     return'<button type="button" data-day="'+d.id+'" aria-pressed="'+(state.day===d.id)+'">'+d.label+'<small>'+d.short+'</small></button>'}).join("");
-  var rooms=[["all","Todas as salas"],["A","Auditório"],["MP1","Mini-Plenário 1"],["MP2","Mini-Plenário 2"]];
+  var rooms=[["all","Todas as salas"],["A","Auditório"],["MP1","Plenarinho 2"],["MP2","Plenarinho 1"]];
   document.getElementById("chips").innerHTML=rooms.map(function(r){
     return'<button type="button" data-room="'+r[0]+'" aria-pressed="'+(state.room===r[0])+'">'+r[1]+'</button>'}).join("");
 }
