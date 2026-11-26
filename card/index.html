@@ -200,6 +200,17 @@ Vem comigo! Inscrições em sbc.iweventos.com.br/evento/ccer2026
   var inp=document.getElementById("nome"),ok=document.getElementById("ok"),okCopy=document.getElementById("ok-copy");
   var btnDown=document.getElementById("btn-down"),btnShare=document.getElementById("btn-share"),btnCopy=document.getElementById("btn-copy");
   var fileIn=document.getElementById("file"),fileName=document.getElementById("file-name"),adjust=document.getElementById("adjust"),dragHint=document.getElementById("drag-hint");
+  // Troca programada: a partir de sexta 27/11/2026, 12h (Porto Velho), o card passa de "Eu vou" para "Eu faço parte".
+  // Para ver antes: ?previa=1 no endereço. Para adiar/antecipar, mude a data abaixo.
+  var TROCA=Date.parse("2026-11-27T12:00:00-04:00"),NOVO=Date.now()>=TROCA;
+  try{var pv=new URLSearchParams(location.search).get("previa");if(pv==="1")NOVO=true;if(pv==="0")NOVO=false}catch(e){}
+  var FRASE=NOVO?"Eu faço parte do Congresso Rondoniense de Cardiologia":"Eu vou ao Congresso Rondoniense de Cardiologia";
+  if(NOVO){
+    document.title=FRASE+" · Crie seu card";
+    document.querySelector("header.top h1").innerHTML="Eu faço parte do <span>Congresso Rondoniense de Cardiologia</span>";
+    document.getElementById("cv").setAttribute("aria-label","Pré-visualização do card "+FRASE);
+    document.getElementById("legenda").value="Eu faço parte do Congresso Rondoniense de Cardiologia! 🫀\n\nEstou em Porto Velho no XI Congresso Rondoniense de Cardiologia, de 27 a 29 de novembro, com o 16º Simpósio de Hipertensão Arterial Sistêmica, o 2º Simpósio Multidisciplinar e o Simpósio das Ligas Acadêmicas. Ciência, atualização e troca entre quem faz a Cardiologia de Rondônia.\n\n@soceron.oficial @sbc.cardiol\n#CRC2026 #SOCERON #Cardiologia #PortoVelho";
+  }
   var fmt="story",imgs={},ready=false;
   // Fundos reais de Rondônia (fotos em assets/bg/). Ordem = ordem dos botões.
   var BGS=[{id:"rio",label:"Rio Madeira",src:"../assets/bg/rio.jpg"},
@@ -301,13 +312,14 @@ Vem comigo! Inscrições em sbc.iweventos.com.br/evento/ccer2026
     // EU VOU
     var big=S?210:140;y+=S?190:132;
     ctx.save();ctx.shadowColor="rgba(0,0,0,.35)";ctx.shadowBlur=24;ctx.shadowOffsetY=6;
-    ctx.fillStyle="#fff";ctx.font="800 "+big+"px "+FC;ctx.letterSpacing="4px";ctx.fillText("EU VOU",W/2,y);ctx.restore();
-    ctx.fillStyle="#E8323E";rr(W/2-120,y+20,240,10,5);ctx.fill();
+    var t1=NOVO?"EU FAÇO PARTE":"EU VOU",b1=NOVO?fitFont(t1,"800",big,90,W-M*2-40):big;
+    ctx.fillStyle="#fff";ctx.font="800 "+b1+"px "+FC;ctx.letterSpacing="4px";ctx.fillText(t1,W/2,y);ctx.restore();
+    ctx.fillStyle="#E8323E";rr(W/2-120,y+(NOVO?(S?36:28):20),240,10,5);ctx.fill(); // mais baixo no texto novo para não encostar na cedilha
     y+=S?112:80;
-    var sub=fitFont("AO XI CONGRESSO RONDONIENSE","700",S?60:50,36,W-M*2-60);
+    var sub=fitFont((NOVO?"DO":"AO")+" XI CONGRESSO RONDONIENSE","700",S?60:50,36,W-M*2-60);
     ctx.fillStyle="#FF7C84";ctx.font="700 "+sub+"px "+FC;
     ctx.save();ctx.letterSpacing="2px";
-    ctx.fillText("AO XI CONGRESSO RONDONIENSE",W/2,y);
+    ctx.fillText((NOVO?"DO":"AO")+" XI CONGRESSO RONDONIENSE",W/2,y);
     ctx.fillText("DE CARDIOLOGIA · 2026",W/2,y+sub*1.12);ctx.restore();
     y+=sub*1.12;
 
@@ -405,7 +417,7 @@ Vem comigo! Inscrições em sbc.iweventos.com.br/evento/ccer2026
     if(!inp.value.trim()){ok.className="ok";ok.textContent="Digite seu nome antes de baixar.";inp.focus();return false}
     return true;
   }
-  function nomeArquivo(){return "eu-vou-congresso-rondoniense-2026-"+fmt+".png"}
+  function nomeArquivo(){return (NOVO?"eu-faco-parte":"eu-vou")+"-congresso-rondoniense-2026-"+fmt+".png"}
   btnDown.addEventListener("click",function(e){
     e.preventDefault();
     if(!validate())return;
@@ -425,7 +437,7 @@ Vem comigo! Inscrições em sbc.iweventos.com.br/evento/ccer2026
     if(!validate())return;
     cv.toBlob(function(blob){
       var file=new File([blob],nomeArquivo(),{type:"image/png"});
-      navigator.share({files:[file],title:"Eu vou ao Congresso Rondoniense de Cardiologia",text:document.getElementById("legenda").value})
+      navigator.share({files:[file],title:FRASE,text:document.getElementById("legenda").value})
         .then(function(){ok.className="ok good";ok.textContent="Compartilhado. Obrigado por divulgar o Congresso!"}).catch(function(){});
     },"image/png");
   });
