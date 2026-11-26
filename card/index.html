@@ -200,9 +200,9 @@ Vem comigo! Inscrições em sbc.iweventos.com.br/evento/ccer2026
   var inp=document.getElementById("nome"),ok=document.getElementById("ok"),okCopy=document.getElementById("ok-copy");
   var btnDown=document.getElementById("btn-down"),btnShare=document.getElementById("btn-share"),btnCopy=document.getElementById("btn-copy");
   var fileIn=document.getElementById("file"),fileName=document.getElementById("file-name"),adjust=document.getElementById("adjust"),dragHint=document.getElementById("drag-hint");
-  // Troca programada: a partir de sexta 27/11/2026, 12h (Porto Velho), o card passa de "Eu vou" para "Eu faço parte".
+  // Troca programada: a partir de sexta 27/11/2026, 19h (Porto Velho), o card passa de "Eu vou" para "Eu faço parte".
   // Para ver antes: ?previa=1 no endereço. Para adiar/antecipar, mude a data abaixo.
-  var TROCA=Date.parse("2026-11-27T12:00:00-04:00"),NOVO=Date.now()>=TROCA;
+  var TROCA=Date.parse("2026-11-27T19:00:00-04:00"),NOVO=Date.now()>=TROCA;
   try{var pv=new URLSearchParams(location.search).get("previa");if(pv==="1")NOVO=true;if(pv==="0")NOVO=false}catch(e){}
   var FRASE=NOVO?"Eu faço parte do Congresso Rondoniense de Cardiologia":"Eu vou ao Congresso Rondoniense de Cardiologia";
   if(NOVO){
