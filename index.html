@@ -297,14 +297,11 @@ footer p{margin:0 0 4px}footer a{color:inherit}
 .acc .body ul{margin:0;padding-left:20px}
 .maps{margin-top:14px;display:flex;flex-direction:column;gap:10px;max-width:420px}
 .maps .thumbs{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.maps .thumbs button{all:unset;box-sizing:border-box;min-width:0;width:100%;cursor:pointer;display:flex;flex-direction:column;border:2px solid var(--line);border-radius:10px;overflow:hidden;background:var(--surface)}
-.maps .thumbs button img{display:block;width:100%;max-width:100%;height:auto;aspect-ratio:16/10;object-fit:cover;object-position:top;background:#F7F8FB}
-.maps .thumbs button span{padding:6px 8px;font-family:var(--display);font-weight:700;font-size:13.5px;text-transform:uppercase;letter-spacing:.03em;color:var(--ink-2);line-height:1.15}
-.maps .thumbs button[aria-selected="true"]{border-color:var(--red)}
-.maps .thumbs button[aria-selected="true"] span{color:var(--red)}
-.maps .thumbs button:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
-.maps .view{display:block;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:#F7F8FB}
-.maps .view img{display:block;width:100%;max-width:100%;height:auto}
+.maps .thumbs a{box-sizing:border-box;min-width:0;width:100%;text-decoration:none;display:flex;flex-direction:column;border:2px solid var(--line);border-radius:10px;overflow:hidden;background:var(--surface)}
+.maps .thumbs a img{display:block;width:100%;max-width:100%;height:auto;aspect-ratio:16/10;object-fit:cover;object-position:top;background:#F7F8FB}
+.maps .thumbs a span{padding:6px 8px;font-family:var(--display);font-weight:700;font-size:13.5px;text-transform:uppercase;letter-spacing:.03em;color:var(--ink-2);line-height:1.15}
+.maps .thumbs a:hover{border-color:var(--red)}
+.maps .thumbs a:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
 .maps .hint{font-size:13.5px;color:var(--muted);margin:0}
 .maps .more{display:block;text-align:center;font-family:var(--display);font-weight:700;font-size:18px;letter-spacing:.04em;text-transform:uppercase;text-decoration:none;background:var(--red);color:#fff;border-radius:8px;padding:13px 14px}
 .maps .more:hover{background:#A51A24}
@@ -361,7 +358,7 @@ footer p{margin:0 0 4px}footer a{color:inherit}
     <p class="lead">Sejam bem-vindos ao XI Congresso Rondoniense de Cardiologia.</p>
     <a class="ig-photo" href="https://www.instagram.com/drluizgasparelo/" target="_blank" rel="noopener" aria-label="Instagram profissional de Luiz Henrique Gasparelo"><img class="portrait" src="assets/luiz-gasparelo-7.webp" alt="Luiz Henrique Gasparelo, presidente da SOCERON" width="360" height="540"></a>
     <p>Em nome da SOCERON, é uma alegria receber cada colega, da capital e do interior, e os convidados que vieram de outros estados para estes três dias de ciência e convivência.</p>
-    <p>Esta edição foi construída a muitas mãos e pensada para quem cuida do paciente todos os dias. No Auditório Principal estão as aulas que atualizam a prática. No Plenarinho 2, os casos são discutidos em formato Heart Team, com clínico, intervencionista, imagem e cirurgião na mesma mesa. Ao lado do congresso, o 16º Simpósio de Hipertensão Arterial, o 2º Simpósio Multidisciplinar e o Simpósio Acadêmico Multidisciplinar levam a conversa a toda a equipe e a quem está começando.</p>
+    <p>Esta edição foi construída a muitas mãos e pensada para quem cuida do paciente todos os dias. No Auditório Principal estão as aulas que atualizam a prática. No Plenarinho 2, os casos são discutidos em formato Heart Team, com clínico, intervencionista, imagem e cirurgião na mesma mesa. Ao lado do congresso, o 16º Simpósio de Hipertensão Arterial, o 2º Simpósio Multidisciplinar e o Simpósio Acadêmico levam a conversa a toda a equipe e a quem está começando.</p>
     <p>A cardiologia de Rondônia cresceu, e este encontro mostra isso: produção científica própria, serviços que se consolidam e uma comunidade que se conhece e se apoia. Agradeço à comissão organizadora, aos palestrantes, aos patrocinadores e aos apoiadores, em especial à Assembleia Legislativa, que nos recebe em sua casa.</p>
     <p>Aproveitem os debates, perguntem, discordem e conversem nos corredores. É assim que o conhecimento vira cuidado.</p>
     <p>Bom congresso a todos.</p>
@@ -423,21 +420,16 @@ footer p{margin:0 0 4px}footer a{color:inherit}
         <ul>
           <li><b>Auditório Principal</b>: abertura, Palestra Magna, aulas e sessões patrocinadas.</li>
           <li><b>Plenarinho 2</b>: aulas, discussões em formato Heart Team e Simpósio de Hipertensão.</li>
-          <li><b>Plenarinho 1</b>: Simpósio Multidisciplinar (sábado), Simpósio Acadêmico Multidisciplinar e apresentação dos trabalhos premiados (domingo).</li>
+          <li><b>Plenarinho 1</b>: Simpósio Multidisciplinar (sábado), Simpósio Acadêmico e apresentação dos trabalhos premiados (domingo).</li>
         </ul>
         <div class="maps" id="mapas">
-          <div class="thumbs" role="tablist" aria-label="Mapas do congresso">
-            <button type="button" role="tab" aria-selected="true" data-src="como-chegar/elevador.webp" data-alt="Do prédio ao elevador: catracas, corredor principal, hall, elevadores e escada"><img src="como-chegar/elevador.webp" alt="" loading="lazy" width="1440" height="1507"><span>Do prédio ao elevador</span></button>
-            <button type="button" role="tab" aria-selected="false" data-src="como-chegar/salas.webp" data-alt="Mapa do 2º andar: Auditório, Plenarinho 1, Plenarinho 2 e área de expositores com e-pôsteres"><img src="como-chegar/salas.webp" alt="" loading="lazy" width="1440" height="1507"><span>Mapa das salas · 2º andar</span></button>
+          <div class="thumbs">
+            <a href="como-chegar/elevador.webp" target="_blank" rel="noopener"><img src="como-chegar/elevador.webp" alt="Do prédio ao elevador: entrada, catracas, corredor, hall, elevadores e escada" loading="lazy" width="1440" height="1507"><span>Do prédio ao elevador</span></a>
+            <a href="como-chegar/salas.webp" target="_blank" rel="noopener"><img src="como-chegar/salas.webp" alt="Mapa do 2º andar: Auditório, Plenarinho 1, Plenarinho 2 e área de expositores com e-pôsteres" loading="lazy" width="1440" height="1507"><span>Mapa das salas · 2º andar</span></a>
           </div>
-          <a class="view" id="map-view" href="como-chegar/elevador.webp" target="_blank" rel="noopener"><img id="map-img" src="como-chegar/elevador.webp" alt="Do prédio ao elevador: catracas, corredor principal, hall, elevadores e escada" loading="lazy" width="1440" height="1507"></a>
           <p class="hint">Toque no mapa para ampliar.</p>
           <a class="more" href="como-chegar/">Página completa e vídeo →</a>
         </div>
-        <script>
-        (function(){var b=document.querySelectorAll('#mapas .thumbs button'),v=document.getElementById('map-view'),i=document.getElementById('map-img');
-        b.forEach(function(x){x.addEventListener('click',function(){b.forEach(function(y){y.setAttribute('aria-selected',y===x?'true':'false')});i.src=x.dataset.src;i.alt=x.dataset.alt;v.href=x.dataset.src;});});})();
-        </script>
       </div>
     </details>
     <details>
@@ -560,7 +552,7 @@ footer p{margin:0 0 4px}footer a{color:inherit}
 </section>
 
 <footer>
-  <p>XI Congresso Rondoniense de Cardiologia, 16º Simpósio de Hipertensão Arterial Sistêmica, 2º Simpósio Multidisciplinar e Simpósio Acadêmico Multidisciplinar</p>
+  <p>XI Congresso Rondoniense de Cardiologia, 16º Simpósio de Hipertensão Arterial Sistêmica, 2º Simpósio Multidisciplinar e Simpósio Acadêmico</p>
   <p>Realização: SOCERON, filiada à Sociedade Brasileira de Cardiologia</p>
   <p>Diretor Presidente: <a href="https://www.instagram.com/drluizgasparelo/" target="_blank" rel="noopener">Dr. Luiz Henrique Gasparelo</a> | CRM-RO 3143 | RQE 1988, 1989 e 2011</p>
 </footer>
