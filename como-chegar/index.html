@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Como chegar às salas · Congresso Rondoniense de Cardiologia</title>
+<meta name="description" content="Do prédio da Assembleia Legislativa ao 2º andar: elevador, escada e mapa das salas do XI Congresso Rondoniense de Cardiologia.">
+<meta property="og:title" content="Como chegar às salas · XI Congresso Rondoniense de Cardiologia">
+<meta property="og:description" content="Elevador, escada e mapa das salas no 2º andar da Assembleia Legislativa de Rondônia.">
+<meta property="og:image" content="https://lgasparelo.github.io/crc2026/como-chegar/salas.webp">
+<link rel="manifest" href="../manifest.json">
+<meta name="theme-color" content="#0E2238">
+<link rel="apple-touch-icon" href="../assets/icon-180.png">
+<link rel="icon" type="image/png" sizes="192x192" href="../assets/icon-192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Barlow:wght@400;500;600&display=swap">
+<style>
+:root{
+  --paper:#F2F4F7; --surface:#FFFFFF; --surface-2:#E8ECF2;
+  --ink:#0E2238; --ink-2:#3D4E61; --muted:#66758A; --line:#D3DAE3;
+  --red:#C4202B; --blue:#1B5A9E; --blue-soft:#E3EDF8;
+  --display:"Barlow Condensed","Arial Narrow",Arial,sans-serif;
+  --body:"Barlow","Helvetica Neue",Arial,sans-serif;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){
+  :root{--paper:#0A121C;--surface:#121D2A;--surface-2:#1A2838;--ink:#E8EEF5;--ink-2:#B8C4D2;--muted:#8696A8;--line:#283646;--blue:#7FB2EA;--blue-soft:#13263B;color-scheme:dark}
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased}
+a{color:var(--blue)}
+:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+.wrap{max-width:720px;margin:0 auto;padding:0 16px 48px;display:flex;flex-direction:column;gap:22px}
+header.top{background:#0E2238;color:#fff;margin:0 -16px;padding:20px 20px 0}
+.back{display:inline-block;color:#9FB6CF;text-decoration:none;font-size:14.5px;font-weight:500}
+.back:hover{color:#fff}
+.eyebrow{font-family:var(--display);font-weight:600;font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:#9FB6CF;margin-top:18px}
+h1{font-family:var(--display);font-weight:700;font-size:clamp(34px,10vw,52px);line-height:1;margin:8px 0 0;text-transform:uppercase}
+h1 span{color:#FF7C84}
+.lead{margin:14px 0 0;font-size:15.5px;color:#D5DFEA;max-width:54ch}
+.rail{height:14px;margin:22px -20px 0;background:
+  repeating-linear-gradient(90deg,transparent 0 10px,rgba(255,255,255,.28) 10px 14px),
+  linear-gradient(#0000 3px,rgba(255,255,255,.55) 3px 5px,#0000 5px 9px,rgba(255,255,255,.55) 9px 11px,#0000 11px)}
+
+.video{background:var(--surface);border:2px solid var(--red);border-radius:10px;padding:18px 16px;display:flex;flex-direction:column;gap:10px;text-align:center}
+.video p{margin:0;color:var(--ink-2);font-size:15.5px}
+.btn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;font-family:var(--display);font-weight:700;font-size:21px;letter-spacing:.05em;text-transform:uppercase;padding:16px;border-radius:8px;text-decoration:none;background:var(--red);color:#fff}
+.btn:hover{background:#A51A24}
+.credit{font-size:14px;color:var(--muted)}
+.credit a{color:inherit}
+
+.step h2{font-family:var(--display);font-weight:700;font-size:26px;text-transform:uppercase;letter-spacing:.02em;margin:0 0 4px;display:flex;align-items:center;gap:10px}
+.step h2 i{font-style:normal;display:inline-grid;place-items:center;width:34px;height:34px;border-radius:50%;background:var(--red);color:#fff;font-size:20px}
+.step > p{margin:0 0 12px;color:var(--ink-2)}
+figure{margin:0;background:#F7F8FB;border:1px solid var(--line);border-radius:10px;overflow:hidden}
+figure img{display:block;width:100%;height:auto}
+figure a{display:block}
+figcaption{font-size:13.5px;color:var(--muted);padding:8px 12px;background:var(--surface);border-top:1px solid var(--line)}
+
+.how{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px}
+@media (max-width:520px){.how{grid-template-columns:1fr}}
+.how div{border-radius:10px;padding:14px 16px;color:#fff}
+.how .elev{background:#4b3f8f}
+.how .esc{background:#0f8b8d}
+.how b{display:block;font-family:var(--display);font-size:21px;text-transform:uppercase;letter-spacing:.03em}
+.how ol{margin:6px 0 0;padding-left:20px;font-size:15.5px}
+.how mark{background:none;color:#FFD166;font-weight:700}
+
+.rooms{list-style:none;margin:12px 0 0;padding:0;background:var(--surface);border:1px solid var(--line);border-radius:8px}
+.rooms li{padding:12px 16px 12px 22px;border-top:1px solid var(--line);position:relative}
+.rooms li:first-child{border-top:0}
+.rooms li::before{content:"";position:absolute;left:10px;top:14px;bottom:14px;width:5px;border-radius:3px;background:var(--c)}
+.rooms b{display:block;font-family:var(--display);font-size:19px;letter-spacing:.02em}
+.rooms span{display:block;color:var(--ink-2);font-size:15px}
+.tip{background:var(--blue-soft);border-radius:8px;padding:14px 16px;font-size:15px;color:var(--ink-2)}
+.tip b{color:var(--ink)}
+footer{font-size:13.5px;color:var(--muted);text-align:center;padding-top:8px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="top">
+  <a class="back" href="../">← Voltar ao site do congresso</a>
+  <div class="eyebrow">XI Congresso Rondoniense de Cardiologia</div>
+  <h1>Como chegar <span>às salas</span></h1>
+  <p class="lead">Do térreo da Assembleia Legislativa de Rondônia ao 2º andar, onde ficam o Auditório, os Plenarinhos 1 e 2 e a área de expositores.</p>
+  <div class="rail" aria-hidden="true"></div>
+</header>
+
+<section class="video" aria-label="Vídeo com o caminho">
+  <p>Prefere ver o caminho em vídeo?</p>
+  <a class="btn" href="https://www.instagram.com/licar_ro/reel/DgNb4KYs00j/" target="_blank" rel="noopener">▶ Assistir ao vídeo →</a>
+  <p class="credit">Vídeo da <a href="https://www.instagram.com/licar_ro/" target="_blank" rel="noopener">LICAR (@licar_ro)</a> em parceria com a <a href="https://www.instagram.com/soceron.oficial/" target="_blank" rel="noopener">SOCERON</a></p>
+</section>
+
+<section class="step" id="elevador">
+  <h2><i>1</i> Do prédio ao elevador</h2>
+  <p>Ao entrar no prédio, passe pelas catracas e siga reto pelo corredor principal até o hall. Os elevadores ficam à esquerda e a escada, à direita.</p>
+  <figure>
+    <a href="elevador.webp" target="_blank" rel="noopener"><img src="elevador.webp" alt="Esquema do térreo: entrada do prédio, catracas, corredor principal e hall; elevadores à esquerda e escada à direita" width="1440" height="1507" loading="lazy"></a>
+    <figcaption>Toque na imagem para ampliar</figcaption>
+  </figure>
+  <div class="how">
+    <div class="elev"><b>⇅ De elevador</b>
+      <ol><li>No painel digital, digite <mark>2</mark></li><li>Confirme o número</li><li>O painel mostra qual elevador pegar</li></ol>
+    </div>
+    <div class="esc"><b>De escada</b>
+      <ol><li>Suba os lances de escada</li><li>Saia na placa <mark>“1º pavimento”</mark></li><li>É o mesmo andar onde o elevador para</li></ol>
+    </div>
+  </div>
+</section>
+
+<section class="step" id="salas">
+  <h2><i>2</i> Mapa das salas · 2º andar</h2>
+  <p>Saindo do elevador, siga as setas: o corredor leva ao Plenarinho 2 e à entrada do Auditório. A área de expositores fica em frente, com os e-pôsteres ao fundo.</p>
+  <figure>
+    <a href="salas.webp" target="_blank" rel="noopener"><img src="salas.webp" alt="Mapa do 2º andar com Auditório, Plenarinho 1, Plenarinho 2, elevadores, banheiros e área de expositores com e-pôsteres ao fundo" width="1440" height="1507" loading="lazy"></a>
+    <figcaption>Toque na imagem para ampliar</figcaption>
+  </figure>
+  <ul class="rooms">
+    <li style="--c:#c8102e"><b>Auditório</b><span>Abertura, Palestra Magna, conferências e simpósios patrocinados</span></li>
+    <li style="--c:#1d4e89"><b>Plenarinho 1</b><span>Sábado: Simpósio Multidisciplinar · Domingo: Simpósio das Ligas</span></li>
+    <li style="--c:#0f8b8d"><b>Plenarinho 2</b><span>Heart Team · Conferências · Simpósio HAS</span></li>
+    <li style="--c:#f4a259"><b>Expositores</b><span>Estandes dos patrocinadores · e-pôsteres ao fundo</span></li>
+  </ul>
+</section>
+
+<p class="tip"><b>Ficou com dúvida?</b> Procure a equipe de apoio do congresso ou fale com a secretaria no <a href="https://wa.me/5569992022215" target="_blank" rel="noopener">WhatsApp (69) 99202-2215</a>.</p>
+
+<footer>SOCERON, Sociedade Rondoniense de Cardiologia · filiada à SBC.</footer>
+</div>
+<script data-goatcounter="https://crc2026.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+</body>
+</html>
