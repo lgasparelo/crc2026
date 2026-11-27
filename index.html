@@ -295,6 +295,19 @@ footer p{margin:0 0 4px}footer a{color:inherit}
 .acc .body{padding:0 4px 16px;color:var(--ink-2);font-size:15.5px}
 .acc .body p{margin:0 0 8px}
 .acc .body ul{margin:0;padding-left:20px}
+.maps{margin-top:14px;display:flex;flex-direction:column;gap:10px}
+.maps .thumbs{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.maps .thumbs button{all:unset;cursor:pointer;display:flex;flex-direction:column;border:2px solid var(--line);border-radius:10px;overflow:hidden;background:var(--surface)}
+.maps .thumbs button img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;object-position:top;background:#F7F8FB}
+.maps .thumbs button span{padding:7px 9px;font-family:var(--display);font-weight:700;font-size:15px;text-transform:uppercase;letter-spacing:.03em;color:var(--ink-2);line-height:1.15}
+.maps .thumbs button[aria-selected="true"]{border-color:var(--red)}
+.maps .thumbs button[aria-selected="true"] span{color:var(--red)}
+.maps .thumbs button:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+.maps .view{display:block;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:#F7F8FB}
+.maps .view img{display:block;width:100%;height:auto}
+.maps .hint{font-size:13.5px;color:var(--muted);margin:0}
+.maps .more{display:block;text-align:center;font-family:var(--display);font-weight:700;font-size:18px;letter-spacing:.04em;text-transform:uppercase;text-decoration:none;background:var(--red);color:#fff;border-radius:8px;padding:13px 14px}
+.maps .more:hover{background:#A51A24}
 .acc .body li{margin:0 0 4px}
 .todo{display:inline-block;font-family:var(--display);font-weight:700;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);background:var(--gold-soft);border-radius:4px;padding:2px 8px;vertical-align:middle}
 </style>
@@ -413,6 +426,19 @@ footer p{margin:0 0 4px}footer a{color:inherit}
           <li><b>Plenarinho 1</b>: Simpósio Multidisciplinar (sábado), Simpósio Acadêmico Multidisciplinar e apresentação dos trabalhos premiados (domingo).</li>
         </ul>
         <p>Entre pela entrada do estacionamento da Av. Calama e siga as sinalizações até o local do evento.</p>
+        <div class="maps" id="mapas">
+          <div class="thumbs" role="tablist" aria-label="Mapas do congresso">
+            <button type="button" role="tab" aria-selected="true" data-src="como-chegar/elevador.webp" data-alt="Do prédio ao elevador: catracas, corredor principal, hall, elevadores e escada"><img src="como-chegar/elevador.webp" alt="" loading="lazy" width="1440" height="1507"><span>Do prédio ao elevador</span></button>
+            <button type="button" role="tab" aria-selected="false" data-src="como-chegar/salas.webp" data-alt="Mapa do 2º andar: Auditório, Plenarinho 1, Plenarinho 2 e área de expositores com e-pôsteres"><img src="como-chegar/salas.webp" alt="" loading="lazy" width="1440" height="1507"><span>Mapa das salas · 2º andar</span></button>
+          </div>
+          <a class="view" id="map-view" href="como-chegar/elevador.webp" target="_blank" rel="noopener"><img id="map-img" src="como-chegar/elevador.webp" alt="Do prédio ao elevador: catracas, corredor principal, hall, elevadores e escada" loading="lazy" width="1440" height="1507"></a>
+          <p class="hint">Toque no mapa para ampliar.</p>
+          <a class="more" href="como-chegar/">Como chegar · página completa e vídeo →</a>
+        </div>
+        <script>
+        (function(){var b=document.querySelectorAll('#mapas .thumbs button'),v=document.getElementById('map-view'),i=document.getElementById('map-img');
+        b.forEach(function(x){x.addEventListener('click',function(){b.forEach(function(y){y.setAttribute('aria-selected',y===x?'true':'false')});i.src=x.dataset.src;i.alt=x.dataset.alt;v.href=x.dataset.src;});});})();
+        </script>
       </div>
     </details>
     <details>
