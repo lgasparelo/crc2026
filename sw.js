@@ -1,5 +1,5 @@
 /* CRC 2026: service worker mínimo. Rede primeiro; cache só como reserva se o sinal cair dentro do auditório. */
-var C="crc2026-v11";
+var C="crc2026-v12";
 self.addEventListener("install",function(e){self.skipWaiting()});
 self.addEventListener("activate",function(e){e.waitUntil(caches.keys().then(function(ks){return Promise.all(ks.filter(function(k){return k!==C}).map(function(k){return caches.delete(k)}))}).then(function(){return self.clients.claim()}))});
 self.addEventListener("fetch",function(e){
