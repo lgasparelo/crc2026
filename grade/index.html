@@ -91,6 +91,9 @@ h1 span{color:#FF7C84}
 .brand.tier-gold{border:2px solid #C9A227;padding:22px}.brand.tier-gold img{max-height:110px}
 .brand.tier-silver{border:2px solid #A8ADB5;padding:18px}.brand.tier-silver img{max-height:80px}
 .sponsors img.seal{max-height:96px}
+.sponsors.center{display:flex;flex-wrap:wrap;justify-content:center}
+.sponsors.center .brand{flex:0 0 calc((100% - 10px)/2)}
+@media (min-width:600px){.sponsors.center .brand{flex-basis:calc((100% - 20px)/3)}}
 .sponsors.trio{grid-template-columns:repeat(3,minmax(0,1fr))}
 .sponsors.duo{grid-template-columns:repeat(2,minmax(0,1fr))}
 .sponsors.trio .brand{padding:10px}
@@ -291,7 +294,7 @@ nav.dock a:hover{color:var(--red)}
   <p class="sub">Patrocínio prata</p>
   <div class="brand big tier-silver"><img src="../assets/smt.png" alt="SMT" width="300" height="90"></div>
   <p class="sub">Patrocínio bronze</p>
-  <div class="sponsors">
+  <div class="sponsors center">
     <div class="brand"><img src="../assets/libbs.png" alt="Libbs" width="225" height="120"></div>
     <div class="brand"><img src="../assets/discomed.png" alt="Discomed" width="335" height="95"></div>
     <div class="brand"><img src="../assets/boston.webp" alt="Boston Scientific" width="240" height="105"></div>
