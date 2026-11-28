@@ -41,8 +41,7 @@ var DAYS=[
   mod:"Dr. Carlos Henrique Spesia (RO)",deb:"Dr. Valmir Favaro Martins (RO), Dra. Alessandra Arêdes Moraes de Mendonça (RO)"},
  {r:"MP1",s:"10:00",e:"10:40",t:"Heart Team · DAC crônica: da estratificação à decisão de revascularização",talks:[
   ["10:00","Caso clínico","Dra. Teynan Nunes (RO)"],
-  ["10:10","Tratamento clínico otimizado: os limites da terapia medicamentosa","Dr. André Zimerman (RS)"],
-  ["10:20","Revascularizar ou não: quando a intervenção muda o desfecho","Dr. Danilo Ferraz de Oliveira Maksud (SP)"]],
+  ["10:10","Revascularizar ou não: quando a intervenção muda o desfecho","Dr. Danilo Ferraz de Oliveira Maksud (SP)"]],
   mod:"Dr. Cristóvão de Oliveira dos Silva (RO)",deb:"Dra. Gislaine Michel Marin Mugrabi (RO), Dr. Paulo Cesar da Cruz Capellani (RO), Dra. Erêndira Linhares Batista Barbosa (RO)"},
  {r:"MP2",s:"10:00",e:"12:30",t:"Simpósio Multidisciplinar · Módulo 2",talks:[
   ["10:00","Reabilitação cardiopulmonar no paciente crítico","Matheus Fontele Fernandes, fisioterapeuta (RO)"],
@@ -51,9 +50,8 @@ var DAYS=[
   ["11:30","Segurança medicamentosa e vigilância no paciente cardiopata","Jaqueline Santana Santos, farmacêutica (RO)"],
   ["12:00","Impacto da intervenção nutricional na evolução clínica e no estado nutricional de pacientes cardiopatas","Andrezza Maria de Oliveira, nutróloga (RO)"]]},
  {r:"A",s:"10:50",e:"11:30",t:"Eixo cardio-renal-metabólico: o paciente que não cabe em uma especialidade",talks:[
-  ["10:50","Obesidade e GLP-1 na doença cardiovascular: de quem é esse paciente?","Dr. André Zimerman (RS)"],
-  ["11:00","Diabetes e doença renal crônica: iSGLT2, finerenona e a ordem de entrada das drogas","Dr. Francisco Antonio Helfenstein Fonseca (SP)"],
-  ["11:10","Dislipidemia de muito alto risco: até onde baixar o LDL e com o quê","Dr. Carlos Henrique Spesia (RO)"]],
+  ["10:50","Diabetes e doença renal crônica: iSGLT2, finerenona e a ordem de entrada das drogas","Dr. Francisco Antonio Helfenstein Fonseca (SP)"],
+  ["11:00","Dislipidemia de muito alto risco: até onde baixar o LDL e com o quê","Dr. Carlos Henrique Spesia (RO)"]],
   mod:"Dr. Luiz Henrique Gasparelo (RO)",deb:"Dra. Fabiane Fernandes Schmitt Flores (RO), Mardelson Nery (AC)"},
  {r:"MP1",s:"10:50",e:"11:30",t:"Heart Team · Dispositivos cardíacos implantáveis: quando vale a pena tratar",talks:[
   ["10:50","A carga arrítmica importa, mas e o resto? Como tomar conduta além da porcentagem do Holter?","Dra. Sarah Schereder (RS)"],
