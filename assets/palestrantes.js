@@ -1,0 +1,76 @@
+/* Fotos e currículos dos palestrantes na iWeventos (sbc.iweventos.com.br, evento ccer2026).
+   Chave: nome sem "Dr./Dra.", sem profissão e sem estado. Valor: [id na iWeventos, arquivo da foto ou ""]. */
+var IW_BASE="https://sbc.iweventos.com.br";
+var IW={
+"Andrezza Maria de Oliveira":[91771,"1795659733.jpg"],
+"Bruna Cerqueira Paes":[91765,"1795660643.jpg"],
+"Bruno Augusto Alcova Nogueira":[91756,"1795657039.jpg"],
+"Bruno de Castro Coutinho":[91725,"1795809961.jpeg"],
+"Carlos Eduardo Duarte":[91729,"1795657107.jpg"],
+"Carlos Henrique Spesia":[90488,"1795656023.jpg"],
+"Cleber Henrique":[91739,"1795656105.jpg"],
+"Cristóvão de Oliveira dos Silva":[91143,"1795265106.jpg"],
+"Daniel Ferreira Mugrabi":[91741,"1795656162.jpg"],
+"Danilo Ferraz de Oliveira Maksud":[91726,"1795656213.jpg"],
+"Dhiego Lang":[91753,"1795661104.jpg"],
+"Emerson Costa Porto":[91757,"1795657209.jpg"],
+"Francisco Antonio Helfenstein Fonseca":[91727,"1795655908.jpeg"],
+"Jhonathan Gouveia da Mota":[89819,"1795657291.jpg"],
+"Jorge Luis da Silva":[91734,"1795710676.jpeg"],
+"João Roberto Gemelli":[89781,"1795656266.jpg"],
+"Lucas Rondina":[91749,"1795742135.JPG"],
+"Luiz Carlos Benittez Junior":[91742,"1795657321.png"],
+"Marcelo Salame":[85709,"1794999327.jpeg"],
+"Marcos Rosa Ferreira":[91145,"1795657439.jpg"],
+"Pablo Brasil":[91146,"1795657497.jpg"],
+"Rafael Nunes":[91752,"1795656451.jpg"],
+"Renan Marquiori":[91740,"1795656819.jpg"],
+"Rian Barreto":[91755,"1795657544.jpg"],
+"Ricardo Wang":[91724,""],
+"Rodolfo Borges Franco de Macêdo":[91747,"1795657686.jpg"],
+"Rodolfo Luiz Amorim de Oliveira":[91744,"1795657649.jpg"],
+"Saulo Rodrigo Moreira da Cunha":[91736,"1795787121.jpg"],
+"Barbara de Figueredo Tenorio":[91746,"1795658049.jpg"],
+"Diana Negreiros":[91732,"1795657861.jpeg"],
+"Elisangela Henrique Muniz de Oliveira Rocha":[87889,"1795658762.jpeg"],
+"Giselle Almeida":[91754,"1795658091.jpg"],
+"Gislaine Michel Marin Mugrabi":[91149,"1795657932.jpg"],
+"Ivanice Fernandes Barcellos Gemelli":[91758,"1795658175.jpeg"],
+"Jessica Fontenele Calixto":[91748,"1795658252.jpg"],
+"Leisle de Freitas Diniz":[91743,""],
+"Luciana Silveira Nina de Azevedo":[91759,"1795658309.jpg"],
+"Milena Alves":[91737,"1795658364.jpeg"],
+"Rafaela Rádner":[91738,"1795658407.jpg"],
+"Raissa Simonato":[91117,""],
+"Sarah Schereder":[91733,"1795658458.jpeg"],
+"Stefany Egito":[91142,"1795658508.jpeg"],
+"Suzana Costa Borche":[91750,"1795658556.jpg"],
+"Teynan Nunes":[91745,"1795752166.jpeg"],
+"Themis Borche da Silva":[91751,"1795658659.jpg"],
+"Wendy Sierraalta Navarro":[91730,"1795657983.jpg"],
+"Flávia da Silva Lelis":[91774,"1795660501.jpg"],
+"Fábio Bruno de Souza Santos":[91779,"1795660334.jpg"],
+"Gabriela de Souza Barbosa":[91776,""],
+"Jandra Cibele Rodrigues de Abrantes Pereira Leite":[91762,"1795803693.jpeg"],
+"Jaqueline Santana Santos":[91770,"1795659937.jpg"],
+"Kalliza Kary Rodrigues da Costa":[91769,"1795659988.jpg"],
+"Lorena Teixeira da Silva":[91777,"1795714669.jpg"],
+"Luan dos Santos Nonato":[91775,"1795660453.jpg"],
+"Mara da Silva Pereira Bastos":[91768,"1795660222.jpg"],
+"Marco Aurélio Pereira da Silva":[91764,"1795659831.jpg"],
+"Matheus Fontele Fernandes":[91767,"1795660547.jpg"],
+"Rosa Maria Ferreira de Almeida":[91763,"1795660698.jpg"],
+"Sarana dos Santos Matos":[91773,"1795660158.jpg"],
+"Scherley Keavynny Tavares Silva Moreno":[91766,"1795828525.jpeg"],
+"Sheila Cristina da Silva Cavalcante Souza":[91772,"1795660301.jpg"],
+"Talita Barbosa Gomes":[91778,"1795660082.jpg"]
+};
+function iwKey(n){return String(n).replace(/^Dra?\.\s*/,"").split(/,| \(/)[0].trim()}
+function iwInit(n){var w=iwKey(n).split(/\s+/);return((w[0]||"").charAt(0)+(w.length>1?w[w.length-1].charAt(0):"")).toUpperCase()}
+function iwAvatar(n){
+  var k=iwKey(n),e=IW[k],ini=iwInit(n),
+      inner=e&&e[1]?'<img src="'+IW_BASE+'/upload/perfil/small_'+e[0]+'_'+e[1]+'" alt="" loading="lazy" onerror="this.parentNode.classList.add(\'noimg\');this.remove()"><i>'+ini+'</i>':'<i>'+ini+'</i>';
+  if(!e)return'<span class="av noimg" aria-hidden="true">'+inner+'</span>';
+  return'<a class="av'+(e[1]?'':' noimg')+'" href="'+IW_BASE+'/evento/ccer2026/programacao/palestrante/'+e[0]+'" target="_blank" rel="noopener" title="Currículo de '+k.replace(/"/g,'')+' na iWeventos" aria-label="Currículo de '+k.replace(/"/g,'')+'">'+inner+'</a>';
+}
+function iwIsPerson(n){return !/Moderador|, Dra?\.| e [A-ZÁÉÍÓÚ]/.test(n)&&!!IW[iwKey(n)]}
