@@ -31,8 +31,8 @@ var DAYS=[
  {r:"MP1",s:"08:50",e:"09:30",t:"Miocardiopatias: do diagnóstico ao tratamento intervencionista",talks:[
   ["08:50","Não é apenas hipertrofia: quando pensar em miocardiopatias","Dr. Rodolfo Luiz Amorim de Oliveira (RO)"],
   ["09:00","Novas evidências no tratamento medicamentoso das miocardiopatias","Dra. Stefany Egito (RO)"],
-  ["09:10","Miocardiopatia hipertrófica obstrutiva: opções de tratamento intervencionista","Dr. Sidney Munhoz Junior (MT)"]],
-  mod:"Dr. Rodrigo Gallina (RO)",deb:"Dr. Renan Marquiori (RO)"},
+  ["09:10","Miocardiopatia hipertrófica obstrutiva: opções de tratamento intervencionista","Dr. Renan Marquiori (RO)"]],
+  mod:"Dr. Rodrigo Gallina (RO)"},
  {r:"ALL",k:"brk",s:"09:30",e:"10:00",t:"Visita aos estandes, apresentação dos trabalhos em pôster e coffee break"},
  {r:"A",s:"10:00",e:"10:40",t:"Insuficiência cardíaca crônica: do quarteto à próxima fronteira",talks:[
   ["10:00","Os quatro pilares em quatro semanas: como titular de verdade no mundo real","Dra. Diana Negreiros (SP)"],
