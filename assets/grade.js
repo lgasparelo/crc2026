@@ -106,7 +106,7 @@ var DAYS=[
   ["17:00","Highlights em insuficiência cardíaca e miocardiopatias","Dra. Rafaela Rádner (RO)"],
   ["17:10","Highlights em antiplaquetários e anticoagulação","Dr. Renan Marquiori (RO)"]],
   mod:"Dr. Rodrigo Gallina (RO)",deb:"Milena Stedile (RO)"},
- {r:"A",k:"sp",sp:"Edwards",also:["MP1"],s:"17:40",e:"18:20",t:"Da exceção à rotina: como a TAVI transformou o tratamento da doença valvar",note:"Dr. Ricardo Wang (MG)"}
+ {r:"A",k:"sp",also:["MP1"],s:"17:40",e:"18:20",t:"Da exceção à rotina: como a TAVI transformou o tratamento da doença valvar",note:"Dr. Ricardo Wang (MG)"}
 ]},
 {id:"dom",label:"Domingo",date:"2026-11-29",short:"29/11",ses:[
  {r:"MP1",s:"08:00",e:"08:40",t:"POCUS",talks:[
