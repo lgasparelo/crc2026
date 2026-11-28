@@ -37,7 +37,7 @@ var IW={
 "Gislaine Michel Marin Mugrabi":[91149,"1795657932.jpg"],
 "Ivanice Fernandes Barcellos Gemelli":[91758,"1795658175.jpeg"],
 "Jessica Fontenele Calixto":[91748,"1795658252.jpg"],
-"Leisle de Freitas Diniz":[91743,""],
+"Leisle de Freitas Diniz":[91743,"1795864098.jpeg"],
 "Luciana Silveira Nina de Azevedo":[91759,"1795658309.jpg"],
 "Milena Alves":[91737,"1795658364.jpeg"],
 "Rafaela Rádner":[91738,"1795658407.jpg"],
@@ -63,7 +63,33 @@ var IW={
 "Sarana dos Santos Matos":[91773,"1795660158.jpg"],
 "Scherley Keavynny Tavares Silva Moreno":[91766,"1795828525.jpeg"],
 "Sheila Cristina da Silva Cavalcante Souza":[91772,"1795660301.jpg"],
-"Talita Barbosa Gomes":[91778,"1795660082.jpg"]
+"Talita Barbosa Gomes":[91778,"1795660082.jpg"],
+/* moderadores e debatedores */
+"Rodrigo Gallina":[91147,"1795659058.jpg"],
+"Luiz Henrique Gasparelo":[91144,"1795655893.jpeg"],
+"Gederson Rossato":[91761,"1795665772.jpg"],
+"Thiago Coimbra Felipe":[91682,"1795094977.jpeg"],
+"Erêndira Linhares Batista Barbosa":[92267,"1795713962.png"],
+"Alexandre Otelo":[90251,""],
+"Marcio Messias":[92251,""],
+"José Carlos Couri":[89684,""],
+"Valmir Favaro Martins":[92231,""],
+"Alessandra Arêdes Moraes de Mendonça":[92230,""],
+"Paulo Cesar da Cruz Capellani":[92266,""],
+"Fabiane Fernandes Schmitt Flores":[89762,""],
+"Mardelson Nery":[91806,""],
+"Marcelo Tabosa":[91480,""],
+"Igor D'Ávila":[91481,""],
+"Gustavo Ferle":[92234,""],
+"Milena Stedile":[91895,""],
+"Murilo Salani Gil":[92269,""],
+"Evaldo Machado Junior":[92241,""],
+"Raitany Costa de Almeida":[91902,""],
+"Halyna Melo":[90469,""],
+"Bernardo Dal Ponte Descovi":[91468,""],
+"Carlos Eduardo Faria Silva":[92247,""],
+"Taís Neves Noujaim Miotto":[92248,""],
+"Andrei Leonardo Freitas de Oliveira":[92272,""]
 };
 function iwKey(n){return String(n).replace(/^Dra?\.\s*/,"").split(/,| \(/)[0].trim()}
 function iwInit(n){var w=iwKey(n).split(/\s+/);return((w[0]||"").charAt(0)+(w.length>1?w[w.length-1].charAt(0):"")).toUpperCase()}
@@ -74,3 +100,6 @@ function iwAvatar(n){
   return'<a class="av'+(e[1]?'':' noimg')+'" href="'+IW_BASE+'/evento/ccer2026/programacao/palestrante/'+e[0]+'" target="_blank" rel="noopener" title="Currículo de '+k.replace(/"/g,'')+' na iWeventos" aria-label="Currículo de '+k.replace(/"/g,'')+'">'+inner+'</a>';
 }
 function iwIsPerson(n){return !/Moderador|, Dra?\.| e [A-ZÁÉÍÓÚ]/.test(n)&&!!IW[iwKey(n)]}
+function iwEsc(t){return String(t).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
+function iwSplit(l){return[].concat(l).join(", ").split(/,\s*(?=Dra?\.|[A-ZÁÉÍÓÚ])/).map(function(n){return n.trim()}).filter(Boolean)}
+function iwChip(n){return'<span class="chip">'+iwAvatar(n)+'<span>'+iwEsc(n)+'</span></span>'}
